@@ -5,27 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jon Morgan | Technical Director – Carbon Systems & Data Assurance</title>
     <style>
+        /* System-Adaptive Color Variables (Light Mode Defaults) */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --accent-color: #0066cc;
-            --border-color: #e0e0e0;
-            --subtle-gray: #f8f9fa;
+            --bg-canvas: #f1f5f9;      /* Ultra-subtle slate canvas background */
+            --bg-card: #ffffff;        /* Pure white floating card */
+            --text-primary: #0f172a;   /* Dark slate primary text */
+            --text-secondary: #475569; /* Medium slate secondary text */
+            --accent: #2563eb;         /* Premium cobalt blue accent */
+            --border: #e2e8f0;         /* Soft slate border */
+            --subtle-gray: #f8fafc;    /* Background for highlighted callouts */
+            --pill-bg: #f1f5f9;        /* Tech badge background */
+            --pill-text: #475569;      /* Tech badge text */
+            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
         }
 
+        /* Auto Dark Mode Overrides (Matches user OS system preference) */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-canvas: #090d16;      /* Ultra-deep, clean obsidian-navy backdrop */
+                --bg-card: #131b2e;        /* Dark slate card body */
+                --text-primary: #f8fafc;   /* Crisp white-gray text */
+                --text-secondary: #94a3b8; /* Soft blue-gray reading text */
+                --accent: #38bdf8;         /* High-contrast electric sky-blue accent */
+                --border: #1e293b;         /* Deep slate borders */
+                --subtle-gray: #1e293b;    /* Highlight callout backdrop */
+                --pill-bg: #1e293b;        /* Dark badge backdrop */
+                --pill-text: #cbd5e1;      /* Light-gray badge text */
+                --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        /* Layout & Frame Construction */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
+            color: var(--text-primary);
+            background-color: var(--bg-canvas);
+            margin: 0;
+            padding: 50px 20px;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        /* Floating Container Card on Desktop */
+        .profile-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
         }
 
         header {
-            border-bottom: 2px solid var(--text-color);
-            padding-bottom: 15px;
+            border-bottom: 2px solid var(--text-primary);
+            padding-bottom: 20px;
             margin-bottom: 20px;
         }
 
@@ -37,59 +72,61 @@
         }
 
         .title-sub {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
         .contact-bar {
             font-size: 0.9rem;
-            color: #666;
+            color: var(--text-secondary);
         }
 
         /* Navigation Menu Styles */
         nav {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             margin-bottom: 45px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
             flex-wrap: wrap;
         }
 
         nav a {
-            color: var(--text-color);
+            color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
             transition: color 0.2s ease;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
         .thesis-box {
             background-color: var(--subtle-gray);
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 24px;
             margin-bottom: 40px;
             font-size: 1.1rem;
             font-style: italic;
+            color: var(--text-primary);
         }
 
         h2 {
             font-size: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
-            margin-top: 45px;
+            margin-top: 50px;
             font-weight: 700;
-            scroll-margin-top: 20px; /* Offset for comfortable scrolling target */
+            scroll-margin-top: 25px; /* Comfortable spacing after scroll jump */
         }
 
         .timeline-item {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .timeline-header {
@@ -103,19 +140,20 @@
         }
 
         .company-name {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            color: var(--text-primary);
         }
 
         .date-range {
             font-size: 0.9rem;
-            color: #666;
+            color: var(--text-secondary);
             font-weight: 400;
         }
 
         .role-title {
             font-weight: 600;
-            color: #444;
-            margin-bottom: 8px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
         }
 
         ul {
@@ -124,167 +162,188 @@
         }
 
         li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
         }
 
+        li strong {
+            color: var(--text-primary);
+        }
+
+        /* Tech Badges (Pills) */
         .pill {
-            background: #eee;
-            padding: 2px 8px;
-            border-radius: 4px;
+            background-color: var(--pill-bg);
+            color: var(--pill-text);
+            padding: 3px 10px;
+            border-radius: 6px;
             font-size: 0.8rem;
-            font-family: monospace;
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
             display: inline-block;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: background-color 0.25s ease, border-color 0.25s ease;
         }
 
         .stack-section {
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
-        /* Smooth scroll behavior */
+        /* Smooth page scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
+        /* Responsive Mobile Behavior overrides desktop card framework */
+        @media (max-width: 768px) {
             body {
-                padding: 20px 15px;
+                padding: 0;
+            }
+            .profile-container {
+                border-radius: 0;
+                border: none;
+                padding: 30px 20px;
+                box-shadow: none;
+            }
+            h1 {
+                font-size: 2.1rem;
             }
             nav {
-                gap: 15px;
+                gap: 16px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Jon Morgan</h1>
-        <div class="title-sub">Technical Director – Carbon Systems & Data Assurance</div>
-        <div class="contact-bar">
-            Melbourne, Australia &bull; Executive Career Portfolio &bull; Tech Profile
+    <div class="profile-container">
+
+        <header>
+            <h1>Jon Morgan</h1>
+            <div class="title-sub">Technical Director – Carbon Systems & Data Assurance</div>
+            <div class="contact-bar">
+                Melbourne, Australia &bull; Executive Career Portfolio &bull; Tech Profile
+            </div>
+        </header>
+
+        <nav aria-label="Profile Sections">
+            <a href="#about">About</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#experience">Experience</a>
+            <a href="#relevance">AASB S2 Relevance</a>
+        </nav>
+
+        <div id="about" class="thesis-box">
+            "Anything that can and should be done by a machine should never be touched by a human. I have an absolute disdain for unverified, manual spreadsheets passing as compliance. Throughout a 30-year engineering career spanning defense aerospace, global infrastructure consulting, and cloud systems automation, I build code-governed, audit-grade data pipelines that connect physical assets directly to corporate ledgers."
         </div>
-    </header>
 
-    <nav aria-label="Profile Sections">
-        <a href="#about">About</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#experience">Experience</a>
-        <a href="#relevance">AASB S2 Relevance</a>
-    </nav>
-
-    <div id="about" class="thesis-box">
-        "Anything that can and should be done by a machine should never be touched by a human. I have an absolute disdain for unverified, manual spreadsheets passing as compliance. Throughout a 30-year engineering career spanning defense aerospace, global infrastructure consulting, and cloud systems automation, I build code-governed, audit-grade data pipelines that connect physical assets directly to corporate ledgers."
-    </div>
-
-    <h2 id="capabilities">Core Capability Matrix</h2>
-    <ul>
-        <li><strong>Physical Building Physics Pedigree:</strong> 13 years with the Arup engineering engine, specializing in complex thermodynamics, building physics, fluid dynamics, and operational optimization.</li>
-        <li><strong>Data Pipeline Engineering:</strong> 30 years of code fluency (Python, SQL, Bash, Linux) built to automate complex mathematical models and remove human data-entry friction from building operations.</li>
-        <li><strong>Corporate Operations & Strategy:</strong> Experience running a business as an active Principal for nearly 8 years, orchestrating strategic models, vetting enterprise SaaS deployments, managing risk, and maintaining strict corporate board governance.</li>
-    </ul>
-
-    <h2 id="experience">Professional Chronology</h2>
-
-    <!-- CO-PERFORM -->
-    <div class="timeline-item">
-        <div class="timeline-header">
-            <span class="company-name">Co-Perform</span>
-            <span class="date-range">Jul 2018 – Present (7 yrs 11 mos)</span>
-        </div>
-        <div class="role-title">Principal & Managing Director</div>
-        <div>Directed all operations, technical infrastructure, and commercial execution for a specialized building performance engineering firm.</div>
+        <h2 id="capabilities">Core Capability Matrix</h2>
         <ul>
-            <li><strong>Infrastructure Engineering:</strong> Built an independent, enterprise-grade cloud compute cluster using a Python backend and Plotly Dash UI, allowing distributed teams to securely run automated energy and daylight simulations via ngrok tunnels.</li>
-            <li><strong>Systems Automation:</strong> Eliminated manual document compilation entirely by architecting an automated pipeline that syncs compute data directly to corporate SQL databases (Knack) and formats professional PDF reports automatically via LaTeX.</li>
-            <li><strong>Disaster Recovery & Tech Agility:</strong> Personally managed critical system recovery when standard cPanel hosting went offline—rebuilding and deploying the company's entire web infrastructure using static Astro pages and custom DNS reconfiguration within 48 hours.</li>
-            <li><strong>Corporate Overhaul & Strategy:</strong> Actively diagnosed business model constraints and initiated a 6-month strategic consult with Focused Solutions to restructure market alignment and secure long-term commercial robustness.</li>
-            <li><strong>Operations & Governance:</strong> Vetted and standard-set the corporate SaaS architecture (Runn, Pneumatic, Mixmax, OnePageCRM) while running and minuting weekly cash flow, project management, and board-level directors' meetings using advanced AI administrative assistance.</li>
+            <li><strong>Physical Building Physics Pedigree:</strong> 13 years with the Arup engineering engine, specializing in complex thermodynamics, building physics, fluid dynamics, and operational optimization.</li>
+            <li><strong>Data Pipeline Engineering:</strong> 30 years of code fluency (Python, SQL, Bash, Linux) built to automate complex mathematical models and remove human data-entry friction from building operations.</li>
+            <li><strong>Corporate Operations & Strategy:</strong> Experience running a business as an active Principal for nearly 8 years, orchestrating strategic models, vetting enterprise SaaS deployments, managing risk, and maintaining strict corporate board governance.</li>
         </ul>
-        <div class="stack-section">
-            <span class="pill">Python</span><span class="pill">Plotly Dash</span><span class="pill">Astro</span><span class="pill">SQL</span><span class="pill">Linux Terminal</span><span class="pill">LaTeX</span><span class="pill">SaaS Ops</span>
-        </div>
-    </div>
 
-    <!-- MORELAND / VISERGY -->
-    <div class="timeline-item">
-        <div class="timeline-header">
-            <span class="company-name">Moreland Energy Foundation Ltd & Visergy</span>
-            <span class="date-range">Sep 2014 – Jul 2018 (3 yrs 11 mos)</span>
-        </div>
-        <div class="role-title">Senior Consultant / Built Environment Consultant (Parallel Track)</div>
-        <div>Delivered high-level energy efficiency engineering, regional decarbonization models, and performance-based design simulations for municipal portfolios and commercial real estate.</div>
-        <ul>
-            <li><strong>Quantifying Public Decarbonization:</strong> Ingested massive, highly fragmented and messy regional datasets across agriculture, residential real estate, transport, and commercial real estate to build a comprehensive emissions inventory for Daylesford Council's successful Net-Zero transition plan.</li>
-            <li><strong>Data Visualization:</strong> Deployed custom Python scripts and data structures to translate chaotic energy interval metrics into clear, defensible data models presented directly to public community stakeholders.</li>
-            <li><strong>Capital Expenditure Optimization:</strong> Combined quantitative resident feedback with deep thermodynamics to construct complex residential tower retrofit scenarios for the Department of Health and Human Services (DHHS), triggering real-world capital upgrades.</li>
-        </ul>
-        <div class="stack-section">
-            <span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Energy Simulation</span><span class="pill">Data Cleansing</span>
-        </div>
-    </div>
+        <h2 id="experience">Professional Chronology</h2>
 
-    <!-- ARUP -->
-    <div class="timeline-item">
-        <div class="timeline-header">
-            <span class="company-name">Arup</span>
-            <span class="date-range">Sep 2005 – Aug 2014 (9 yrs)</span>
+        <!-- CO-PERFORM -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="company-name">Co-Perform</span>
+                <span class="date-range">Jul 2018 – Present (7 yrs 11 mos)</span>
+            </div>
+            <div class="role-title">Principal & Managing Director</div>
+            <div>Directed all operations, technical infrastructure, and commercial execution for a specialized building performance engineering firm.</div>
+            <ul>
+                <li><strong>Infrastructure Engineering:</strong> Built an independent, enterprise-grade cloud compute cluster using a Python backend and Plotly Dash UI, allowing distributed teams to securely run automated energy and daylight simulations via ngrok tunnels.</li>
+                <li><strong>Systems Automation:</strong> Eliminated manual document compilation entirely by architecting an automated pipeline that syncs compute data directly to corporate SQL databases (Knack) and formats professional PDF reports automatically via LaTeX.</li>
+                <li><strong>Disaster Recovery & Tech Agility:</strong> Personally managed critical system recovery when standard cPanel hosting went offline—rebuilding and deploying the company's entire web infrastructure using static Astro pages and custom DNS reconfiguration within 48 hours.</li>
+                <li><strong>Corporate Overhaul & Strategy:</strong> Actively diagnosed business model constraints and initiated a 6-month strategic consult with Focused Solutions to restructure market alignment and secure long-term commercial robustness.</li>
+                <li><strong>Operations & Governance:</strong> Vetted and standard-set the corporate SaaS architecture (Runn, Pneumatic, Mixmax, OnePageCRM) while running and minuting weekly cash flow, project management, and board-level directors' meetings using advanced AI administrative assistance.</li>
+            </ul>
+            <div class="stack-section">
+                <span class="pill">Python</span><span class="pill">Plotly Dash</span><span class="pill">Astro</span><span class="pill">SQL</span><span class="pill">Linux Terminal</span><span class="pill">LaTeX</span><span class="pill">SaaS Ops</span>
+            </div>
         </div>
-        <div class="role-title">Senior Consulting Engineer — Australasian Leader in Environmental & Building Physics</div>
-        <div>Directed regional analytical capacity, workflows, hardware integration, and high-fidelity computational modeling for one of the world's premier engineering institutions.</div>
-        <ul>
-            <li><strong>Data Governance Infrastructure:</strong> Bypassed the analytical limitations of standard corporate Windows IT by designing, building, and maintaining an internal central Linux compute cluster. Forced multi-office engineering teams to submit immutable text configuration files to the central engine—standardizing calculations and establishing audit-grade quality control across Australasia.</li>
-            <li><strong>Multi-Software Pipeline Integration:</strong> Overcame native software physics limitations by writing custom scripts to extract complex architectural mesh files from Fluent CFD, pipe them through Radiance to calculate precise ray-traced solar boundaries, and inject that data back into the thermodynamic solver to model complex atrium structures with flawless accuracy.</li>
-        </ul>
-        <div class="stack-section">
-            <span class="pill">Perl</span><span class="pill">Linux Clusters</span><span class="pill">CFD Mesh Processing</span><span class="pill">Radiance Integration</span><span class="pill">QA Governance</span>
-        </div>
-    </div>
 
-    <!-- ARUP LONDON / BMT -->
-    <div class="timeline-item">
-        <div class="timeline-header">
-            <span class="company-name">Arup (UK) & BMT Fluid Mechanics</span>
-            <span class="date-range">2002 – 2005 (3 yrs)</span>
+        <!-- MORELAND / VISERGY -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="company-name">Moreland Energy Foundation Ltd & Visergy</span>
+                <span class="date-range">Sep 2014 – Jul 2018 (3 yrs 11 mos)</span>
+            </div>
+            <div class="role-title">Senior Consultant / Built Environment Consultant (Parallel Track)</div>
+            <div>Delivered high-level energy efficiency engineering, regional decarbonization models, and performance-based design simulations for municipal portfolios and commercial real estate.</div>
+            <ul>
+                <li><strong>Quantifying Public Decarbonization:</strong> Ingested massive, highly fragmented and messy regional datasets across agriculture, residential real estate, transport, and commercial real estate to build a comprehensive emissions inventory for Daylesford Council's successful Net-Zero transition plan.</li>
+                <li><strong>Data Visualization:</strong> Deployed custom Python scripts and data structures to translate chaotic energy interval metrics into clear, defensible data models presented directly to public community stakeholders.</li>
+                <li><strong>Capital Expenditure Optimization:</strong> Combined quantitative resident feedback with deep thermodynamics to construct complex residential tower retrofit scenarios for the Department of Health and Human Services (DHHS), triggering real-world capital upgrades.</li>
+            </ul>
+            <div class="stack-section">
+                <span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Energy Simulation</span><span class="pill">Data Cleansing</span>
+            </div>
         </div>
-        <div class="role-title">Consulting Engineer / Analyst</div>
-        <div>Delivered advanced computational fluid dynamics (CFD), blast wave risks, and process automation across commercial real estate, sports stadia, and offshore oil/gas operations.</div>
-        <ul>
-            <li><strong>Process Automation:</strong> Eliminated dozens of hours of manual coordinate data entry by writing custom Rhino3D scripts to ingest raw piping layout text files from third-party contractors, programmatically reconstructing the 3D topology and exporting it instantly into offshore explosion simulator formats (AutoReGas).</li>
-            <li><strong>High-Performance Infrastructure:</strong> Designed, built, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
-        </ul>
-        <div class="stack-section">
-            <span class="pill">RhinoScript</span><span class="pill">Beowulf Clustering</span><span class="pill">Linux Admin</span><span class="pill">AutoReGas</span>
-        </div>
-    </div>
 
-    <!-- DSTO -->
-    <div class="timeline-item">
-        <div class="timeline-header">
-            <span class="company-name">Defence Science and Technology Organisation (DSTO)</span>
-            <span class="date-range">1996 – 2000 (4 yrs)</span>
+        <!-- ARUP -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="company-name">Arup</span>
+                <span class="date-range">Sep 2005 – Aug 2014 (9 yrs)</span>
+            </div>
+            <div class="role-title">Senior Consulting Engineer — Australasian Leader in Environmental & Building Physics</div>
+            <div>Directed regional analytical capacity, workflows, hardware integration, and high-fidelity computational modeling for one of the world's premier engineering institutions.</div>
+            <ul>
+                <li><strong>Data Governance Infrastructure:</strong> Bypassed the analytical limitations of standard corporate Windows IT by designing, building, and maintaining an internal central Linux compute cluster. Forced multi-office engineering teams to submit immutable text configuration files to the central engine—standardizing calculations and establishing audit-grade quality control across Australasia.</li>
+                <li><strong>Multi-Software Pipeline Integration:</strong> Overcame native software physics limitations by writing custom scripts to extract complex architectural mesh files from Fluent CFD, pipe them through Radiance to calculate precise ray-traced solar boundaries, and inject that data back into the thermodynamic solver to model complex atrium structures with flawless accuracy.</li>
+            </ul>
+            <div class="stack-section">
+                <span class="pill">Perl</span><span class="pill">Linux Clusters</span><span class="pill">CFD Mesh Processing</span><span class="pill">Radiance Integration</span><span class="pill">QA Governance</span>
+            </div>
         </div>
-        <div class="role-title">Research & Development Systems Engineer</div>
-        <div>Executed advanced research into aerodynamic, hydrodynamic, and gas turbine performance metrics for defense assets and weapons systems.</div>
-        <ul>
-            <li><strong>The First "Digital Twin":</strong> Built an automated optimization pipeline for the Australian F111 fleet's Pratt & Whitney F404 gas turbine engines. Inherited a complex Fortran 90 physical degradation model, wrapped it in an orchestration layer using MATLAB, and programmed a custom Downhill Simplex (Nelder-Mead) mathematical algorithm to ingest noisy physical test-bed sensor data and automatically back-calculate hidden structural and operational engine faults.</li>
-        </ul>
-        <div class="stack-section">
-            <span class="pill">Fortran 90</span><span class="pill">MATLAB</span><span class="pill">Nelder-Mead Optimization</span><span class="pill">Inverse Modeling</span>
-        </div>
-    </div>
 
-    <h2 id="relevance">Why This Background Matters for AASB S2 Corporate Compliance</h2>
-    <p>
-        The introduction of mandatory AASB S2 compliance turns corporate carbon reporting from an ESG marketing exercise into an audit-grade financial data liability. Sustainability teams are struggling with manual spreadsheets with high error rates, while standard IT teams lack an understanding of physical building management systems (BMS), Modbus meter loops, or central plant operations.
-    </p>
-    <p>
-        My 30-year engineering record means I look at compliance through the lens of a systems and data architect. I don't write high-level corporate policies; I bridge the gap between building wires and board tables. I step into client-side asset teams to eliminate manual data handling, build automated pipelines, and protect corporate boards from regulatory exposure through absolute data integrity.
-    </p>
+        <!-- ARUP LONDON / BMT -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="company-name">Arup (UK) & BMT Fluid Mechanics</span>
+                <span class="date-range">2002 – 2005 (3 yrs)</span>
+            </div>
+            <div class="role-title">Consulting Engineer / Analyst</div>
+            <div>Delivered advanced computational fluid dynamics (CFD), blast wave risks, and process automation across commercial real estate, sports stadia, and offshore oil/gas operations.</div>
+            <ul>
+                <li><strong>Process Automation:</strong> Eliminated dozens of hours of manual coordinate data entry by writing custom Rhino3D scripts to ingest raw piping layout text files from third-party contractors, programmatically reconstructing the 3D topology and exporting it instantly into offshore explosion simulator formats (AutoReGas).</li>
+                <li><strong>High-Performance Infrastructure:</strong> Designed, built, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
+            </ul>
+            <div class="stack-section">
+                <span class="pill">RhinoScript</span><span class="pill">Beowulf Clustering</span><span class="pill">Linux Admin</span><span class="pill">AutoReGas</span>
+            </div>
+        </div>
+
+        <!-- DSTO -->
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <span class="company-name">Defence Science and Technology Organisation (DSTO)</span>
+                <span class="date-range">1996 – 2000 (4 yrs)</span>
+            </div>
+            <div class="role-title">Research & Development Systems Engineer</div>
+            <div>Executed advanced research into aerodynamic, hydrodynamic, and gas turbine performance metrics for defense assets and weapons systems.</div>
+            <ul>
+                <li><strong>The First "Digital Twin":</strong> Built an automated optimization pipeline for the Australian F111 fleet's Pratt & Whitney F404 gas turbine engines. Inherited a complex Fortran 90 physical degradation model, wrapped it in an orchestration layer using MATLAB, and programmed a custom Downhill Simplex (Nelder-Mead) mathematical algorithm to ingest noisy physical test-bed sensor data and automatically back-calculate hidden structural and operational engine faults.</li>
+            </ul>
+            <div class="stack-section">
+                <span class="pill">Fortran 90</span><span class="pill">MATLAB</span><span class="pill">Nelder-Mead Optimization</span><span class="pill">Inverse Modeling</span>
+            </div>
+        </div>
+
+        <h2 id="relevance">Why This Background Matters for AASB S2 Corporate Compliance</h2>
+        <p>
+            The introduction of mandatory AASB S2 compliance turns corporate carbon reporting from an ESG marketing exercise into an audit-grade financial data liability. Sustainability teams are struggling with manual spreadsheets with high error rates, while standard IT teams lack an understanding of physical building management systems (BMS), Modbus meter loops, or central plant operations.
+        </p>
+        <p>
+            My 30-year engineering record means I look at compliance through the lens of a systems and data architect. I don't write high-level corporate policies; I bridge the gap between building wires and board tables. I step into client-side asset teams to eliminate manual data handling, build automated pipelines, and protect corporate boards from regulatory exposure through absolute data integrity.
+        </p>
+
+    </div>
 
 </body>
 </html>
