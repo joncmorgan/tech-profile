@@ -488,6 +488,15 @@
             }
         }
     </style>
+
+    <!-- Execute theme loading immediately to prevent Flash of Unstyled Content (FOUC) -->
+    <script>
+        (function() {
+            // Instantly extract theme choice or default to Bronze and apply directly to <html> before render
+            const savedTheme = localStorage.getItem('tech-profile-theme') || 'bronze';
+            document.documentElement.classList.add('theme-' + savedTheme);
+        })();
+    </script>
 </head>
 <body>
 
@@ -707,20 +716,6 @@
                 btn.setAttribute('aria-expanded', 'true');
             }
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const root = document.documentElement;
-
-            // Load and apply the default theme (Bronze) on startup.
-            // Other theme classes remain available in the CSS compiled stylesheet.
-            const savedTheme = localStorage.getItem('tech-profile-theme') || 'bronze';
-            applyTheme(savedTheme);
-
-            function applyTheme(themeName) {
-                root.classList.remove('theme-blue', 'theme-teal', 'theme-emerald', 'theme-bronze');
-                root.classList.add(`theme-${themeName}`);
-            }
-        });
     </script>
 </body>
 </html>
