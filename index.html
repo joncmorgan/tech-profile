@@ -625,7 +625,7 @@
                 <li><strong>Residential Retrofit Analysis:</strong> Modelled building physics and retrofit scenarios for public housing towers to assist the Department of Health and Human Services (DHHS) with capital upgrade decisions.</li>
             </ul>
             <div class="stack-section">
-                <span class="pill">SMP Support</span><span class="pill">Energy Simulation</span><span class="pill">Daylight Modelling</span><span class="pill">Solar Predictor</span><span class="pill">Passive Resilience</span><span class="pill">Consultancy Ops</span><span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Data Cleansing</span>
+                <span class="pill">Energy Simulation</span><span class="pill">Daylight Modelling</span><span class="pill">Solar Predictor</span><span class="pill">Passive Resilience</span><span class="pill">Consultancy Ops</span><span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Data Cleansing</span>
             </div>
         </div>
 
@@ -656,12 +656,13 @@
             <div class="role-title">Consulting Engineer / Analyst</div>
             <div>Delivered advanced computational fluid dynamics (CFD), blast wave risks, and process automation across commercial real estate, sports stadia, and offshore oil/gas operations.</div>
             <ul>
-                <li><strong>Built Environment Analysis:</strong> Conducted computer simulations for wind flow, microclimates, ventilation, and daylighting across commercial buildings and sports venues.</li>
-                <li><strong>Process Automation:</strong> Wrote custom Rhino3D scripts to parse coordinates from piping layouts, automatically generating 3D models for offshore explosion simulation (AutoReGas) and reducing manual modelling hours.</li>
-                <li><strong>Computing Clusters:</strong> Constructed and managed Beowulf Linux clusters to process intensive hydrodynamic and blast simulations.</li>
+                <li><strong>Built Environment Aerodynamics (BMT):</strong> Utilised computational fluid dynamics (CFD) to prepare urban wind microclimate comfort and safety assessments, pollution dispersion models, and structural facade cladding wind pressure loads for complex tall buildings and precincts.</li>
+                <li><strong>Wind Tunnel Experimental Validation:</strong> Conducted light-touch experimental validation within boundary layer wind tunnels, calibrating physical model sensor data against corresponding numerical CFD simulation results to guarantee analytical assurance.</li>
+                <li><strong>Process Automation:</strong> Eliminated dozens of hours of manual coordinate data entry by writing custom Rhino3D scripts to ingest raw piping layout text files from third-party contractors, programmatically reconstructing the 3D topology and exporting it instantly into offshore explosion simulator formats (AutoReGas).</li>
+                <li><strong>High-Performance Infrastructure:</strong> Designed, built, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
             </ul>
             <div class="stack-section">
-                <span class="pill">RhinoScript</span><span class="pill">Beowulf Clustering</span><span class="pill">Linux Admin</span><span class="pill">AutoReGas</span>
+                <span class="pill">CFD Modelling</span><span class="pill">Wind Tunnel Validation</span><span class="pill">RhinoScript</span><span class="pill">Beowulf Clustering</span><span class="pill">Linux Admin</span><span class="pill">AutoReGas</span>
             </div>
         </div>
 
@@ -724,4 +725,87 @@
             The evolution of mandatory sustainability disclosures, carbon reporting, and ESG frameworks establishes rigorous, auditable standards for corporate reporting. Aligning physical operations with compliance frameworks requires a specialised understanding of both building physics and data engineering—connecting physical assets, utility metering setups, thermal plant dynamics, and embodied carbon metrics directly to the balance sheet.
         </p>
         <p>
-            With a 30-year engineering background, I approach compliance, carbon accounting, and building optimisation as an integrated systems and data challenge. My focus is on bridging the gap between physical operational realities and corporate
+            With a 30-year engineering background, I approach compliance, carbon accounting, and building optimisation as an integrated systems and data challenge. My focus is on bridging the gap between physical operational realities and corporate reporting—building automated, verifiable pipelines to ensure absolute data integrity and mitigate risk.
+        </p>
+
+    </div>
+
+    <!-- Client-side Palette Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dots = document.querySelectorAll('.colour-dot');
+            const modeToggle = document.getElementById('mode-toggle');
+            const sunIcon = modeToggle.querySelector('.sun-icon');
+            const moonIcon = modeToggle.querySelector('.moon-icon');
+            const root = document.documentElement;
+
+            // 1. Load & Apply Colour Accent Theme
+            const savedTheme = localStorage.getItem('tech-profile-theme') || 'blue';
+            applyTheme(savedTheme);
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const theme = dot.getAttribute('data-theme');
+                    applyTheme(theme);
+                    localStorage.setItem('tech-profile-theme', theme);
+                });
+            });
+
+            function applyTheme(themeName) {
+                root.classList.remove('theme-blue', 'theme-teal', 'theme-emerald', 'theme-bronze');
+                root.classList.add(`theme-${themeName}`);
+
+                dots.forEach(dot => {
+                    if (dot.getAttribute('data-theme') === themeName) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // 2. Load & Apply Light/Dark Mode Preference
+            const savedMode = localStorage.getItem('tech-profile-mode');
+            if (savedMode === 'dark') {
+                root.classList.add('dark-mode');
+                root.classList.remove('light-mode');
+            } else if (savedMode === 'light') {
+                root.classList.add('light-mode');
+                root.classList.remove('dark-mode');
+            }
+            
+            updateToggleIcons();
+
+            // Toggle Button Event Listener
+            modeToggle.addEventListener('click', () => {
+                const isCurrentlyDark = root.classList.contains('dark-mode') || 
+                    (!root.classList.contains('light-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+                if (isCurrentlyDark) {
+                    root.classList.add('light-mode');
+                    root.classList.remove('dark-mode');
+                    localStorage.setItem('tech-profile-mode', 'light');
+                } else {
+                    root.classList.add('dark-mode');
+                    root.classList.remove('light-mode');
+                    localStorage.setItem('tech-profile-mode', 'dark');
+                }
+                updateToggleIcons();
+            });
+
+            function updateToggleIcons() {
+                const isDarkActive = root.classList.contains('dark-mode') || 
+                    (!root.classList.contains('light-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                
+                if (isDarkActive) {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
