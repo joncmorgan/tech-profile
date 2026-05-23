@@ -17,8 +17,6 @@
             --text-secondary: #475569; /* Medium Slate */
             --border: #e2e8f0;
             --subtle-grey: #f8fafc;
-            --pill-bg: #f1f5f9;
-            --pill-text: #475569;
             --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
         }
 
@@ -32,8 +30,6 @@
             --text-secondary: #52525b; /* Medium Zinc */
             --border: #e4e4e7;
             --subtle-grey: #fafafa;
-            --pill-bg: #f4f4f5;
-            --pill-text: #52525b;
             --shadow: 0 4px 20px -2px rgba(9, 9, 11, 0.04);
         }
 
@@ -47,8 +43,6 @@
             --text-secondary: #57534e; /* Warm Grey-Stone */
             --border: #e7e5e4;
             --subtle-grey: #fafaf9;
-            --pill-bg: #f5f5f4;
-            --pill-text: #57534e;
             --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04);
         }
 
@@ -62,8 +56,6 @@
             --text-secondary: #57534e; /* Soft Umber */
             --border: #e7e5e4;
             --subtle-grey: #fffdeb;    /* Very soft cream warmth */
-            --pill-bg: #f5f5f4;
-            --pill-text: #57534e;
             --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04);
         }
 
@@ -79,8 +71,6 @@
                 --text-secondary: #94a3b8; /* Soft Slate */
                 --border: #1e293b;
                 --subtle-grey: #1e293b;
-                --pill-bg: #1e293b;
-                --pill-text: #cbd5e1;
                 --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             }
 
@@ -94,8 +84,6 @@
                 --text-secondary: #a1a1aa; /* Soft Zinc */
                 --border: #27272a;
                 --subtle-grey: #27272a;
-                --pill-bg: #27272a;
-                --pill-text: #e4e4e7;
                 --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
             }
 
@@ -109,8 +97,6 @@
                 --text-secondary: #a8a29e; /* Soft Stone */
                 --border: #292524;
                 --subtle-grey: #292524;
-                --pill-bg: #292524;
-                --pill-text: #e7e5e4;
                 --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
             }
 
@@ -124,8 +110,6 @@
                 --text-secondary: #a3a3a3; /* Soft Warm Grey */
                 --border: #262626;
                 --subtle-grey: #262626;
-                --pill-bg: #262626;
-                --pill-text: #e5e5e5;
                 --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
             }
         }
@@ -140,8 +124,6 @@
             --text-secondary: #94a3b8;
             --border: #1e293b;
             --subtle-grey: #1e293b;
-            --pill-bg: #1e293b;
-            --pill-text: #cbd5e1;
             --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
         :root.dark-mode.theme-teal {
@@ -153,8 +135,6 @@
             --text-secondary: #a1a1aa;
             --border: #27272a;
             --subtle-grey: #27272a;
-            --pill-bg: #27272a;
-            --pill-text: #e4e4e7;
             --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
         }
         :root.dark-mode.theme-emerald {
@@ -166,8 +146,6 @@
             --text-secondary: #a8a29e;
             --border: #292524;
             --subtle-grey: #292524;
-            --pill-bg: #292524;
-            --pill-text: #e7e5e4;
             --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
         }
         :root.dark-mode.theme-bronze {
@@ -179,8 +157,6 @@
             --text-secondary: #a3a3a3;
             --border: #262626;
             --subtle-grey: #262626;
-            --pill-bg: #262626;
-            --pill-text: #e5e5e5;
             --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
         }
 
@@ -509,27 +485,6 @@
             color: var(--text-primary);
         }
 
-        /* Tech Badges (Pills) */
-        .pill {
-            background-color: var(--pill-bg);
-            color: var(--pill-text);
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-            display: inline-block;
-            margin-right: 6px;
-            margin-bottom: 6px;
-            font-weight: 600;
-            border: 1px solid var(--border);
-            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-        }
-
-        .stack-section {
-            margin-top: 15px;
-            padding-left: 18px;
-        }
-
         /* Document Action Footer */
         .footer-actions {
             margin-top: 60px;
@@ -613,11 +568,6 @@
             .timeline-item::before {
                 background-color: #000000 !important;
                 border-color: #ffffff !important;
-            }
-            .pill {
-                border: 1px solid #cbd5e1 !important;
-                background-color: #f1f5f9 !important;
-                color: #0f172a !important;
             }
         }
 
@@ -737,10 +687,6 @@
                 <li><strong>Operations & Governance:</strong> Set up and managed the company's project management and CRM tools (Runn, Pneumatic, OnePageCRM, Mixmax) and led weekly project, cash flow, and directors' meetings.</li>
             </ul>
             <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-co-perform')" aria-expanded="false">Show more details ↓</button>
-            
-            <div class="stack-section">
-                <span class="pill">NABERS</span><span class="pill">NABERS Upfront Carbon</span><span class="pill">Green Star</span><span class="pill">SMP Support</span><span class="pill">Planning Permits</span><span class="pill">Building Permits</span><span class="pill">eTool</span><span class="pill">DevOps</span><span class="pill">AI Automation</span><span class="pill">Python</span><span class="pill">Plotly Dash</span><span class="pill">Astro</span><span class="pill">SQL</span><span class="pill">LaTeX</span>
-            </div>
         </div>
 
         <!-- MORELAND / VISERGY -->
@@ -764,10 +710,6 @@
                 <li><strong>Residential Retrofit Analysis:</strong> Modelled building physics and retrofit scenarios for public housing towers to assist the Department of Health and Human Services (DHHS) with capital upgrade decisions.</li>
             </ul>
             <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-mefl')" aria-expanded="false">Show more details ↓</button>
-            
-            <div class="stack-section">
-                <span class="pill">Energy Simulation</span><span class="pill">Daylight Modelling</span><span class="pill">Solar Predictor</span><span class="pill">Passive Resilience</span><span class="pill">Consultancy Ops</span><span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Data Cleansing</span>
-            </div>
         </div>
 
         <!-- ARUP -->
@@ -787,10 +729,6 @@
                 <li><strong>Software Integration:</strong> Developed custom scripts to link Fluent CFD geometry with Radiance solar simulation, creating accurate thermal boundary conditions for complex atrium designs.</li>
             </ul>
             <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-arup')" aria-expanded="false">Show more details ↓</button>
-            
-            <div class="stack-section">
-                <span class="pill">Perl</span><span class="pill">Linux Clusters</span><span class="pill">Building Physics</span><span class="pill">CFD Mesh Processing</span><span class="pill">Radiance Integration</span><span class="pill">QA Governance</span>
-            </div>
         </div>
 
         <!-- ARUP LONDON / BMT -->
@@ -811,10 +749,6 @@
                 <li><strong>High-Performance Infrastructure:</strong> Designed, built, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
             </ul>
             <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-bmt')" aria-expanded="false">Show more details ↓</button>
-            
-            <div class="stack-section">
-                <span class="pill">CFD Modelling</span><span class="pill">Wind Tunnel Validation</span><span class="pill">RhinoScript</span><span class="pill">Beowulf Clustering</span><span class="pill">Linux Admin</span><span class="pill">AutoReGas</span>
-            </div>
         </div>
 
         <!-- DSTO -->
@@ -828,9 +762,6 @@
             <ul>
                 <li><strong>Gas Turbine Fault Detection:</strong> Developed an optimisation pipeline for Pratt & Whitney F404 engines. Wrapped a legacy Fortran 90 engine model in MATLAB and wrote a Nelder-Mead (Downhill Simplex) algorithm to match physical test-bed logs with simulation outputs to diagnose engine degradation.</li>
             </ul>
-            <div class="stack-section">
-                <span class="pill">Fortran 90</span><span class="pill">MATLAB</span><span class="pill">Nelder-Mead Optimisation</span><span class="pill">Inverse Modelling</span>
-            </div>
         </div>
 
         <!-- EDUCATION & ACCREDITATIONS -->
