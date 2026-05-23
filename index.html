@@ -591,7 +591,7 @@
             <div class="role-title">Co-Founder & Managing Director</div>
             <div>Directed all operations, technical infrastructure, and commercial execution for a specialised building performance engineering firm.</div>
             <ul>
-                <li><strong>Planning & Building Permit Support:</strong> Support planning permit and building permit applications for commercial real estate developments by delivering high-fidelity thermal, daylight, and energy simulations.</li>
+                <li><strong>Planning & Building Permit Support:</strong> Support planning permit and building permit applications for commercial real estate developments by delivering high-fidelity thermal, daylight, and energy simulations, directly informing Sustainability Management Plans (SMPs) for municipal approvals.</li>
                 <li><strong>NABERS Commitment & Green Star Engineering:</strong> Led detailed HVAC and building energy simulations to support NABERS Commitment Agreements (4.5 and 5-star ratings) and Green Star credits, including solar PV and battery storage modelling.</li>
                 <li><strong>Embodied Carbon & Building Simulation:</strong> Executed integrated embodied carbon, daylight, and energy calculations for a major 6-star Green Star healthcare facility. Designed and programmed a bespoke utility to parse the head contractor's raw Bill of Quantities (BoQ), automatically converting and formatting the data structure for direct import into the eTool (by Cerclos) carbon accounting platform.</li>
                 <li><strong>Municipal Sustainability Policy:</strong> Partnered with Nation Partners to co-author the City of Melbourne Sustainable Building Policy, defining rigorous environmental, carbon, and operational performance standards specifically for the Council's own municipal asset portfolio.</li>
@@ -603,7 +603,7 @@
                 <li><strong>Operations & Governance:</strong> Set up and managed the company's project management and CRM tools (Runn, Pneumatic, OnePageCRM, Mixmax) and led weekly project, cash flow, and directors' meetings.</li>
             </ul>
             <div class="stack-section">
-                <span class="pill">NABERS</span><span class="pill">NABERS Upfront Carbon</span><span class="pill">Green Star</span><span class="pill">Planning Permits</span><span class="pill">Building Permits</span><span class="pill">eTool</span><span class="pill">DevOps</span><span class="pill">AI Automation</span><span class="pill">Python</span><span class="pill">Plotly Dash</span><span class="pill">Astro</span><span class="pill">SQL</span><span class="pill">LaTeX</span>
+                <span class="pill">NABERS</span><span class="pill">NABERS Upfront Carbon</span><span class="pill">Green Star</span><span class="pill">SMP Support</span><span class="pill">Planning Permits</span><span class="pill">Building Permits</span><span class="pill">eTool</span><span class="pill">DevOps</span><span class="pill">AI Automation</span><span class="pill">Python</span><span class="pill">Plotly Dash</span><span class="pill">Astro</span><span class="pill">SQL</span><span class="pill">LaTeX</span>
             </div>
         </div>
 
@@ -617,13 +617,15 @@
             <div>Delivered high-level energy efficiency engineering, regional decarbonisation models, and performance-based design simulations for municipal portfolios and commercial real estate.</div>
             <ul>
                 <li><strong>Sole Trader Operations (Visergy):</strong> Established and managed an independent consultancy sub-contracting to major engineering practices. Directed all commercial and operational facets of the business, including market branding, client proposal development, engineering delivery, and financial invoicing.</li>
-                <li><strong>Building Performance & Daylighting:</strong> Provided performance-based design support for town planning and building approvals, utilising energy and daylight simulation to optimise building performance.</li>
+                <li><strong>Building Performance & Daylighting:</strong> Provided performance-based design support for town planning and building approvals, utilising energy and daylight simulation to optimise building performance and inform detailed Sustainability Management Plans (SMPs).</li>
+                <li><strong>Solar Feasibility Tooling:</strong> Developed and built a light, fast predictive modelling tool to accurately right-size solar PV systems, accelerating early-stage design feasibility and concept planning.</li>
+                <li><strong>Climate-Resilient Public Housing:</strong> Partnered with architects at DesignInc to design a template public housing prototype engineered for passive thermal resilience and occupant safety during extreme heatwaves.</li>
                 <li><strong>Regional Emissions Modelling:</strong> Ingested and cleaned regional datasets across agriculture, residential, transport, and commercial sectors to build an emissions inventory for the Hepburn Shire/Daylesford Net-Zero transition plan.</li>
                 <li><strong>Data Visualisation:</strong> Deployed custom Python scripts to translate energy interval data into clear visual models for municipal and public stakeholders.</li>
                 <li><strong>Residential Retrofit Analysis:</strong> Modelled building physics and retrofit scenarios for public housing towers to assist the Department of Health and Human Services (DHHS) with capital upgrade decisions.</li>
             </ul>
             <div class="stack-section">
-                <span class="pill">Energy Simulation</span><span class="pill">Daylight Modelling</span><span class="pill">Consultancy Ops</span><span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Data Cleansing</span>
+                <span class="pill">SMP Support</span><span class="pill">Energy Simulation</span><span class="pill">Daylight Modelling</span><span class="pill">Solar Predictor</span><span class="pill">Passive Resilience</span><span class="pill">Consultancy Ops</span><span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Data Cleansing</span>
             </div>
         </div>
 
@@ -722,87 +724,4 @@
             The evolution of mandatory sustainability disclosures, carbon reporting, and ESG frameworks establishes rigorous, auditable standards for corporate reporting. Aligning physical operations with compliance frameworks requires a specialised understanding of both building physics and data engineering—connecting physical assets, utility metering setups, thermal plant dynamics, and embodied carbon metrics directly to the balance sheet.
         </p>
         <p>
-            With a 30-year engineering background, I approach compliance, carbon accounting, and building optimisation as an integrated systems and data challenge. My focus is on bridging the gap between physical operational realities and corporate reporting—building automated, verifiable pipelines to ensure absolute data integrity and mitigate risk.
-        </p>
-
-    </div>
-
-    <!-- Client-side Palette Engine -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dots = document.querySelectorAll('.colour-dot');
-            const modeToggle = document.getElementById('mode-toggle');
-            const sunIcon = modeToggle.querySelector('.sun-icon');
-            const moonIcon = modeToggle.querySelector('.moon-icon');
-            const root = document.documentElement;
-
-            // 1. Load & Apply Colour Accent Theme
-            const savedTheme = localStorage.getItem('tech-profile-theme') || 'blue';
-            applyTheme(savedTheme);
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    const theme = dot.getAttribute('data-theme');
-                    applyTheme(theme);
-                    localStorage.setItem('tech-profile-theme', theme);
-                });
-            });
-
-            function applyTheme(themeName) {
-                root.classList.remove('theme-blue', 'theme-teal', 'theme-emerald', 'theme-bronze');
-                root.classList.add(`theme-${themeName}`);
-
-                dots.forEach(dot => {
-                    if (dot.getAttribute('data-theme') === themeName) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            }
-
-            // 2. Load & Apply Light/Dark Mode Preference
-            const savedMode = localStorage.getItem('tech-profile-mode');
-            if (savedMode === 'dark') {
-                root.classList.add('dark-mode');
-                root.classList.remove('light-mode');
-            } else if (savedMode === 'light') {
-                root.classList.add('light-mode');
-                root.classList.remove('dark-mode');
-            }
-            
-            updateToggleIcons();
-
-            // Toggle Button Event Listener
-            modeToggle.addEventListener('click', () => {
-                const isCurrentlyDark = root.classList.contains('dark-mode') || 
-                    (!root.classList.contains('light-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-                if (isCurrentlyDark) {
-                    root.classList.add('light-mode');
-                    root.classList.remove('dark-mode');
-                    localStorage.setItem('tech-profile-mode', 'light');
-                } else {
-                    root.classList.add('dark-mode');
-                    root.classList.remove('light-mode');
-                    localStorage.setItem('tech-profile-mode', 'dark');
-                }
-                updateToggleIcons();
-            });
-
-            function updateToggleIcons() {
-                const isDarkActive = root.classList.contains('dark-mode') || 
-                    (!root.classList.contains('light-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                
-                if (isDarkActive) {
-                    sunIcon.style.display = 'block';
-                    moonIcon.style.display = 'none';
-                } else {
-                    sunIcon.style.display = 'none';
-                    moonIcon.style.display = 'block';
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+            With a 30-year engineering background, I approach compliance, carbon accounting, and building optimisation as an integrated systems and data challenge. My focus is on bridging the gap between physical operational realities and corporate
