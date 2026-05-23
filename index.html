@@ -313,7 +313,7 @@
 
         /* Clean List Formatting with custom Accent bullet cues */
         ul {
-            margin: 0;
+            margin: 12px 0 0 0; /* Clear 12px vertical separation before lists */
             padding-left: 0;
             list-style: none; /* Strip standard browsers bullets */
         }
@@ -344,13 +344,15 @@
 
         /* Collapsible List Elements for cleaner scannability */
         .collapsible-content {
+            margin-top: 0; /* Prevent visual gap when collapsed */
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, margin-top 0.35s ease;
         }
 
         .collapsible-content.expanded {
+            margin-top: 8px; /* Clean spacing once expanded */
             max-height: 1200px; /* Generous height allocation to ensure no clipping */
             opacity: 1;
         }
@@ -419,16 +421,28 @@
 
         /* PDF / Print Optimization Styles */
         @media print {
+            /* Force all text variables to high-contrast readable elements regardless of OS light/dark scheme */
+            :root, :root.theme-bronze, :root.theme-blue, :root.theme-teal, :root.theme-emerald {
+                --accent: #78350f !important; /* Deep, readable bronze/brown for premium print look */
+                --text-on-accent: #ffffff !important;
+                --bg-canvas: #ffffff !important;
+                --bg-card: #ffffff !important;
+                --text-primary: #1c1917 !important;   /* High-contrast charcoal black */
+                --text-secondary: #44403c !important; /* Deep, highly readable warm grey */
+                --border: #d6d3d1 !important;
+                --subtle-grey: #f5f5f4 !important;
+                --shadow: none !important;
+            }
             body {
-                background-color: #ffffff !important;
-                color: #000000 !important;
+                background-color: var(--bg-canvas) !important;
+                color: var(--text-primary) !important;
                 padding: 0 !important;
             }
             .profile-container {
                 border: none !important;
                 box-shadow: none !important;
                 padding: 0 !important;
-                background-color: #ffffff !important;
+                background-color: var(--bg-card) !important;
                 max-width: 100% !important;
             }
             nav, .back-to-top, .footer-actions, .toggle-details-btn {
@@ -439,25 +453,26 @@
                 max-height: none !important;
                 opacity: 1 !important;
                 overflow: visible !important;
+                margin-top: 8px !important;
             }
             .thesis-box {
-                background-color: #f8fafc !important;
-                border-left-color: #000000 !important;
-                color: #000000 !important;
+                background-color: var(--subtle-grey) !important;
+                border-left-color: var(--accent) !important;
+                color: var(--text-primary) !important;
             }
             h2 {
-                border-bottom-color: #cbd5e1 !important;
+                border-bottom-color: var(--border) !important;
             }
             h2::before {
-                background-color: #000000 !important;
+                background-color: var(--accent) !important;
             }
             .timeline-item {
-                border-left-color: #cbd5e1 !important;
+                border-left-color: var(--border) !important;
                 page-break-inside: avoid;
             }
             .timeline-item::before {
-                background-color: #000000 !important;
-                border-color: #ffffff !important;
+                background-color: var(--accent) !important;
+                border-color: var(--bg-card) !important;
             }
         }
 
