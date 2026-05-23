@@ -7,16 +7,39 @@
     <style>
         /* System-Adaptive Color Variables (Light Mode Defaults) */
         :root {
+            /* Theme Accent Variables (Cobalt Blue by default) */
+            --accent-light: #2563eb;
+            --accent-dark: #38bdf8;
+
+            /* Base Canvas Variables */
             --bg-canvas: #f1f5f9;      /* Ultra-subtle slate canvas background */
             --bg-card: #ffffff;        /* Pure white floating card */
             --text-primary: #0f172a;   /* Dark slate primary text */
             --text-secondary: #475569; /* Medium slate secondary text */
-            --accent: #2563eb;         /* Premium cobalt blue accent */
+            --accent: var(--accent-light); /* Evaluates dynamically based on media queries */
             --border: #e2e8f0;         /* Soft slate border */
             --subtle-gray: #f8fafc;    /* Background for highlighted callouts */
             --pill-bg: #f1f5f9;        /* Tech badge background */
             --pill-text: #475569;      /* Tech badge text */
             --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
+        }
+
+        /* Class-based theme overrides on root */
+        :root.theme-blue {
+            --accent-light: #2563eb;
+            --accent-dark: #38bdf8;
+        }
+        :root.theme-teal {
+            --accent-light: #0d9488;
+            --accent-dark: #2dd4bf;
+        }
+        :root.theme-emerald {
+            --accent-light: #059669;
+            --accent-dark: #34d399;
+        }
+        :root.theme-bronze {
+            --accent-light: #b45309;
+            --accent-dark: #f59e0b;
         }
 
         /* Auto Dark Mode Overrides (Matches user OS system preference) */
@@ -26,7 +49,7 @@
                 --bg-card: #131b2e;        /* Dark slate card body */
                 --text-primary: #f8fafc;   /* Crisp white-gray text */
                 --text-secondary: #94a3b8; /* Soft blue-gray reading text */
-                --accent: #38bdf8;         /* High-contrast electric sky-blue accent */
+                --accent: var(--accent-dark);
                 --border: #1e293b;         /* Deep slate borders */
                 --subtle-gray: #1e293b;    /* Highlight callout backdrop */
                 --pill-bg: #1e293b;        /* Dark badge backdrop */
@@ -76,6 +99,7 @@
             color: var(--accent);
             font-weight: 700;
             margin-bottom: 8px;
+            transition: color 0.25s ease;
         }
 
         .contact-bar {
@@ -83,9 +107,11 @@
             color: var(--text-secondary);
         }
 
-        /* Navigation Menu Styles */
+        /* Navigation & Switcher Flex Layout */
         nav {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
             gap: 24px;
             margin-bottom: 45px;
             padding: 12px 0;
@@ -93,7 +119,13 @@
             flex-wrap: wrap;
         }
 
-        nav a {
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 700;
@@ -101,8 +133,34 @@
             transition: color 0.2s ease;
         }
 
-        nav a:hover {
+        .nav-links a:hover {
             color: var(--accent);
+        }
+
+        /* Palette Switcher UI */
+        .palette-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .color-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.2s ease, border-color 0.25s ease;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.25);
+        }
+
+        .color-dot.active {
+            border-color: var(--text-primary);
+            box-shadow: 0 0 0 2px var(--bg-card);
         }
 
         .thesis-box {
@@ -114,6 +172,7 @@
             font-size: 1.1rem;
             font-style: italic;
             color: var(--text-primary);
+            transition: border-color 0.25s ease;
         }
 
         /* Major Headings with Subtle Colored Left Cue */
@@ -138,6 +197,7 @@
             border-radius: 2px;
             margin-right: 12px;
             flex-shrink: 0;
+            transition: background-color 0.25s ease;
         }
 
         /* Timeline Wrap & Custom Visual Stepper */
@@ -219,6 +279,7 @@
             margin-left: -1em;
             position: absolute;
             left: 5px;
+            transition: color 0.25s ease;
         }
 
         li strong {
@@ -266,7 +327,15 @@
                 font-size: 2.1rem;
             }
             nav {
+                flex-direction: column;
+                align-items: flex-start;
                 gap: 16px;
+            }
+            .nav-links {
+                gap: 16px;
+            }
+            .palette-switcher {
+                align-self: flex-end;
             }
             .timeline-item {
                 margin-left: 2px;
@@ -287,11 +356,19 @@
         </header>
 
         <nav aria-label="Profile Sections">
-            <a href="#about">About</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education & Accreditations</a>
-            <a href="#relevance">Compliance & Operations</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education & Accreditations</a>
+                <a href="#relevance">Compliance & Operations</a>
+            </div>
+            <div class="palette-switcher" aria-label="Color Theme Selector">
+                <button class="color-dot active" data-theme="blue" style="background-color: #2563eb;" title="Classic Cobalt (Blue)"></button>
+                <button class="color-dot" data-theme="teal" style="background-color: #0d9488;" title="Data Infrastructure (Teal)"></button>
+                <button class="color-dot" data-theme="emerald" style="background-color: #059669;" title="Carbon Integrity (Emerald)"></button>
+                <button class="color-dot" data-theme="bronze" style="background-color: #b45309;" title="Premium Built Asset (Bronze)"></button>
+            </div>
         </nav>
 
         <div id="about" class="thesis-box">
@@ -443,5 +520,40 @@
 
     </div>
 
+    <!-- Client-side Palette Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dots = document.querySelectorAll('.color-dot');
+            const root = document.documentElement;
+
+            // Load saved theme from previous session, default to Classic Blue ('blue')
+            const savedTheme = localStorage.getItem('tech-profile-theme') || 'blue';
+            applyTheme(savedTheme);
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const theme = dot.getAttribute('data-theme');
+                    applyTheme(theme);
+                    localStorage.setItem('tech-profile-theme', theme);
+                });
+            });
+
+            function applyTheme(themeName) {
+                // Clear existing theme classes
+                root.classList.remove('theme-blue', 'theme-teal', 'theme-emerald', 'theme-bronze');
+                // Apply the new selector class
+                root.classList.add(`theme-${themeName}`);
+
+                // Manage indicator state on selectors
+                dots.forEach(dot => {
+                    if (dot.getAttribute('data-theme') === themeName) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
