@@ -10,6 +10,7 @@
         /* 1. CLASSIC COBALT (Default / Cool Slate Scale) */
         :root, :root.theme-blue {
             --accent: #2563eb;         /* Cobalt Blue */
+            --text-on-accent: #ffffff;
             --bg-canvas: #f1f5f9;      /* Light Slate */
             --bg-card: #ffffff;
             --text-primary: #0f172a;   /* Deep Slate */
@@ -24,6 +25,7 @@
         /* 2. DATA INFRASTRUCTURE (Zinc Grey Scale) */
         :root.theme-teal {
             --accent: #0d9488;         /* Teal */
+            --text-on-accent: #ffffff;
             --bg-canvas: #f4f4f5;      /* Clean Zinc */
             --bg-card: #ffffff;
             --text-primary: #09090b;   /* Off-black Zinc */
@@ -38,6 +40,7 @@
         /* 3. CARBON INTEGRITY (Stone Grey Scale) */
         :root.theme-emerald {
             --accent: #059669;         /* Emerald */
+            --text-on-accent: #ffffff;
             --bg-canvas: #f5f5f4;      /* Granite Stone */
             --bg-card: #ffffff;
             --text-primary: #1c1917;   /* Charcoal Stone */
@@ -52,6 +55,7 @@
         /* 4. PREMIUM BUILT ASSET (Warm Sand & Neutral Scale) */
         :root.theme-bronze {
             --accent: #b45309;         /* Warm Bronze */
+            --text-on-accent: #ffffff;
             --bg-canvas: #fafaf9;      /* Warm Alabaster Sand */
             --bg-card: #ffffff;
             --text-primary: #1c1917;   /* Warm Black */
@@ -68,6 +72,7 @@
             /* 1. Dark Cobalt (Slate Navy) */
             :root:not(.light-mode), :root:not(.light-mode).theme-blue {
                 --accent: #38bdf8;         /* High-contrast Sky Blue */
+                --text-on-accent: #0f172a;
                 --bg-canvas: #090d16;      /* Obsidian Navy */
                 --bg-card: #131b2e;        /* Dark Slate */
                 --text-primary: #f8fafc;   /* White-Slate */
@@ -82,6 +87,7 @@
             /* 2. Dark Teal (Zinc Charcoal) */
             :root:not(.light-mode).theme-teal {
                 --accent: #2dd4bf;         /* Cyber Turquoise */
+                --text-on-accent: #09090b;
                 --bg-canvas: #09090b;      /* Obsidian Zinc */
                 --bg-card: #18181b;        /* Dark Zinc */
                 --text-primary: #fafafa;   /* White-Zinc */
@@ -96,6 +102,7 @@
             /* 3. Dark Emerald (Stone Obsidian) */
             :root:not(.light-mode).theme-emerald {
                 --accent: #34d399;         /* Mint Green */
+                --text-on-accent: #0c0a09;
                 --bg-canvas: #0c0a09;      /* Obsidian Stone */
                 --bg-card: #1c1917;        /* Dark Stone */
                 --text-primary: #f5f5f4;   /* White-Stone */
@@ -110,6 +117,7 @@
             /* 4. Dark Bronze (Earthy Charcoal) */
             :root:not(.light-mode).theme-bronze {
                 --accent: #f59e0b;         /* Amber Gold */
+                --text-on-accent: #0a0a0a;
                 --bg-canvas: #0a0a0a;      /* Pure Charcoal */
                 --bg-card: #171717;        /* Dark Earth Neutral */
                 --text-primary: #f5f5f5;   /* Crisp Sand */
@@ -125,6 +133,7 @@
         /* Manually Triggered Override Dark Mode Classes (Using Javascript selectors) */
         :root.dark-mode, :root.dark-mode.theme-blue {
             --accent: #38bdf8;
+            --text-on-accent: #0f172a;
             --bg-canvas: #090d16;
             --bg-card: #131b2e;
             --text-primary: #f8fafc;
@@ -137,6 +146,7 @@
         }
         :root.dark-mode.theme-teal {
             --accent: #2dd4bf;
+            --text-on-accent: #09090b;
             --bg-canvas: #09090b;
             --bg-card: #18181b;
             --text-primary: #fafafa;
@@ -149,6 +159,7 @@
         }
         :root.dark-mode.theme-emerald {
             --accent: #34d399;
+            --text-on-accent: #0c0a09;
             --bg-canvas: #0c0a09;
             --bg-card: #1c1917;
             --text-primary: #f5f5f4;
@@ -161,6 +172,7 @@
         }
         :root.dark-mode.theme-bronze {
             --accent: #f59e0b;
+            --text-on-accent: #0a0a0a;
             --bg-canvas: #0a0a0a;
             --bg-card: #171717;
             --text-primary: #f5f5f5;
@@ -464,6 +476,39 @@
             color: var(--text-primary);
         }
 
+        /* Collapsible List Elements for cleaner scannability */
+        .collapsible-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+        }
+
+        .collapsible-content.expanded {
+            max-height: 1200px; /* Generous height allocation to ensure no clipping */
+            opacity: 1;
+        }
+
+        .toggle-details-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 6px 0;
+            margin-top: 4px;
+            margin-left: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.25s ease, transform 0.2s ease;
+        }
+
+        .toggle-details-btn:hover {
+            color: var(--text-primary);
+        }
+
         /* Tech Badges (Pills) */
         .pill {
             background-color: var(--pill-bg);
@@ -485,9 +530,95 @@
             padding-left: 18px;
         }
 
+        /* Document Action Footer */
+        .footer-actions {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            transition: border-color 0.25s ease;
+        }
+
+        .print-btn {
+            background-color: var(--accent);
+            color: var(--text-on-accent);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        .print-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
         /* Smooth page scroll */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* PDF / Print Optimization Styles */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+            .profile-container {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                background-color: #ffffff !important;
+                max-width: 100% !important;
+            }
+            nav, .theme-controls, .back-to-top, .footer-actions, .toggle-details-btn {
+                display: none !important;
+            }
+            .collapsible-content {
+                display: block !important;
+                max-height: none !important;
+                opacity: 1 !important;
+                overflow: visible !important;
+            }
+            .thesis-box {
+                background-color: #f8fafc !important;
+                border-left-color: #000000 !important;
+                color: #000000 !important;
+            }
+            h2 {
+                border-bottom-color: #cbd5e1 !important;
+            }
+            h2::before {
+                background-color: #000000 !important;
+            }
+            .timeline-item {
+                border-left-color: #cbd5e1 !important;
+                page-break-inside: avoid;
+            }
+            .timeline-item::before {
+                background-color: #000000 !important;
+                border-color: #ffffff !important;
+            }
+            .pill {
+                border: 1px solid #cbd5e1 !important;
+                background-color: #f1f5f9 !important;
+                color: #0f172a !important;
+            }
         }
 
         /* Responsive Mobile Behaviour overrides desktop card framework */
@@ -594,6 +725,9 @@
                 <li><strong>Planning & Building Permit Support:</strong> Support planning permit and building permit applications for commercial real estate developments by delivering high-fidelity thermal, daylight, and energy simulations, directly informing Sustainability Management Plans (SMPs) for municipal approvals.</li>
                 <li><strong>NABERS Commitment & Green Star Engineering:</strong> Led detailed HVAC and building energy simulations to support NABERS Commitment Agreements (4.5 and 5-star ratings) and Green Star credits, including solar PV and battery storage modelling.</li>
                 <li><strong>Embodied Carbon & Building Simulation:</strong> Executed integrated embodied carbon, daylight, and energy calculations for a major 6-star Green Star healthcare facility. Designed and programmed a bespoke utility to parse the head contractor's raw Bill of Quantities (BoQ), automatically converting and formatting the data structure for direct import into the eTool (by Cerclos) carbon accounting platform.</li>
+            </ul>
+            
+            <ul class="collapsible-content" id="details-co-perform">
                 <li><strong>Municipal Sustainability Policy:</strong> Partnered with Nation Partners to co-author the City of Melbourne Sustainable Building Policy, defining rigorous environmental, carbon, and operational performance standards specifically for the Council's own municipal asset portfolio.</li>
                 <li><strong>DevOps & AI Automation:</strong> Manage all internal DevOps operations, recently constructing a custom repository leveraging advanced AI tools to automate approximately 80% of ongoing deployment, testing, and cloud infrastructure pipeline tasks.</li>
                 <li><strong>Infrastructure Engineering:</strong> Developed an internal cloud-based compute system using Python and Plotly Dash, allowing teams to run automated simulations securely through ngrok tunnels.</li>
@@ -602,6 +736,8 @@
                 <li><strong>Business Strategy:</strong> Commissioned and co-led a 6-month strategic review of business model and market alignment with Focused Solutions.</li>
                 <li><strong>Operations & Governance:</strong> Set up and managed the company's project management and CRM tools (Runn, Pneumatic, OnePageCRM, Mixmax) and led weekly project, cash flow, and directors' meetings.</li>
             </ul>
+            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-co-perform')" aria-expanded="false">Show more details ↓</button>
+            
             <div class="stack-section">
                 <span class="pill">NABERS</span><span class="pill">NABERS Upfront Carbon</span><span class="pill">Green Star</span><span class="pill">SMP Support</span><span class="pill">Planning Permits</span><span class="pill">Building Permits</span><span class="pill">eTool</span><span class="pill">DevOps</span><span class="pill">AI Automation</span><span class="pill">Python</span><span class="pill">Plotly Dash</span><span class="pill">Astro</span><span class="pill">SQL</span><span class="pill">LaTeX</span>
             </div>
@@ -619,11 +755,16 @@
                 <li><strong>Sole Trader Operations (Visergy):</strong> Established and managed an independent consultancy sub-contracting to major engineering practices. Directed all commercial and operational facets of the business, including market branding, client proposal development, engineering delivery, and financial invoicing.</li>
                 <li><strong>Building Performance & Daylighting:</strong> Provided performance-based design support for town planning and building approvals, utilising energy and daylight simulation to optimise building performance and inform detailed Sustainability Management Plans (SMPs).</li>
                 <li><strong>Solar Feasibility Tooling:</strong> Developed and built a light, fast predictive modelling tool to accurately right-size solar PV systems, accelerating early-stage design feasibility and concept planning.</li>
+            </ul>
+            
+            <ul class="collapsible-content" id="details-mefl">
                 <li><strong>Climate-Resilient Public Housing:</strong> Partnered with architects at DesignInc to design a template public housing prototype engineered for passive thermal resilience and occupant safety during extreme heatwaves.</li>
                 <li><strong>Regional Emissions Modelling:</strong> Ingested and cleaned regional datasets across agriculture, residential, transport, and commercial sectors to build an emissions inventory for the Hepburn Shire/Daylesford Net-Zero transition plan.</li>
                 <li><strong>Data Visualisation:</strong> Deployed custom Python scripts to translate energy interval data into clear visual models for municipal and public stakeholders.</li>
                 <li><strong>Residential Retrofit Analysis:</strong> Modelled building physics and retrofit scenarios for public housing towers to assist the Department of Health and Human Services (DHHS) with capital upgrade decisions.</li>
             </ul>
+            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-mefl')" aria-expanded="false">Show more details ↓</button>
+            
             <div class="stack-section">
                 <span class="pill">Energy Simulation</span><span class="pill">Daylight Modelling</span><span class="pill">Solar Predictor</span><span class="pill">Passive Resilience</span><span class="pill">Consultancy Ops</span><span class="pill">Python Scripting</span><span class="pill">Tableau</span><span class="pill">Data Cleansing</span>
             </div>
@@ -639,9 +780,14 @@
             <div>Directed regional analytical capacity, workflows, hardware integration, and high-fidelity computational modelling for one of the world's premier engineering institutions.</div>
             <ul>
                 <li><strong>Building Performance Simulation:</strong> Led the regional team in building energy and daylight simulation, standardising workflows for commercial developments.</li>
+            </ul>
+            
+            <ul class="collapsible-content" id="details-arup">
                 <li><strong>Computation Platform:</strong> Designed and maintained an internal Linux compute cluster to centralise calculations. Standardised text-based configuration files to ensure quality control and auditable results across regional teams.</li>
                 <li><strong>Software Integration:</strong> Developed custom scripts to link Fluent CFD geometry with Radiance solar simulation, creating accurate thermal boundary conditions for complex atrium designs.</li>
             </ul>
+            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-arup')" aria-expanded="false">Show more details ↓</button>
+            
             <div class="stack-section">
                 <span class="pill">Perl</span><span class="pill">Linux Clusters</span><span class="pill">Building Physics</span><span class="pill">CFD Mesh Processing</span><span class="pill">Radiance Integration</span><span class="pill">QA Governance</span>
             </div>
@@ -657,10 +803,15 @@
             <div>Delivered advanced computational fluid dynamics (CFD), blast wave risks, and process automation across commercial real estate, sports stadia, and offshore oil/gas operations.</div>
             <ul>
                 <li><strong>Built Environment Aerodynamics (BMT):</strong> Utilised computational fluid dynamics (CFD) to prepare urban wind microclimate comfort and safety assessments, pollution dispersion models, and structural facade cladding wind pressure loads for complex tall buildings and precincts.</li>
+            </ul>
+            
+            <ul class="collapsible-content" id="details-bmt">
                 <li><strong>Wind Tunnel Experimental Validation:</strong> Conducted light-touch experimental validation within boundary layer wind tunnels, calibrating physical model sensor data against corresponding numerical CFD simulation results to guarantee analytical assurance.</li>
-                <li><strong>Process Automation:</strong> Eliminated dozens of hours of manual coordinate data entry by writing custom Rhino3D scripts to ingest raw piping layout text files from third-party contractors, programmatically reconstructing the 3D topology and exporting it instantly into offshore explosion simulator formats (AutoReGas).</li>
+                <li><strong>Process Automation:</strong> Wrote custom Rhino3D scripts to parse coordinates from piping layouts, automatically generating 3D models for offshore explosion simulation (AutoReGas) and reducing manual modelling hours.</li>
                 <li><strong>High-Performance Infrastructure:</strong> Designed, built, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
             </ul>
+            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-bmt')" aria-expanded="false">Show more details ↓</button>
+            
             <div class="stack-section">
                 <span class="pill">CFD Modelling</span><span class="pill">Wind Tunnel Validation</span><span class="pill">RhinoScript</span><span class="pill">Beowulf Clustering</span><span class="pill">Linux Admin</span><span class="pill">AutoReGas</span>
             </div>
@@ -728,10 +879,36 @@
             With a 30-year engineering background, I approach compliance, carbon accounting, and building optimisation as an integrated systems and data challenge. My focus is on bridging the gap between physical operational realities and corporate reporting—building automated, verifiable pipelines to ensure absolute data integrity and mitigate risk.
         </p>
 
+        <!-- FOOTER ACTIONS -->
+        <div class="footer-actions">
+            <button onclick="window.print()" class="print-btn" title="Export Profile as PDF Document">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+                </svg>
+                Print Profile / Save as PDF
+            </button>
+        </div>
+
     </div>
 
     <!-- Client-side Palette Engine -->
     <script>
+        // Global Collapse Toggle Engine
+        function toggleDetails(btn, containerId) {
+            const content = document.getElementById(containerId);
+            const isExpanded = content.classList.contains('expanded');
+            
+            if (isExpanded) {
+                content.classList.remove('expanded');
+                btn.innerHTML = 'Show more details ↓';
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                content.classList.add('expanded');
+                btn.innerHTML = 'Show less details ↑';
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const dots = document.querySelectorAll('.colour-dot');
             const modeToggle = document.getElementById('mode-toggle');
