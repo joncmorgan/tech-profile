@@ -71,6 +71,18 @@
             transition: color 0.25s ease;
         }
 
+        .contact-bar a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-secondary);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contact-bar a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
         /* Navigation & Switcher Flex Layout */
         nav {
             display: flex;
@@ -281,9 +293,40 @@
             color: var(--text-primary);
         }
 
+        /* Secondary Contact Footer */
+        .contact-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px dashed var(--border);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .contact-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.85;
+        }
+
         /* Document Action Footer */
         .footer-actions {
-            margin-top: 60px;
+            margin-top: 40px;
             padding-top: 30px;
             border-top: 1px solid var(--border);
             display: flex;
@@ -378,6 +421,14 @@
                 background-color: var(--accent) !important;
                 border-color: var(--bg-card) !important;
             }
+            .contact-footer {
+                border-top: 1px dashed var(--border) !important;
+                color: var(--text-primary) !important;
+            }
+            .contact-links a {
+                color: var(--text-primary) !important;
+                font-weight: 700 !important;
+            }
         }
 
         /* Responsive Mobile Behaviour overrides desktop card framework */
@@ -416,7 +467,10 @@
             <h1>Jon Morgan</h1>
             <div class="title-sub">Technical Director – Decarbonisation & Data Assurance</div>
             <div class="contact-bar">
-                Melbourne, Australia &bull; Executive Career Portfolio &bull; Tech Profile
+                Melbourne, Australia &bull; 
+                0429 357 751 &bull; 
+                <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a> &bull; 
+                <a href="https://www.linkedin.com/in/linkjonmorgan/" target="_blank">LinkedIn</a>
             </div>
         </header>
 
@@ -535,7 +589,7 @@
             <ul class="collapsible-content" id="details-bmt">
                 <li><strong>Wind Tunnel Experimental Validation:</strong> Conducted light-touch experimental validation within boundary layer wind tunnels, calibrating physical model sensor data against corresponding numerical CFD simulation results to guarantee analytical assurance.</li>
                 <li><strong>Process Automation:</strong> Wrote custom Rhino3D scripts to parse coordinates from piping layouts, automatically generating 3D models for offshore explosion simulation (AutoReGas) and reducing manual modelling hours.</li>
-                <li><strong>High-Performance Infrastructure:</strong> Designed, built, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
+                <li><strong>High-Performance Infrastructure:</strong> Designed, build, and managed custom Beowulf Linux computing clusters to handle intensive queue management for heavy industrial hydrodynamic and structural stress simulations.</li>
             </ul>
             <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-bmt')" aria-expanded="false">Show more details ↓</button>
         </div>
@@ -593,7 +647,7 @@
             <a href="#" class="back-to-top" title="Back to top">Top ↑</a>
         </h2>
         <p>
-            My work centers on the intersection of physical operations and corporate compliance frameworks, bridging the gap between built assets and the corporate balance sheet. Rather than approaching ESG disclosures and carbon reporting as administrative checkboxes, I focus on the technical engineering and data pathways required to support them—connecting utility metering setups, thermal plant physics, and embodied materials data directly to auditable registers.
+            My work centers on the intersection of physical operations and corporate compliance frameworks, bridging the gap between built assets and the corporate balance sheet. Rather than approaching ESG disclosures and carbon reporting as administrative checkboxes, I focus on the technical engineering and data pathways required to support them—connecting utility metering setups, thermal plant dynamics, and embodied materials data directly to auditable registers.
         </p>
         <p>
             Within the institutional real estate sector, high-integrity transition planning requires robust physical validation to move past speculative estimates. I design my simulation workflows—including load curves, battery storage parameters, and local dynamic tariffs—to deliver the precise, science-backed operational data that risk-aware management teams need to make defensible capital decisions.
@@ -601,6 +655,16 @@
         <p>
             With a 30-year engineering background, I approach compliance, carbon accounting, and building optimisation as an integrated systems and data challenge. My role is to provide the automated, verifiable data pipelines that eliminate transcription risks, protect asset performance, and ensure absolute compliance integrity on the balance sheet.
         </p>
+
+        <!-- MINIMAL CONTACT FOOTER -->
+        <div class="contact-footer">
+            <span>Interested in discussing decarbonisation, data assurance, or transition modeling?</span>
+            <div class="contact-links">
+                <span style="color: var(--text-primary); font-weight: 600; margin-right: 10px;">0429 357 751</span>
+                <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a>
+                <a href="https://www.linkedin.com/in/linkjonmorgan/" target="_blank">linkedin.com/in/linkjonmorgan</a>
+            </div>
+        </div>
 
         <!-- FOOTER ACTIONS -->
         <div class="footer-actions">
