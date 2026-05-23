@@ -5,57 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jon Morgan | Technical Director – Carbon Systems & Data Assurance</title>
     <style>
-        /* System-Adaptive Color Variables (Light Mode Defaults) */
-        :root {
-            /* Theme Accent Variables (Cobalt Blue by default) */
-            --accent-light: #2563eb;
-            --accent-dark: #38bdf8;
-
-            /* Base Canvas Variables */
-            --bg-canvas: #f1f5f9;      /* Ultra-subtle slate canvas background */
-            --bg-card: #ffffff;        /* Pure white floating card */
-            --text-primary: #0f172a;   /* Dark slate primary text */
-            --text-secondary: #475569; /* Medium slate secondary text */
-            --accent: var(--accent-light); /* Evaluates dynamically based on media queries */
-            --border: #e2e8f0;         /* Soft slate border */
-            --subtle-gray: #f8fafc;    /* Background for highlighted callouts */
-            --pill-bg: #f1f5f9;        /* Tech badge background */
-            --pill-text: #475569;      /* Tech badge text */
+        /* System-Adaptive Color Variables & Palette Themes */
+        
+        /* 1. CLASSIC COBALT (Default / Cool Slate Scale) */
+        :root, :root.theme-blue {
+            --accent: #2563eb;         /* Cobalt Blue */
+            --bg-canvas: #f1f5f9;      /* Light Slate */
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;   /* Deep Slate */
+            --text-secondary: #475569; /* Medium Slate */
+            --border: #e2e8f0;
+            --subtle-gray: #f8fafc;
+            --pill-bg: #f1f5f9;
+            --pill-text: #475569;
             --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
         }
 
-        /* Class-based theme overrides on root */
-        :root.theme-blue {
-            --accent-light: #2563eb;
-            --accent-dark: #38bdf8;
-        }
+        /* 2. DATA INFRASTRUCTURE (Zinc Gray Scale) */
         :root.theme-teal {
-            --accent-light: #0d9488;
-            --accent-dark: #2dd4bf;
-        }
-        :root.theme-emerald {
-            --accent-light: #059669;
-            --accent-dark: #34d399;
-        }
-        :root.theme-bronze {
-            --accent-light: #b45309;
-            --accent-dark: #f59e0b;
+            --accent: #0d9488;         /* Teal */
+            --bg-canvas: #f4f4f5;      /* Clean Zinc */
+            --bg-card: #ffffff;
+            --text-primary: #09090b;   /* Off-black Zinc */
+            --text-secondary: #52525b; /* Medium Zinc */
+            --border: #e4e4e7;
+            --subtle-gray: #fafafa;
+            --pill-bg: #f4f4f5;
+            --pill-text: #52525b;
+            --shadow: 0 4px 20px -2px rgba(9, 9, 11, 0.04);
         }
 
-        /* Auto Dark Mode Overrides (Matches user OS system preference) */
+        /* 3. CARBON INTEGRITY (Stone Gray Scale) */
+        :root.theme-emerald {
+            --accent: #059669;         /* Emerald */
+            --bg-canvas: #f5f5f4;      /* Granite Stone */
+            --bg-card: #ffffff;
+            --text-primary: #1c1917;   /* Charcoal Stone */
+            --text-secondary: #57534e; /* Warm Gray-Stone */
+            --border: #e7e5e4;
+            --subtle-gray: #fafaf9;
+            --pill-bg: #f5f5f4;
+            --pill-text: #57534e;
+            --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04);
+        }
+
+        /* 4. PREMIUM BUILT ASSET (Warm Sand & Neutral Scale) */
+        :root.theme-bronze {
+            --accent: #b45309;         /* Warm Bronze */
+            --bg-canvas: #fafaf9;      /* Warm Alabaster Sand */
+            --bg-card: #ffffff;
+            --text-primary: #1c1917;   /* Warm Black */
+            --text-secondary: #57534e; /* Soft Umber */
+            --border: #e7e5e4;
+            --subtle-gray: #fffdeb;    /* Very soft cream warmth */
+            --pill-bg: #f5f5f4;
+            --pill-text: #57534e;
+            --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04);
+        }
+
+        /* Auto Dark Mode Theme Mappings (Matches user OS system preference) */
         @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-canvas: #090d16;      /* Ultra-deep, clean obsidian-navy backdrop */
-                --bg-card: #131b2e;        /* Dark slate card body */
-                --text-primary: #f8fafc;   /* Crisp white-gray text */
-                --text-secondary: #94a3b8; /* Soft blue-gray reading text */
-                --accent: var(--accent-dark);
-                --border: #1e293b;         /* Deep slate borders */
-                --subtle-gray: #1e293b;    /* Highlight callout backdrop */
-                --pill-bg: #1e293b;        /* Dark badge backdrop */
-                --pill-text: #cbd5e1;      /* Light-gray badge text */
+            /* 1. Dark Cobalt (Slate Navy) */
+            :root:not(.light-mode), :root:not(.light-mode).theme-blue {
+                --accent: #38bdf8;         /* High-contrast Sky Blue */
+                --bg-canvas: #090d16;      /* Obsidian Navy */
+                --bg-card: #131b2e;        /* Dark Slate */
+                --text-primary: #f8fafc;   /* White-Slate */
+                --text-secondary: #94a3b8; /* Soft Slate */
+                --border: #1e293b;
+                --subtle-gray: #1e293b;
+                --pill-bg: #1e293b;
+                --pill-text: #cbd5e1;
                 --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             }
+
+            /* 2. Dark Teal (Zinc Charcoal) */
+            :root:not(.light-mode).theme-teal {
+                --accent: #2dd4bf;         /* Cyber Turquoise */
+                --bg-canvas: #09090b;      /* Obsidian Zinc */
+                --bg-card: #18181b;        /* Dark Zinc */
+                --text-primary: #fafafa;   /* White-Zinc */
+                --text-secondary: #a1a1aa; /* Soft Zinc */
+                --border: #27272a;
+                --subtle-gray: #27272a;
+                --pill-bg: #27272a;
+                --pill-text: #e4e4e7;
+                --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+            }
+
+            /* 3. Dark Emerald (Stone Obsidian) */
+            :root:not(.light-mode).theme-emerald {
+                --accent: #34d399;         /* Mint Green */
+                --bg-canvas: #0c0a09;      /* Obsidian Stone */
+                --bg-card: #1c1917;        /* Dark Stone */
+                --text-primary: #f5f5f4;   /* White-Stone */
+                --text-secondary: #a8a29e; /* Soft Stone */
+                --border: #292524;
+                --subtle-gray: #292524;
+                --pill-bg: #292524;
+                --pill-text: #e7e5e4;
+                --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+            }
+
+            /* 4. Dark Bronze (Earthy Charcoal) */
+            :root:not(.light-mode).theme-bronze {
+                --accent: #f59e0b;         /* Amber Gold */
+                --bg-canvas: #0a0a0a;      /* Pure Charcoal */
+                --bg-card: #171717;        /* Dark Earth Neutral */
+                --text-primary: #f5f5f5;   /* Crisp Sand */
+                --text-secondary: #a3a3a3; /* Soft Warm Gray */
+                --border: #262626;
+                --subtle-gray: #262626;
+                --pill-bg: #262626;
+                --pill-text: #e5e5e5;
+                --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* Manually Triggered Override Dark Mode Classes (Using Javascript selectors) */
+        :root.dark-mode, :root.dark-mode.theme-blue {
+            --accent: #38bdf8;
+            --bg-canvas: #090d16;
+            --bg-card: #131b2e;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #1e293b;
+            --subtle-gray: #1e293b;
+            --pill-bg: #1e293b;
+            --pill-text: #cbd5e1;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+        :root.dark-mode.theme-teal {
+            --accent: #2dd4bf;
+            --bg-canvas: #09090b;
+            --bg-card: #18181b;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --border: #27272a;
+            --subtle-gray: #27272a;
+            --pill-bg: #27272a;
+            --pill-text: #e4e4e7;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+        }
+        :root.dark-mode.theme-emerald {
+            --accent: #34d399;
+            --bg-canvas: #0c0a09;
+            --bg-card: #1c1917;
+            --text-primary: #f5f5f4;
+            --text-secondary: #a8a29e;
+            --border: #292524;
+            --subtle-gray: #292524;
+            --pill-bg: #292524;
+            --pill-text: #e7e5e4;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+        }
+        :root.dark-mode.theme-bronze {
+            --accent: #f59e0b;
+            --bg-canvas: #0a0a0a;
+            --bg-card: #171717;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a3a3a3;
+            --border: #262626;
+            --subtle-gray: #262626;
+            --pill-bg: #262626;
+            --pill-text: #e5e5e5;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
         }
 
         /* Layout & Frame Construction */
@@ -78,13 +192,14 @@
             border-radius: 12px;
             padding: 50px;
             box-shadow: var(--shadow);
-            transition: background-color 0.25s ease, border-color 0.25s ease;
+            transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
 
         header {
             border-bottom: 2px solid var(--text-primary);
             padding-bottom: 20px;
             margin-bottom: 20px;
+            transition: border-color 0.25s ease;
         }
 
         h1 {
@@ -105,6 +220,7 @@
         .contact-bar {
             font-size: 0.9rem;
             color: var(--text-secondary);
+            transition: color 0.25s ease;
         }
 
         /* Navigation & Switcher Flex Layout */
@@ -117,6 +233,7 @@
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
             flex-wrap: wrap;
+            transition: border-color 0.25s ease;
         }
 
         .nav-links {
@@ -137,10 +254,16 @@
             color: var(--accent);
         }
 
-        /* Palette Switcher UI */
+        /* Unified Controls (Palette + Mode Toggle) */
+        .theme-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
         .palette-switcher {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
 
@@ -163,6 +286,40 @@
             box-shadow: 0 0 0 2px var(--bg-card);
         }
 
+        /* Divider inside controls */
+        .theme-divider {
+            width: 1px;
+            height: 16px;
+            background-color: var(--border);
+            margin: 0 4px;
+            transition: background-color 0.25s ease;
+        }
+
+        /* Modern Mode Toggle Button */
+        .mode-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .mode-toggle:hover {
+            background-color: var(--subtle-gray);
+            border-color: var(--accent);
+        }
+
+        .mode-toggle svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
         .thesis-box {
             background-color: var(--subtle-gray);
             border-left: 4px solid var(--accent);
@@ -172,7 +329,7 @@
             font-size: 1.1rem;
             font-style: italic;
             color: var(--text-primary);
-            transition: border-color 0.25s ease;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
         }
 
         /* Major Headings with Subtle Colored Left Cue */
@@ -186,6 +343,7 @@
             scroll-margin-top: 25px; /* Comfortable spacing after scroll jump */
             display: flex;
             align-items: center;
+            transition: border-color 0.25s ease;
         }
 
         h2::before {
@@ -207,6 +365,7 @@
             padding-left: 24px;
             border-left: 2px solid var(--border);
             margin-left: 6px;
+            transition: border-color 0.25s ease;
         }
 
         /* Color-matched Node Dot for timeline items */
@@ -247,13 +406,14 @@
             padding: 2px 8px;
             border-radius: 4px;
             border: 1px solid var(--border);
-            transition: background-color 0.25s ease, border-color 0.25s ease;
+            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
         }
 
         .role-title {
             font-weight: 600;
             color: var(--text-secondary);
             margin-bottom: 10px;
+            transition: color 0.25s ease;
         }
 
         /* Clean List Formatting with custom Accent bullet cues */
@@ -268,6 +428,7 @@
             color: var(--text-secondary);
             position: relative;
             padding-left: 18px;
+            transition: color 0.25s ease;
         }
 
         li::before {
@@ -299,7 +460,7 @@
             margin-bottom: 6px;
             font-weight: 600;
             border: 1px solid var(--border);
-            transition: background-color 0.25s ease, border-color 0.25s ease;
+            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
         }
 
         .stack-section {
@@ -334,7 +495,7 @@
             .nav-links {
                 gap: 16px;
             }
-            .palette-switcher {
+            .theme-controls {
                 align-self: flex-end;
             }
             .timeline-item {
@@ -363,16 +524,29 @@
                 <a href="#education">Education & Accreditations</a>
                 <a href="#relevance">Compliance & Operations</a>
             </div>
-            <div class="palette-switcher" aria-label="Color Theme Selector">
-                <button class="color-dot active" data-theme="blue" style="background-color: #2563eb;" title="Classic Cobalt (Blue)"></button>
-                <button class="color-dot" data-theme="teal" style="background-color: #0d9488;" title="Data Infrastructure (Teal)"></button>
-                <button class="color-dot" data-theme="emerald" style="background-color: #059669;" title="Carbon Integrity (Emerald)"></button>
-                <button class="color-dot" data-theme="bronze" style="background-color: #b45309;" title="Premium Built Asset (Bronze)"></button>
+            <div class="theme-controls">
+                <div class="palette-switcher" aria-label="Color Theme Selector">
+                    <button class="color-dot active" data-theme="blue" style="background-color: #2563eb;" title="Classic Cobalt (Blue)"></button>
+                    <button class="color-dot" data-theme="teal" style="background-color: #0d9488;" title="Data Infrastructure (Teal)"></button>
+                    <button class="color-dot" data-theme="emerald" style="background-color: #059669;" title="Carbon Integrity (Emerald)"></button>
+                    <button class="color-dot" data-theme="bronze" style="background-color: #b45309;" title="Premium Built Asset (Bronze)"></button>
+                </div>
+                <span class="theme-divider" role="presentation"></span>
+                <button id="mode-toggle" class="mode-toggle" title="Toggle Light/Dark Mode" aria-label="Toggle dark mode">
+                    <!-- Sun Icon (shown in Dark mode) -->
+                    <svg class="sun-icon" style="display: none;" viewBox="0 0 24 24">
+                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zm-5.01-13.42c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/>
+                    </svg>
+                    <!-- Moon Icon (shown in Light mode) -->
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10C2.2 6.8 6.5 2.5 11.7 2.1c.5 0 .9.3 1 .8.1.5-.2 1-.6 1.2-2.7 1.4-4.3 4.2-4.3 7.4 0 4.2 3.2 7.7 7.4 8.2.5.1.8.5.8 1 0 .5-.4.9-1 1.3h-.7zm-1.8-17.8c-3.7.8-6.3 4-6.3 7.8 0 4.4 3.6 8 8 8 .9 0 1.7-.1 2.5-.4-.9-1.4-1.4-3.1-1.4-4.8 0-4.3 3.1-8 7.3-8.8-1.4-.8-3.1-1.3-4.8-1.3-.7 0-1.4.1-2.1.2l-3.2 1.3z"/>
+                    </svg>
+                </button>
             </div>
         </nav>
 
         <div id="about" class="thesis-box">
-            "I focus on designing efficient, reliable systems that minimize manual errors and optimize data flow. Rather than relying on manual spreadsheets for critical compliance reporting, my focus is on establishing code-governed, verifiable data pipelines. Over a 30-year career spanning defense research, building physics, and systems automation, I build workflows that connect physical asset performance directly to corporate registers."
+            "I focus on designing high-integrity, automated data pipelines that streamline compliance and optimize building performance. By establishing code-governed, verifiable workflows, I ensure physical asset performance translates seamlessly and accurately to corporate registers. Over a 30-year career spanning defense research, building physics, and systems automation, I help organizations achieve absolute data integrity and operational efficiency."
         </div>
 
         <h2 id="capabilities">Core Capability Matrix</h2>
@@ -512,10 +686,10 @@
         <!-- RELEVANCE SECTION -->
         <h2 id="relevance">Why This Background Matters for Compliance & Operations</h2>
         <p>
-            The evolution of mandatory sustainability disclosures, carbon reporting, and ESG frameworks establishes strict auditing requirements for corporate reporting. Sustainability teams frequently struggle with manual spreadsheet workflows that introduce operational and error risks, while traditional IT and finance departments often lack familiarity with physical building systems, utility metering setups, thermal plant dynamics, or embodied carbon metrics.
+            The evolution of mandatory sustainability disclosures, carbon reporting, and ESG frameworks establishes rigorous, auditable standards for corporate reporting. Aligning physical operations with compliance frameworks requires a specialized understanding of both building physics and data engineering—connecting physical assets, utility metering setups, thermal plant dynamics, and embodied carbon metrics directly to the balance sheet.
         </p>
         <p>
-            With a 30-year engineering background, I approach compliance, carbon accounting, and building optimization as an integrated data and systems challenge. My focus is on bridging the gap between physical operational realities and corporate reporting—building automated, verifiable pipelines to ensure absolute data integrity and mitigate risk.
+            With a 30-year engineering background, I approach compliance, carbon accounting, and building optimization as an integrated systems and data challenge. My focus is on bridging the gap between physical operational realities and corporate reporting—building automated, verifiable pipelines to ensure absolute data integrity and mitigate risk.
         </p>
 
     </div>
@@ -524,9 +698,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const dots = document.querySelectorAll('.color-dot');
+            const modeToggle = document.getElementById('mode-toggle');
+            const sunIcon = modeToggle.querySelector('.sun-icon');
+            const moonIcon = modeToggle.querySelector('.moon-icon');
             const root = document.documentElement;
 
-            // Load saved theme from previous session, default to Classic Blue ('blue')
+            // 1. Load & Apply Color Accent Theme
             const savedTheme = localStorage.getItem('tech-profile-theme') || 'blue';
             applyTheme(savedTheme);
 
@@ -539,12 +716,9 @@
             });
 
             function applyTheme(themeName) {
-                // Clear existing theme classes
                 root.classList.remove('theme-blue', 'theme-teal', 'theme-emerald', 'theme-bronze');
-                // Apply the new selector class
                 root.classList.add(`theme-${themeName}`);
 
-                // Manage indicator state on selectors
                 dots.forEach(dot => {
                     if (dot.getAttribute('data-theme') === themeName) {
                         dot.classList.add('active');
@@ -552,6 +726,48 @@
                         dot.classList.remove('active');
                     }
                 });
+            }
+
+            // 2. Load & Apply Light/Dark Mode Preference
+            const savedMode = localStorage.getItem('tech-profile-mode');
+            if (savedMode === 'dark') {
+                root.classList.add('dark-mode');
+                root.classList.remove('light-mode');
+            } else if (savedMode === 'light') {
+                root.classList.add('light-mode');
+                root.classList.remove('dark-mode');
+            }
+            
+            updateToggleIcons();
+
+            // Toggle Button Event Listener
+            modeToggle.addEventListener('click', () => {
+                const isCurrentlyDark = root.classList.contains('dark-mode') || 
+                    (!root.classList.contains('light-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+                if (isCurrentlyDark) {
+                    root.classList.add('light-mode');
+                    root.classList.remove('dark-mode');
+                    localStorage.setItem('tech-profile-mode', 'light');
+                } else {
+                    root.classList.add('dark-mode');
+                    root.classList.remove('light-mode');
+                    localStorage.setItem('tech-profile-mode', 'dark');
+                }
+                updateToggleIcons();
+            });
+
+            function updateToggleIcons() {
+                const isDarkActive = root.classList.contains('dark-mode') || 
+                    (!root.classList.contains('light-mode') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                
+                if (isDarkActive) {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
             }
         });
     </script>
