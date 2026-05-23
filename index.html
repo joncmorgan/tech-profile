@@ -7,113 +7,17 @@
     <style>
         /* System-Adaptive Color Variables & Palette Themes */
         
-        /* DEFAULT ACTIVE PROFILE: PREMIUM BUILT ASSET (Warm Sand & Neutral Scale) */
-        :root, :root.theme-bronze {
-            --accent: #b45309;         /* Warm Bronze */
+        /* SINGLE UNIFIED MID-TONE THEME: NETCOMPANY SLATE & INEOS CRIMSON */
+        :root {
+            --accent: #e2001a;          /* INEOS Signature High-Performance Crimson Red */
             --text-on-accent: #ffffff;
-            --bg-canvas: #fafaf9;      /* Warm Alabaster Sand */
-            --bg-card: #ffffff;
-            --text-primary: #1c1917;   /* Warm Black */
-            --text-secondary: #57534e; /* Soft Umber */
-            --border: #e7e5e4;
-            --subtle-grey: #fffdeb;    /* Very soft cream warmth */
-            --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.05), 0 2px 8px -1px rgba(28, 25, 23, 0.03);
-        }
-
-        /* ALTERNATIVE THEMES PRESERVED UNDER-THE-HOOD */
-        
-        /* 2. CLASSIC COBALT (Cool Slate Scale) */
-        :root.theme-blue {
-            --accent: #2563eb;         /* Cobalt Blue */
-            --text-on-accent: #ffffff;
-            --bg-canvas: #f1f5f9;      /* Light Slate */
-            --bg-card: #ffffff;
-            --text-primary: #0f172a;   /* Deep Slate */
-            --text-secondary: #475569; /* Medium Slate */
-            --border: #e2e8f0;
-            --subtle-grey: #f8fafc;
-            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
-        }
-
-        /* 3. DATA INFRASTRUCTURE (Zinc Grey Scale) */
-        :root.theme-teal {
-            --accent: #0d9488;         /* Teal */
-            --text-on-accent: #ffffff;
-            --bg-canvas: #f4f4f5;      /* Clean Zinc */
-            --bg-card: #ffffff;
-            --text-primary: #09090b;   /* Off-black Zinc */
-            --text-secondary: #52525b; /* Medium Zinc */
-            --border: #e4e4e7;
-            --subtle-grey: #fafafa;
-            --shadow: 0 4px 20px -2px rgba(9, 9, 11, 0.04);
-        }
-
-        /* 4. CARBON INTEGRITY (Stone Grey Scale) */
-        :root.theme-emerald {
-            --accent: #059669;         /* Emerald */
-            --text-on-accent: #ffffff;
-            --bg-canvas: #f5f5f4;      /* Granite Stone */
-            --bg-card: #ffffff;
-            --text-primary: #1c1917;   /* Charcoal Stone */
-            --text-secondary: #57534e; /* Warm Grey-Stone */
-            --border: #e7e5e4;
-            --subtle-grey: #fafaf9;
-            --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.04);
-        }
-
-        /* Auto Dark Mode Theme Mappings (Matches user OS system preference) */
-        @media (prefers-color-scheme: dark) {
-            /* Default Dark Mode: Dark Bronze (Earthy Charcoal) */
-            :root, :root.theme-bronze {
-                --accent: #f59e0b;         /* Amber Gold */
-                --text-on-accent: #0a0a0a;
-                --bg-canvas: #0a0a0a;      /* Pure Charcoal */
-                --bg-card: #171717;        /* Dark Earth Neutral */
-                --text-primary: #f5f5f5;   /* Crisp Sand */
-                --text-secondary: #a3a3a3; /* Soft Warm Grey */
-                --border: #262626;
-                --subtle-grey: #262626;
-                --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-            }
-
-            /* Dark Blue (Slate Navy) */
-            :root.theme-blue {
-                --accent: #38bdf8;         /* High-contrast Sky Blue */
-                --text-on-accent: #0f172a;
-                --bg-canvas: #090d16;      /* Obsidian Navy */
-                --bg-card: #131b2e;        /* Dark Slate */
-                --text-primary: #f8fafc;   /* White-Slate */
-                --text-secondary: #94a3b8; /* Soft Slate */
-                --border: #1e293b;
-                --subtle-grey: #1e293b;
-                --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            }
-
-            /* Dark Teal (Zinc Charcoal) */
-            :root.theme-teal {
-                --accent: #2dd4bf;         /* Cyber Turquoise */
-                --text-on-accent: #09090b;
-                --bg-canvas: #09090b;      /* Obsidian Zinc */
-                --bg-card: #18181b;        /* Dark Zinc */
-                --text-primary: #fafafa;   /* White-Zinc */
-                --text-secondary: #a1a1aa; /* Soft Zinc */
-                --border: #27272a;
-                --subtle-grey: #27272a;
-                --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
-            }
-
-            /* Dark Emerald (Stone Obsidian) */
-            :root.theme-emerald {
-                --accent: #34d399;         /* Mint Green */
-                --text-on-accent: #0c0a09;
-                --bg-canvas: #0c0a09;      /* Obsidian Stone */
-                --bg-card: #1c1917;        /* Dark Stone */
-                --text-primary: #f5f5f4;   /* White-Stone */
-                --text-secondary: #a8a29e; /* Soft Stone */
-                --border: #292524;
-                --subtle-grey: #292524;
-                --shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
-            }
+            --bg-canvas: #1e242d;       /* Netcompany Sophisticated Slate-Navy Canvas */
+            --bg-card: #262e3a;         /* Clean Technical Slate-Grey Card */
+            --text-primary: #f8fafc;    /* Crisp Off-White Slate */
+            --text-secondary: #cbd5e1;  /* Soft, Readable Slate Grey */
+            --border: #384556;          /* Muted Panel Separator */
+            --subtle-grey: #2c3543;     /* Refined Contrast Container */
+            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.15), 0 2px 8px -1px rgba(15, 23, 42, 0.1);
         }
 
         /* Layout & Frame Construction */
@@ -421,16 +325,16 @@
 
         /* PDF / Print Optimization Styles */
         @media print {
-            /* Force all text variables to high-contrast readable elements regardless of OS light/dark scheme */
-            :root, :root.theme-bronze, :root.theme-blue, :root.theme-teal, :root.theme-emerald {
-                --accent: #78350f !important; /* Deep, readable bronze/brown for premium print look */
+            /* Force all text variables to high-contrast readable elements optimized for white paper layout */
+            :root {
+                --accent: #b91c1c !important; /* Deep, readable bronze/red for premium print look */
                 --text-on-accent: #ffffff !important;
                 --bg-canvas: #ffffff !important;
                 --bg-card: #ffffff !important;
-                --text-primary: #1c1917 !important;   /* High-contrast charcoal black */
-                --text-secondary: #44403c !important; /* Deep, highly readable warm grey */
-                --border: #d6d3d1 !important;
-                --subtle-grey: #f5f5f4 !important;
+                --text-primary: #0f172a !important;   /* Clear charcoal black */
+                --text-secondary: #334155 !important; /* Deep, highly readable slate grey */
+                --border: #cbd5e1 !important;
+                --subtle-grey: #f8fafc !important;
                 --shadow: none !important;
             }
             body {
@@ -503,15 +407,6 @@
             }
         }
     </style>
-
-    <!-- Execute theme loading immediately to prevent Flash of Unstyled Content (FOUC) -->
-    <script>
-        (function() {
-            // Instantly extract theme choice or default to Bronze and apply directly to <html> before render
-            const savedTheme = localStorage.getItem('tech-profile-theme') || 'bronze';
-            document.documentElement.classList.add('theme-' + savedTheme);
-        })();
-    </script>
 </head>
 <body>
 
