@@ -324,43 +324,6 @@
             opacity: 0.85;
         }
 
-        /* Document Action Footer */
-        .footer-actions {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: center;
-            transition: border-color 0.25s ease;
-        }
-
-        .print-btn {
-            background-color: var(--accent);
-            color: var(--text-on-accent);
-            border: none;
-            border-radius: 8px;
-            padding: 12px 24px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: var(--shadow);
-            transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-        }
-
-        .print-btn:hover {
-            transform: translateY(-1px);
-            opacity: 0.95;
-        }
-
-        .print-btn svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
         /* Smooth page scroll */
         html {
             scroll-behavior: smooth;
@@ -392,7 +355,7 @@
                 background-color: var(--bg-card) !important;
                 max-width: 100% !important;
             }
-            nav, .back-to-top, .footer-actions, .toggle-details-btn {
+            nav, .back-to-top, .toggle-details-btn {
                 display: none !important;
             }
             .collapsible-content {
@@ -663,16 +626,6 @@
                 <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a>
                 <a href="https://www.linkedin.com/in/linkjonmorgan/" target="_blank">linkedin.com/in/linkjonmorgan</a>
             </div>
-        </div>
-
-        <!-- FOOTER ACTIONS -->
-        <div class="footer-actions">
-            <button onclick="window.print()" class="print-btn" title="Export Profile as PDF Document">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
-                </svg>
-                Print Profile / Save as PDF
-            </button>
         </div>
 
     </div>
