@@ -49,7 +49,7 @@ def generate_profile_pdf(html_path, output_path):
                     color: #64748b;
                 }
                 @bottom-left {
-                    content: "Jon Morgan • Technical Director (Decarbonisation & Data Assurance)";
+                    content: "Jon Morgan • Technical Director";
                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
                     font-size: 7.5pt;
                     color: #64748b;

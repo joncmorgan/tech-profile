@@ -1,642 +1,99 @@
-<!-- Document Version: 2.7 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="document-version" content="2.7">
-    <title>Jon Morgan | Technical Director – Built Environment & Digital Integration</title>
+    <title>SHIM | Directory</title>
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* System-Adaptive Colour Variables & Palette Themes */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&family=JetBrains+Mono&display=swap');
         
-        /* SINGLE UNIFIED MID-TONE THEME: NETCOMPANY SLATE & PREMIUM ORANGE */
-        :root {
-            --accent: #ff6b35;          /* Premium High-Visibility Technical Orange */
-            --text-on-accent: #ffffff;
-            --bg-canvas: #1e242d;       /* Netcompany Sophisticated Slate-Navy Canvas */
-            --bg-card: #262e3a;         /* Clean Technical Slate-Grey Card */
-            --text-primary: #f8fafc;    /* Crisp Off-White Slate */
-            --text-secondary: #cbd5e1;  /* Soft, Readable Slate Grey */
-            --border: #384556;          /* Muted Panel Separator */
-            --subtle-grey: #2c3543;     /* Refined Contrast Container */
-            --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.15), 0 2px 8px -1px rgba(15, 23, 42, 0.1);
-        }
-
-        /* Layout & Frame Construction */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-canvas);
-            margin: 0;
-            padding: 50px 20px;
-            transition: background-color 0.25s ease, color 0.25s ease;
-        }
-
-        /* Floating Container Card on Desktop */
-        .profile-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 50px;
-            box-shadow: var(--shadow);
-            transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        header {
-            border-bottom: 2px solid var(--text-primary);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            transition: border-color 0.25s ease;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-
-        .title-sub {
-            font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 8px;
-            transition: color 0.25s ease;
-        }
-
-        .contact-bar {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            transition: color 0.25s ease;
-        }
-
-        .contact-bar a {
-            color: inherit;
-            text-decoration: none;
-            border-bottom: 1px dotted var(--text-secondary);
-            transition: color 0.2s ease, border-color 0.2s ease;
-        }
-
-        .contact-bar a:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-
-        /* Navigation & Switcher Flex Layout */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            margin-bottom: 45px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            flex-wrap: wrap;
-            transition: border-color 0.25s ease;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .thesis-box {
-            background-color: var(--subtle-grey);
-            border-left: 4px solid var(--accent);
-            border-radius: 0 8px 8px 0;
-            padding: 24px;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--text-primary);
-            transition: border-color 0.25s ease, background-color 0.25s ease;
-        }
-
-        /* Major Headings with Subtle Coloured Left Cue and Back to Top Link */
-        h2 {
-            font-size: 1.4rem;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-            margin-top: 50px;
-            font-weight: 700;
-            scroll-margin-top: 25px; /* Comfortable spacing after scroll jump */
-            display: flex;
-            align-items: center;
-            transition: border-color 0.25s ease;
-        }
-
-        h2::before {
-            content: "";
-            display: inline-block;
-            width: 4px;
-            height: 18px;
-            background-color: var(--accent);
-            border-radius: 2px;
-            margin-right: 12px;
-            flex-shrink: 0;
-            transition: background-color 0.25s ease;
-        }
-
-        .back-to-top {
-            margin-left: auto;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .back-to-top:hover {
-            color: var(--accent);
-        }
-
-        /* Timeline Wrap & Custom Visual Stepper */
-        .timeline-item {
-            margin-bottom: 35px;
-            position: relative;
-            padding-left: 24px;
-            border-left: 2px solid var(--border);
-            margin-left: 6px;
-            transition: border-color 0.25s ease;
-        }
-
-        /* Colour-matched Node Dot for timeline items */
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            border: 2px solid var(--bg-card);
-            transition: background-color 0.25s ease, border-color 0.25s ease;
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            font-weight: 700;
-            margin-bottom: 5px;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .company-name {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-        }
-
-        /* Styled Metadata Date Badge */
-        .date-range {
-            display: inline-block;       /* Crucial fix for HTML-to-PDF layout and double-border conflicts */
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            background-color: var(--subtle-grey);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-        }
-
-        .role-title {
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            transition: color 0.25s ease;
-        }
-
-        /* Clean List Formatting with custom Accent bullet cues */
-        ul {
-            margin: 12px 0 0 0; /* Clear 12px vertical separation before lists */
-            padding-left: 0;
-            list-style: none; /* Strip standard browsers bullets */
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: var(--text-secondary);
-            position: relative;
-            padding-left: 18px;
-            transition: color 0.25s ease;
-        }
-
-        li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            width: 12px;
-            transition: color 0.25s ease;
-        }
-
-        li strong {
-            color: var(--text-primary);
-        }
-
-        /* Collapsible List Elements for cleaner scannability */
-        .collapsible-content {
-            margin-top: 0; /* Prevent visual gap when collapsed */
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, margin-top 0.35s ease;
-        }
-
-        .collapsible-content.expanded {
-            margin-top: 8px; /* Clean spacing once expanded */
-            max-height: 1200px; /* Generous height allocation to ensure no clipping */
-            opacity: 1;
-        }
-
-        .toggle-details-btn {
-            background: none;
-            border: none;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            padding: 6px 0;
-            margin-top: 4px;
-            margin-left: 18px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: color 0.25s ease, transform 0.2s ease;
-        }
-
-        .toggle-details-btn:hover {
-            color: var(--text-primary);
-        }
-
-        /* Secondary Contact Footer */
-        .contact-footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px dashed var(--border);
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            transition: border-color 0.25s ease, color 0.25s ease;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .contact-links a {
-            color: var(--accent);
-            font-weight: 700;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .contact-links a:hover {
-            opacity: 0.85;
-        }
-
-        /* Smooth page scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* PDF / Print Optimization Styles */
-        @media print {
-            /* Force all text variables to high-contrast readable elements optimized for white paper layout */
-            :root {
-                --accent: #c2410c !important; /* Deep, highly readable brick/burnt orange for premium print look */
-                --text-on-accent: #ffffff !important;
-                --bg-canvas: #ffffff !important;
-                --bg-card: #ffffff !important;
-                --text-primary: #0f172a !important;   /* Clear charcoal black */
-                --text-secondary: #334155 !important; /* Deep, highly readable slate grey */
-                --border: #cbd5e1 !important;
-                --subtle-grey: #f8fafc !important;
-                --shadow: none !important;
-            }
-            body {
-                background-color: var(--bg-canvas) !important;
-                color: var(--text-primary) !important;
-                padding: 0 !important;
-            }
-            .profile-container {
-                border: none !important;
-                box-shadow: none !important;
-                padding: 0 !important;
-                background-color: var(--bg-card) !important;
-                max-width: 100% !important;
-            }
-            nav, .back-to-top, .toggle-details-btn {
-                display: none !important;
-            }
-            .collapsible-content {
-                display: block !important;
-                max-height: none !important;
-                opacity: 1 !important;
-                overflow: visible !important;
-                margin-top: 8px !important;
-            }
-            .thesis-box {
-                background-color: var(--subtle-grey) !important;
-                border-left-color: var(--accent) !important;
-                color: var(--text-primary) !important;
-            }
-            h2 {
-                border-bottom-color: var(--border) !important;
-            }
-            h2::before {
-                background-color: var(--accent) !important;
-            }
-            .timeline-item {
-                border-left-color: var(--border) !important;
-                page-break-inside: avoid;
-            }
-            .timeline-item::before {
-                background-color: var(--accent) !important;
-                border-color: var(--bg-card) !important;
-            }
-            .contact-footer {
-                border-top: 1px dashed var(--border) !important;
-                color: var(--text-primary) !important;
-            }
-            .contact-links a {
-                color: var(--text-primary) !important;
-                font-weight: 700 !important;
-            }
-        }
-
-        /* Responsive Mobile Behaviour overrides desktop card framework */
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-            }
-            .profile-container {
-                border-radius: 0;
-                border: none;
-                padding: 30px 20px;
-                box-shadow: none;
-            }
-            h1 {
-                font-size: 2.1rem;
-            }
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-            .nav-links {
-                gap: 16px;
-            }
-            .timeline-item {
-                margin-left: 2px;
-            }
-        }
+        /* Brand Typography Guidelines */
+        .font-structural { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; }
+        .font-body { font-family: 'Inter', sans-serif; line-height: 1.5; }
+        .font-telemetry { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Global selection colors matching brand palette */
+        ::selection { background-color: #FF5A00; color: #FFFFFF; }
     </style>
 </head>
-<body>
+<body class="bg-[#F4F5F6] text-[#1A1D20] font-body antialiased min-h-screen flex flex-col justify-between">
 
-    <div class="profile-container">
+    <!-- Top Navigation Spacer -->
+    <div class="h-4"></div>
 
-        <header>
-            <h1>Jon Morgan</h1>
-            <div class="title-sub">Technical Director – Built Environment & Digital Integration</div>
-            <div class="contact-bar">
-                Melbourne, Australia &bull; 
-                0429 357 751 &bull; 
-                <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a> &bull; 
-                <a href="https://www.linkedin.com/in/linkjonmorgan/" target="_blank">LinkedIn</a>
-            </div>
-        </header>
-
-        <nav aria-label="Profile Sections">
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#capabilities">Capabilities</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education & Accreditations</a>
-                <a href="#relevance">Compliance & Operations</a>
-            </div>
-        </nav>
-
-        <div id="about" class="thesis-box">
-            "My work sits at the intersection of cross-disciplinary expertise, spanning systems research, building performance simulation, and software automation, complemented by practical experience running a small consultancy. I focus on designing automated data pipelines that connect physical building systems to sustainability reporting frameworks, ensuring automation is balanced with human oversight to translate operational metrics into reliable compliance outputs. This combination of hands-on technical experience and small business operations helps me act as a practical bridge, translating complex technical datasets into clear, transparent, and auditable structures for senior leadership."
-        </div>
-
-        <h2 id="capabilities">
-            <span>Core Capabilities</span>
-            <a href="#" class="back-to-top" title="Back to top">Top ↑</a>
-        </h2>
-        <ul>
-            <li><strong>Building Decarbonisation & Technical Feasibility Modelling:</strong> Extensive experience in detailed building performance simulation. Experienced in developing physical and financial models—integrating load curves, battery storage, solar sizing, and tariff analysis—to provide the technical parameters and performance simulations that underpin decarbonisation planning.</li>
-            <li><strong>Building Performance & Multidisciplinary Engineering:</strong> Nine years with Arup Melbourne, culminating in leading the Australasian Building Physics team. Specialising in building performance, HVAC systems, energy systems, and operational efficiency, with deep experience coordinating complex parameters across services, facades, and acoustics to improve asset value.</li>
-            <li><strong>Digital Integration & Automated Pipelines:</strong> 30 years of programming and systems development experience used to design automated, reproducible calculation workflows. Focussed on translating complex technical inputs and engineering calculations into reliable, compliance-ready reporting outputs while reducing data processing risks.</li>
-            <li><strong>Strategic Operations & Consultancy Governance:</strong> Experience as a co-founder and director for nearly 8 years, leading business strategy, rebranding, and systems refactoring. This background serves as a practical bridge, allowing me to align engineering delivery directly with corporate risk management, software infrastructure, and commercial property governance.</li>
-        </ul>
-
-        <h2 id="experience">
-            <span>Professional Experience</span>
-            <a href="#" class="back-to-top" title="Back to top">Top ↑</a>
-        </h2>
-
-        <!-- CO-PERFORM -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">Co-Perform Pty Ltd</span>
-                <span class="date-range">2018 – Present</span>
-            </div>
-            <div class="role-title">Co-Founder & Director</div>
-            <div>Co-founded and scaled this specialised built environment consultancy. As Director, I lead corporate rebranding, brand messaging, and commercial strategy while maintaining daily collaborative oversight of our operational pipelines, IT systems, and financial metrics.</div>
-            <ul>
-                <li><strong>Strategic Leadership & Commercial Oversight:</strong> Directed our corporate rebranding, messaging strategy, and a six-month strategic business review, maintaining close daily collaboration with my partner on firm-wide financials, cash position, proposals, invoicing, and work-in-progress (WIP).</li>
-                <li><strong>Digital Operations & Systems Refactoring:</strong> Exercised total organisational control over digital infrastructure; recently led a collaborative, comprehensive review and refactoring of all internal systems with a digital transformation specialist to improve system resilience, maximise uptime, and identify operational offshoring and outsourcing opportunities.</li>
-                <li><strong>Municipal Policy Strategy & Technical Evidence:</strong> Developed the technical evidence base and policy strategy supporting the City of Melbourne Sustainable Building Policy, in partnership with Nation Partners. Focussed on aligning municipal assets with Green Star pathways and identifying existing infrastructure to serve as extreme-heat cool centres.</li>
-            </ul>
+    <!-- Central Hub Card -->
+    <main class="max-w-md w-full mx-auto px-6 py-12">
+        <div class="border border-[#4A5568]/30 bg-white rounded-[4px] p-8 shadow-sm relative overflow-hidden">
             
-            <ul class="collapsible-content" id="details-co-perform">
-                <li><strong>R&D Tax Incentive Preparation:</strong> Prepared all technical responses, scoped eligible research activities, mapped project hours, and compiled supporting evidence for annual federal R&D tax offset submissions, handed over to our accountant for final compilation and lodgement.</li>
-                <li><strong>Existing Building Performance & NABERS Support:</strong> Analysed upgrade scenarios for a major Spring Street high-rise, delivered multiple NABERS Commitment Agreement feasibility studies for large-scale commercial buildings, and compiled Building Management System (BMS) data logs to support the formal rating assessment for 101 Collins Street.</li>
-                <li><strong>Building Performance & Climate Resilience:</strong> Delivered energy, thermal, and daylight simulations for Sustainability Management Plans (SMPs) across industrial, commercial, residential, and community developments to secure municipal planning approvals while using future climate scenarios to stress-test comfort and mitigate heatwave risks.</li>
-                <li><strong>Embodied Carbon & Data Integration:</strong> Managed carbon, daylight, and energy calculations for a major 6-star Green Star healthcare project, developing a custom utility to parse contractor Bill of Quantities (BoQ) data for direct carbon accounting import.</li>
-                <li><strong>Systems Engineering & DevOps:</strong> Built database-integrated pipelines using Python to automate compliance reporting and managed an AI-assisted DevOps repository to streamline cloud infrastructure and testing.</li>
-                <li><strong>Disaster Recovery & Redesign:</strong> Rapidly restored operations within 48 hours following a global hosting outage by rebuilding the corporate web presence using Astro.</li>
-            </ul>
-            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-co-perform')" aria-expanded="false">Show more ↓</button>
-        </div>
-
-        <!-- MORELAND / VISERGY -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">Moreland Energy Foundation Ltd & Visergy</span>
-                <span class="date-range">2014 – 2018</span>
+            <!-- Technical Accent Label -->
+            <div class="absolute top-0 right-0 bg-[#FF5A00]/10 text-[#FF5A00] font-telemetry text-[9px] px-3 py-1.5 uppercase tracking-widest border-l border-b border-[#4A5568]/30">
+                Hub ──&gt; Root
             </div>
-            <div class="role-title">Senior Consultant (MEFL) / Principal & Sole Trader (Visergy)</div>
-            <div>Delivered high-level energy efficiency engineering, regional decarbonisation models, and performance-based design simulations for municipal portfolios and commercial real estate.</div>
-            <ul>
-                <li><strong>Sole Trader Operations (Visergy):</strong> Established and managed an independent consultancy, directing all operations, proposal development, project delivery, invoicing, and client relationships.</li>
-                <li><strong>Solar Feasibility & Predictive Tooling:</strong> Created a predictive modelling tool to right-size solar installations, accelerating early-stage design feasibility and concept planning.</li>
-                <li><strong>Climate-Resilient Public Housing:</strong> Collaborated with DesignInc on public housing prototypes engineered for future climate scenarios, analysing comfort and overheating risks to protect vulnerable occupants.</li>
-            </ul>
-            
-            <ul class="collapsible-content" id="details-mefl">
-                <li><strong>Portfolio Performance & Approvals:</strong> Modelled energy, daylight, and thermal performance across diverse asset classes to support town planning, Sustainability Management Plans (SMPs), and public housing retrofit decisions.</li>
-                <li><strong>Regional Emissions Modelling & Analysis:</strong> Analysed cross-sectoral regional datasets to build emissions inventories for the Hepburn Shire Net-Zero transition plan, translating complex interval data into clear visual models for public stakeholders.</li>
-            </ul>
-            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-mefl')" aria-expanded="false">Show more ↓</button>
-        </div>
 
-        <!-- ARUP -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">Arup (Melbourne)</span>
-                <span class="date-range">2005 – 2014</span>
+            <!-- Stacked Logo Header -->
+            <div class="flex flex-col items-start -space-y-1 justify-center select-none mb-8">
+                <div class="flex items-baseline">
+                    <span class="text-2xl font-structural font-black tracking-wider text-[#1A1D20]">SHIM</span>
+                    <span class="text-[#FF5A00] text-xs font-telemetry font-bold ml-0.5">.01</span>
+                </div>
+                <!-- Inline SVG Brand Mark -->
+                <div class="h-3 w-12 text-[#1A1D20] shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 25 160 30" class="h-full w-full" fill="none">
+                        <path d="M 20 25 H 89 L 79 55 H 20 Z" fill="currentColor" />
+                        <path d="M 97 25 L 113 25 L 103 55 L 87 55 Z" fill="#FF5A00" />
+                        <path d="M 121 25 L 111 55 H 180 V 25 Z" fill="currentColor" />
+                    </svg>
+                </div>
             </div>
-            <div class="role-title">Leader of the Australasian Building Physics Team (2009 – 2014) &bull; Senior Consulting Engineer (2005 – 2009)</div>
-            <div>Joined as a Senior Consulting Engineer, progressing to lead the regional Building Physics team for my final five years. Directed regional analytical capacity, workflows, hardware integration, and detailed computational modelling for one of the world's premier engineering institutions.</div>
-            <ul>
-                <li><strong>Graduate Mentorship & Technical Training:</strong> Mentored building performance graduates and delivered structured training for engineering rotations. Participated directly in regional graduate recruitment.</li>
-                <li><strong>Interdisciplinary Performance Forecasting:</strong> Coordinated complex design parameters across services, facades, and acoustics, using future climate scenarios in dynamic thermal models to forecast long-term performance.</li>
-                <li><strong>Building Performance & Quality Assurance:</strong> Standardised simulation workflows across offices in Australasia, ensuring technical rigour, auditable results, and quality control on dynamic compliance calculations.</li>
-            </ul>
-            
-            <ul class="collapsible-content" id="details-arup">
-                <li><strong>Computational Platform & Tool Integration:</strong> Maintained an internal compute platform to centralise calculations, writing custom integration scripts to link airflow and daylight simulations for complex designs.</li>
-            </ul>
-            <button class="toggle-details-btn" onclick="toggleDetails(this, 'details-arup')" aria-expanded="false">Show more ↓</button>
-        </div>
 
-        <!-- ARUP LONDON / BMT -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">Arup (UK) & BMT Fluid Mechanics</span>
-                <span class="date-range">2002 – 2005</span>
+            <!-- Welcome / Core Statement -->
+            <div class="mb-8">
+                <span class="text-[10px] font-telemetry uppercase text-[#FF5A00] tracking-widest font-bold block mb-1">// MAIN DIRECTORY</span>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Systems practice bridging physical operations with digital data architecture. Select an asset route below to proceed.
+                </p>
             </div>
-            <div class="role-title">Consulting Engineer / Analyst</div>
-            <div>Delivered advanced airflow simulations, cladding pressure tests, facade load calculations, and process automation across commercial real estate, sports stadia, and offshore energy operations.</div>
-            <ul>
-                <li><strong>Built Environment Aerodynamics (BMT):</strong> Used physical testing and simulation tools to conduct wind microclimate assessments, cladding pressure tests, and facade load calculations for complex tall buildings.</li>
-                <li><strong>Systems & Modelling Automation:</strong> Managed high-performance compute clusters and wrote custom 3D scripts to automate spatial modelling for design assessment tools.</li>
-            </ul>
-        </div>
 
-        <!-- DSTO -->
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">Defence Science and Technology Organisation (DSTO)</span>
-                <span class="date-range">1996 – 2000</span>
+            <!-- Route Directory Actions -->
+            <div class="space-y-4">
+                
+                <!-- Route 01: Shim Practice -->
+                <a href="./pages/shim.html" class="block border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/60 transition group relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-transparent group-hover:bg-[#FF5A00] transition-colors rounded-l-[4px]"></div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-telemetry uppercase tracking-wider text-slate-500 font-semibold">// ROUTE 01</span>
+                        <span class="text-[9px] font-telemetry text-[#FF5A00] font-bold">ACTIVE ──&gt;</span>
+                    </div>
+                    <h3 class="text-sm font-structural font-black text-[#1A1D20]">The Systems Practice</h3>
+                    <p class="text-slate-500 text-[11px] leading-relaxed mt-1">
+                        Explore the fractional diagnostic framework, operational overloads, and outcomes.
+                    </p>
+                </a>
+
+                <!-- Route 02: Professional Resume -->
+                <a href="./pages/resume.html" class="block border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/60 transition group relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-transparent group-hover:bg-[#FF5A00] transition-colors rounded-l-[4px]"></div>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-telemetry uppercase tracking-wider text-slate-500 font-semibold">// ROUTE 02</span>
+                        <span class="text-[9px] font-telemetry text-[#FF5A00] font-bold">ACTIVE ──&gt;</span>
+                    </div>
+                    <h3 class="text-sm font-structural font-black text-[#1A1D20]">Professional Resume</h3>
+                    <p class="text-slate-500 text-[11px] leading-relaxed mt-1">
+                        Review qualifications, career history, and past physical systems work.
+                    </p>
+                </a>
+
             </div>
-            <div class="role-title">Research & Development Systems Engineer</div>
-            <div>Executed advanced aerodynamic, hydrodynamic, and acoustic performance research for military aircraft, weapons systems, and submarines.</div>
-            <ul>
-                <li><strong>Aerospace & Defence Systems Engineering:</strong> Conducted aerodynamic and hydrodynamic performance research for military aircraft (F/A-18 and F-111) and Collins-class submarines. Developed mathematical optimisation and fault-detection pipelines to diagnose jet engine degradation from physical test-bed logs.</li>
-            </ul>
+
         </div>
+    </main>
 
-        <!-- EDUCATION & ACCREDITATIONS -->
-        <h2 id="education">
-            <span>Education & Accreditations</span>
-            <a href="#" class="back-to-top" title="Back to top">Top ↑</a>
-        </h2>
-        
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">Professional Credentials & Industry Accreditations</span>
-            </div>
-            <ul>
-                <li><strong>Accredited Assessor — NABERS Upfront Carbon</strong> (Embodied carbon assessment for materials, structure, and supply-chain metrics).</li>
-                <li><strong>Energy & Sustainability Hub Advisory Board Member</strong> — Building Designers Association of Victoria (2015 – 2018).</li>
-            </ul>
-        </div>
+    <!-- Footer -->
+    <footer class="py-8 text-center text-[10px] font-telemetry text-slate-400">
+        <p>© 2026 SHIM Systems Practice. Built strictly for peer routing review.</p>
+    </footer>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">RMIT University</span>
-                <span class="date-range">2009 – 2014</span>
-            </div>
-            <div class="role-title">Master of Urban Planning and Environment</div>
-            <div>Advanced postgraduate studies focussing on urban environmental policy, microclimate resilience, sustainable infrastructure, and quantitative resource modelling.</div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <span class="company-name">RMIT University</span>
-                <span class="date-range">1991 – 1995</span>
-            </div>
-            <div class="role-title">Bachelor of Engineering (B.Eng.), Aerospace</div>
-            <div>Rigorous four-year engineering specialisation with deep focus on fluid dynamics and aerodynamics, structural mechanics, systems, control, and computational simulation.</div>
-        </div>
-
-        <!-- RELEVANCE SECTION -->
-        <h2 id="relevance">
-            <span>Compliance & Operations</span>
-            <a href="#" class="back-to-top" title="Back to top">Top ↑</a>
-        </h2>
-        <p>
-            My approach is built on a practical balance: the broad, cross-disciplinary engineering background required to trace data across a portfolio’s entire physical footprint, alongside a deep focus on the exact touchpoints where active building operations meet corporate compliance structures. Rather than prescribing a one-size-fits-all framework, I collaborate to map out precise technical connections—bridging utility metering setups, HVAC performance, and embodied carbon data directly into your corporate reporting systems.
-        </p>
-        <p>
-            For institutional property portfolios, translating transition targets into defensible capital investments requires solid physical parameters. My experience in physical simulation—incorporating localised load curves, battery storage parameters, and tariff analysis models—helps me build reliable, adaptive models. By grounding these technical projections in verified data, I help align engineering feasibility with broader financial and corporate investment goals.
-        </p>
-        <p>
-            With a career that spans both technical engineering and business leadership, I view compliance and decarbonisation as integrated, operational challenges. I bring a balanced toolkit: the technical background to understand complex systems, paired with the practical experience of managing projects, budgets, and risk. This combination enables the design and configuration of automated, verifiable pipelines—grounded in experienced human-in-the-loop validation—that remove tracking risks, protect asset performance, and support consistent reporting integrity on the corporate balance sheet.
-        </p>
-
-        <!-- MINIMAL CONTACT FOOTER -->
-        <div class="contact-footer">
-            <div class="contact-links">
-                <span style="color: var(--text-primary); font-weight: 600; margin-right: 10px;">0429 357 751</span>
-                <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a>
-                <a href="https://www.linkedin.com/in/linkjonmorgan/" target="_blank">linkedin.com/in/linkjonmorgan</a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Client-side Palette Engine -->
-    <script>
-        // Global Collapse Toggle Engine
-        function toggleDetails(btn, containerId) {
-            const content = document.getElementById(containerId);
-            const isExpanded = content.classList.contains('expanded');
-            
-            if (isExpanded) {
-                content.classList.remove('expanded');
-                btn.innerHTML = 'Show more ↓';
-                btn.setAttribute('aria-expanded', 'false');
-            } else {
-                content.classList.add('expanded');
-                btn.innerHTML = 'Show less ↑';
-                btn.setAttribute('aria-expanded', 'true');
-            }
-        }
-    </script>
 </body>
 </html>

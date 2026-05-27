@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIM Minimalist Logos</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Space Grotesk Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#FF5A00',
+                            carbon: '#1A1D20',
+                            gray: '#F4F5F6',
+                            steel: '#4A5568',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+    </style>
+</head>
+<body id="theme-body" class="bg-brand-carbon text-brand-gray min-h-screen p-6 md:p-12">
+
+    <!-- Header Section -->
+    <header class="max-w-4xl mx-auto mb-12 flex justify-between items-center border-b border-brand-steel/20 pb-6">
+        <div>
+            <span class="text-xs font-mono tracking-widest text-brand-orange uppercase">↳ Brand Assets</span>
+            <h1 class="text-2xl font-display font-bold tracking-tight mt-1 text-white" id="theme-heading">SHIM / VECTOR LOGOS</h1>
+        </div>
+        <!-- Light / Dark Toggle -->
+        <button onclick="toggleTheme()" class="px-3 py-1.5 border border-brand-steel/30 rounded text-xs font-mono hover:border-brand-orange transition-colors flex items-center gap-2">
+            <span id="theme-toggle-dot" class="w-2 h-2 rounded-full bg-brand-orange"></span>
+            <span id="theme-toggle-text">LIGHT MODE</span>
+        </button>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Concept 1 -->
+        <div class="border border-brand-steel/20 rounded p-6 bg-brand-carbon/30 flex flex-col justify-between h-80 theme-card">
+            <div>
+                <span class="font-mono text-[10px] text-brand-steel block mb-1">CONCEPT_01</span>
+                <h2 class="font-display font-bold text-lg text-white card-title">The Linear Shim</h2>
+                <p class="text-xs text-brand-steel mt-1">A split system pipeline aligned and locked back together by a clean diagonal wedge.</p>
+            </div>
+            <div class="flex-grow flex items-center justify-center p-4 logo-container">
+                <svg id="svg-concept-1" class="w-48 h-16 transition-colors duration-200" viewBox="0 0 200 60" fill="none">
+                    <path d="M 20 25 L 90 25 L 80 35 L 20 35 Z" fill="currentColor" />
+                    <path d="M 110 35 L 180 35 L 170 25 L 110 25 Z" fill="currentColor" />
+                    <path d="M 85 22 L 105 38 L 95 38 L 75 22 Z" fill="#FF5A00" />
+                </svg>
+            </div>
+            <div class="pt-4 border-t border-brand-steel/10 flex justify-end">
+                <button onclick="copySVG('svg-concept-1')" class="text-xs font-mono text-brand-steel hover:text-brand-orange transition-colors flex items-center gap-1">
+                    [ COPY SVG ]
+                </button>
+            </div>
+        </div>
+
+        <!-- Concept 2 -->
+        <div class="border border-brand-steel/20 rounded p-6 bg-brand-carbon/30 flex flex-col justify-between h-80 theme-card">
+            <div>
+                <span class="font-mono text-[10px] text-brand-steel block mb-1">CONCEPT_02</span>
+                <h2 class="font-display font-bold text-lg text-white card-title">The Systems GP</h2>
+                <p class="text-xs text-brand-steel mt-1">A clinical medical cross constructed from four structural brackets surrounding an active data core.</p>
+            </div>
+            <div class="flex-grow flex items-center justify-center p-4 logo-container">
+                <svg id="svg-concept-2" class="w-24 h-24 transition-colors duration-200" viewBox="0 0 100 100" fill="none">
+                    <rect x="42" y="42" width="16" height="16" fill="#FF5A00" />
+                    <path d="M 42 15 H 58 V 30 H 42 Z" fill="currentColor" />
+                    <path d="M 42 70 H 58 V 85 H 42 Z" fill="currentColor" />
+                    <path d="M 15 42 H 30 V 58 H 15 Z" fill="currentColor" />
+                    <path d="M 70 42 H 85 V 58 H 70 Z" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="pt-4 border-t border-brand-steel/10 flex justify-end">
+                <button onclick="copySVG('svg-concept-2')" class="text-xs font-mono text-brand-steel hover:text-brand-orange transition-colors flex items-center gap-1">
+                    [ COPY SVG ]
+                </button>
+            </div>
+        </div>
+
+        <!-- Concept 3 -->
+        <div class="border border-brand-steel/20 rounded p-6 bg-brand-carbon/30 flex flex-col justify-between h-80 theme-card">
+            <div>
+                <span class="font-mono text-[10px] text-brand-steel block mb-1">CONCEPT_03</span>
+                <h2 class="font-display font-bold text-lg text-white card-title">The Geometric Wordmark</h2>
+                <p class="text-xs text-brand-steel mt-1">An architectural spelling of "SHIM" where the letter "I" acts as an orange mechanical wedge.</p>
+            </div>
+            <div class="flex-grow flex items-center justify-center p-4 logo-container">
+                <svg id="svg-concept-3" class="w-48 h-20 transition-colors duration-200" viewBox="0 0 200 80" fill="none">
+                    <path d="M 20 20 H 50 V 30 H 32 V 40 H 50 V 56 H 20 V 46 H 38 V 36 H 20 Z" fill="currentColor" />
+                    <path d="M 60 20 H 70 V 33 H 85 V 20 H 95 V 56 H 85 V 43 H 70 V 56 H 60 Z" fill="currentColor" />
+                    <path d="M 110 20 L 122 20 L 114 56 L 102 56 Z" fill="#FF5A00" />
+                    <path d="M 135 20 H 145 L 152 38 L 159 20 H 169 V 56 H 160 V 32 L 154 48 H 150 L 144 32 V 56 H 135 Z" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="pt-4 border-t border-brand-steel/10 flex justify-end">
+                <button onclick="copySVG('svg-concept-3')" class="text-xs font-mono text-brand-steel hover:text-brand-orange transition-colors flex items-center gap-1">
+                    [ COPY SVG ]
+                </button>
+            </div>
+        </div>
+
+        <!-- Concept 4 -->
+        <div class="border border-brand-steel/20 rounded p-6 bg-brand-carbon/30 flex flex-col justify-between h-80 theme-card">
+            <div>
+                <span class="font-mono text-[10px] text-brand-steel block mb-1">CONCEPT_04</span>
+                <h2 class="font-display font-bold text-lg text-white card-title">The Kinetic Joint</h2>
+                <p class="text-xs text-brand-steel mt-1">A floating orange shim establishing perfect parallel tolerances between two offset system blocks.</p>
+            </div>
+            <div class="flex-grow flex items-center justify-center p-4 logo-container">
+                <svg id="svg-concept-4" class="w-48 h-20 transition-colors duration-200" viewBox="0 0 200 80" fill="none">
+                    <!-- Left Alignment Block -->
+                    <path d="M 20 25 H 89 L 79 55 H 20 Z" fill="currentColor" />
+                    <!-- The Locking Wedge (Shim) -->
+                    <path d="M 97 25 L 113 25 L 103 55 L 87 55 Z" fill="#FF5A00" />
+                    <!-- Right Alignment Block -->
+                    <path d="M 121 25 L 111 55 H 180 V 25 Z" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="pt-4 border-t border-brand-steel/10 flex justify-end">
+                <button onclick="copySVG('svg-concept-4')" class="text-xs font-mono text-brand-steel hover:text-brand-orange transition-colors flex items-center gap-1">
+                    [ COPY SVG ]
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Minimal Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 border border-brand-orange bg-brand-carbon text-white font-mono text-xs px-4 py-3 rounded opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+        [ SYSTEM ] SVG COPIED TO CLIPBOARD
+    </div>
+
+    <!-- Hidden textarea helper for dynamic execution -->
+    <textarea id="copy-helper" class="absolute -top-[9999px] left-0 opacity-0 pointer-events-none"></textarea>
+
+    <!-- Dynamic Theme Control & Copy Mechanism -->
+    <script>
+        let isDark = true;
+
+        function toggleTheme() {
+            isDark = !isDark;
+            const body = document.getElementById('theme-body');
+            const heading = document.getElementById('theme-heading');
+            const toggleText = document.getElementById('theme-toggle-text');
+            const toggleDot = document.getElementById('theme-toggle-dot');
+            const cards = document.querySelectorAll('.theme-card');
+            const titles = document.querySelectorAll('.card-title');
+
+            if (isDark) {
+                // Return to pure Midnight Carbon
+                body.className = "bg-brand-carbon text-brand-gray min-h-screen p-6 md:p-12";
+                heading.className = "text-2xl font-display font-bold tracking-tight mt-1 text-white";
+                toggleText.innerText = "LIGHT MODE";
+                toggleDot.className = "w-2 h-2 rounded-full bg-brand-orange";
+                
+                cards.forEach(card => {
+                    card.className = "border border-brand-steel/20 rounded p-6 bg-brand-carbon/30 flex flex-col justify-between h-80 theme-card";
+                });
+                titles.forEach(title => {
+                    title.className = "font-display font-bold text-lg text-white card-title";
+                });
+            } else {
+                // Switch to Blueprint Gray
+                body.className = "bg-brand-gray text-brand-carbon min-h-screen p-6 md:p-12";
+                heading.className = "text-2xl font-display font-bold tracking-tight mt-1 text-brand-carbon";
+                toggleText.innerText = "DARK MODE";
+                toggleDot.className = "w-2 h-2 rounded-full bg-brand-steel";
+
+                cards.forEach(card => {
+                    card.className = "border border-brand-steel/30 rounded p-6 bg-white flex flex-col justify-between h-80 theme-card";
+                });
+                titles.forEach(title => {
+                    title.className = "font-display font-bold text-lg text-brand-carbon card-title";
+                });
+            }
+        }
+
+        function copySVG(id) {
+            const svgElement = document.getElementById(id);
+            const serializer = new XMLSerializer();
+            let source = serializer.serializeToString(svgElement);
+            
+            // Clean up attributes (like unique JS IDs and reactive classes) for standard export
+            source = source.replace(/id="[^"]*"\s*/g, '');
+            source = source.replace(/class="[^"]*"\s*/g, '');
+            
+            // Explicitly set clean inline black fill so client gets perfect black render by default
+            source = source.replace(/currentColor/g, '#1A1D20');
+
+            // Copy to clipboard
+            const helper = document.getElementById('copy-helper');
+            helper.value = source;
+            helper.select();
+            document.execCommand('copy');
+
+            // Trigger minimal Toast notification
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            // Change notification background based on current active theme
+            if (!isDark) {
+                toast.className = "fixed bottom-6 right-6 border border-brand-steel bg-white text-brand-carbon font-mono text-xs px-4 py-3 rounded opacity-100 translate-y-0 transition-all duration-300";
+            } else {
+                toast.className = "fixed bottom-6 right-6 border border-brand-orange bg-brand-carbon text-white font-mono text-xs px-4 py-3 rounded opacity-100 translate-y-0 transition-all duration-300";
+            }
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Memo to File Re: Reshaping Existing Buildings Conference Panel
+## Core Summary
+This panel discussion addressed the operational and commercial impacts of Australian Sustainability Reporting Standards (ASRS) on the built environment. Experts emphasised the shift of climate reporting to finance teams, the necessity of robust data governance to prevent stranded assets, and the impending changes to facility maintenance contracts.
+## Key Points
+* **ASRS Reporting and Governance:** Finance teams within large organisations are taking ownership of ASRS reporting from ESG teams. Early adoption of data management plans and internal controls is critical to avoid audit failures, as Group 1 entities severely underestimated the initial compliance effort.
+* **Scope 3 Emissions:** Identified as the largest and most difficult reporting requirement, these emissions are being phased in over time. Organisations must actively de-risk their supply chains and clearly define operational and financial boundaries.
+* **Resilience Incentives:** Insurers are beginning to reward proactive climate risk management, with FM Global notably offering a 10% resilience discount to organisations that successfully address these risks.
+* **C-Suite Data Disconnect:** Information gaps between facility-level data and C-suite executives pose significant business continuity risks and violate ASRS governance pillars. Connecting facility managers directly to decision-makers is essential to prevent asset stranding.
+* **Commercial Model Evolution:** The heightened focus on climate risk necessitates comprehensive risk registers. Service and maintenance contracts can no longer rely on highly responsive, reactive frameworks, which will fundamentally alter the commercial models of many businesses.
