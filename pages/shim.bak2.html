@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIM | Fractional Systems GP</title>
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&family=JetBrains+Mono&display=swap');
+        
+        /* Brand Typography Guidelines */
+        .font-structural { font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; }
+        .font-body { font-family: 'Inter', sans-serif; line-height: 1.5; }
+        .font-telemetry { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Global selection colors matching brand palette */
+        ::selection { background-color: #FF5A00; color: #FFFFFF; }
+    </style>
+</head>
+<body class="bg-[#F4F5F6] text-[#1A1D20] font-body antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="border-b border-[#4A5568]/30 bg-[#1A1D20] text-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <!-- Stacked Brand Logo & Business Text -->
+                <div class="flex flex-col items-start -space-y-1 justify-center py-1 select-none">
+                    <div class="flex items-baseline">
+                        <span class="text-xl font-structural font-black tracking-wider text-white">SHIM</span>
+                        <span class="text-[#FF5A00] text-[10px] font-telemetry font-bold ml-0.5">.01</span>
+                    </div>
+                    <!-- Inline SVG Brand Mark Cropped & Perfectly Aligned beneath text -->
+                    <div class="h-[9px] w-[46px] text-slate-300 shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="20 25 160 30" class="h-full w-full" fill="none">
+                            <path d="M 20 25 H 89 L 79 55 H 20 Z" fill="currentColor" />
+                            <path d="M 97 25 L 113 25 L 103 55 L 87 55 Z" fill="#FF5A00" />
+                            <path d="M 121 25 L 111 55 H 180 V 25 Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                </div>
+                <span class="text-[10px] font-telemetry uppercase tracking-widest text-slate-400 border border-[#4A5568]/50 px-2 py-0.5 rounded bg-black/20 self-center">Engineering & Data Practice</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-xs font-telemetry uppercase tracking-wider text-slate-300">
+                <a href="#concept" class="hover:text-[#FF5A00] transition">Concept</a>
+                <a href="#blindspots" class="hover:text-[#FF5A00] transition">Overload</a>
+                <a href="#engagement" class="hover:text-[#FF5A00] transition">Model</a>
+            </nav>
+            <div>
+                <a href="#engagement" class="bg-[#FF5A00] hover:bg-[#ff7224] text-white px-3 py-1.5 rounded-[4px] text-xs font-telemetry uppercase font-bold tracking-wider transition inline-block">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-16 lg:py-24 overflow-hidden bg-[#1A1D20] text-white border-b border-[#4A5568]/40">
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="font-telemetry text-xs text-[#FF5A00] tracking-widest uppercase mb-3">// BRIDGING PHYSICAL OPERATIONS AND DIGITAL ARCHITECTURE</div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-structural font-black text-white leading-tight">
+                Grounded Systems Practice for Technical & Engineering Firms
+            </h1>
+            <p class="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
+                We translate real-world physical operations, telemetry calculations, and mechanical bottlenecks into lightweight, dependable automation pipelines. No bloated platforms—just robust engineering logic applied to software.
+            </p>
+            
+            <div class="mt-8 flex flex-col sm:flex-row items-center gap-4 border border-[#4A5568]/40 p-4 rounded-[4px] bg-black/30">
+                <a href="#concept" class="w-full sm:w-auto bg-transparent hover:bg-white/5 text-white border border-[#4A5568] px-4 py-2 rounded-[4px] text-xs font-telemetry uppercase font-semibold tracking-wider transition text-center shrink-0">
+                    The Model ↓
+                </a>
+                <div class="hidden sm:block w-[1px] h-6 bg-[#4A5568]/60"></div>
+                <div class="text-[11px] text-slate-400 font-telemetry leading-relaxed">
+                    <span class="text-[#FF5A00] font-bold">[*] SHIM</span> <span class="text-slate-500">/ ʃɪm /</span> <span class="italic text-slate-500">noun & verb</span> — A thin, physical insert used to align machinery and eliminate wobble. <span class="text-slate-300">Digital Equivalent:</span> Lightweight custom code or API connectors built to align separate systems.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GP vs Contractor -->
+    <section id="concept" class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+            <span class="text-xs font-telemetry uppercase text-[#FF5A00] tracking-widest font-bold">// Strategic Alignment</span>
+            <h2 class="text-2xl font-structural font-black text-[#1A1D20] mt-1">Grounded Diagnosis over Abstract Code</h2>
+            <p class="mt-2 text-slate-600 text-xs">Technical operations cannot be optimized by software contractors who do not understand physics, sensors, or field logistics. We bridge that domain gap with multidisciplinary technical expertise.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 items-stretch">
+            <!-- Contractor -->
+            <div class="bg-white border border-[#4A5568]/20 rounded-[4px] p-6 opacity-65 flex flex-col justify-between">
+                <div>
+                    <span class="text-[10px] font-telemetry uppercase tracking-wider font-bold text-rose-600 bg-rose-500/5 border border-rose-500/20 px-2 py-0.5 rounded-[4px]">Code-Only Developer</span>
+                    <h3 class="text-lg font-structural font-black text-[#1A1D20] mt-3 mb-2">Abstract Coders</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-6">Paid to write lines of software in an operational vacuum. They do not understand physical tolerances, mechanical sensors, or engineering calculations—leaving you to translate the operational logic for them.</p>
+                </div>
+                <ul class="space-y-2 text-[10px] font-telemetry text-slate-500 border-t border-[#4A5568]/10 pt-4 mt-auto">
+                    <li class="flex items-center"><span class="text-rose-500 mr-2">■</span> Isolated from physical realities</li>
+                    <li class="flex items-center"><span class="text-rose-500 mr-2">■</span> High-overhead platform builds</li>
+                    <li class="flex items-center"><span class="text-rose-500 mr-2">■</span> Blind specification execution</li>
+                </ul>
+            </div>
+
+            <!-- SHIM -->
+            <div class="bg-white border-2 border-[#FF5A00] rounded-[4px] p-6 flex flex-col justify-between shadow-sm relative">
+                <div class="absolute -top-3 right-4 bg-[#FF5A00] text-white text-[9px] font-telemetry font-bold px-2 py-0.5 rounded-[2px]">CLIENT ADVOCATE</div>
+                <div>
+                    <span class="text-[10px] font-telemetry uppercase tracking-wider font-bold text-[#FF5A00] bg-[#FF5A00]/5 border border-[#FF5A00]/20 px-2 py-0.5 rounded-[4px]">Fractional Systems GP</span>
+                    <h3 class="text-lg font-structural font-black text-[#1A1D20] mt-3 mb-2">Multidisciplinary Engineering</h3>
+                    <p class="text-slate-700 text-xs leading-relaxed mb-6">Grounded in physical assets and mathematical realities. We speak the technical language of your operations—acoustic signals, sensor telemetry, and mechanical logistics—translating them directly into software.</p>
+                </div>
+                <ul class="space-y-2 text-[10px] font-telemetry text-slate-700 border-t border-[#4A5568]/15 pt-4 mt-auto">
+                    <li class="flex items-center"><span class="text-[#FF5A00] mr-2">↳</span> Physics-to-digital alignment</li>
+                    <li class="flex items-center"><span class="text-[#FF5A00] mr-2">↳</span> Simple, site-maintainable design</li>
+                    <li class="flex items-center"><span class="text-[#FF5A00] mr-2">↳</span> Objective client-side advocate</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sophistication Guardrail -->
+        <div class="mt-8 border border-[#4A5568]/20 bg-white rounded-[4px] p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+            <div class="max-w-2xl">
+                <span class="text-[10px] font-telemetry uppercase text-[#FF5A00] tracking-widest font-bold">// THE SOPHISTICATION GUARDRAIL</span>
+                <p class="text-slate-600 text-xs mt-1 leading-relaxed">
+                    We deliberately reject unnecessary tech sprawl. If an operator in the field or an engineer on-site cannot operate and maintain a data pipeline on their own, it is over-engineered. Operational simplicity is our primary design constraint.
+                </p>
+            </div>
+            <span class="text-[9px] font-telemetry font-bold text-[#FF5A00] bg-[#FF5A00]/5 px-2 py-1 rounded-[4px] shrink-0 border border-[#FF5A00]/20 uppercase">↳ Operational Durability</span>
+        </div>
+    </section>
+
+    <!-- Operational Overload Symptoms -->
+    <section id="blindspots" class="py-16 bg-white border-y border-[#4A5568]/10 shadow-inner">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                
+                <!-- Left Column -->
+                <div class="space-y-4">
+                    <span class="text-xs font-telemetry uppercase text-[#FF5A00] tracking-widest font-bold">// SYSTEM OVERLOAD</span>
+                    <h2 class="text-2xl font-structural font-black text-[#1A1D20] mt-1 leading-tight">Five Common Signs of Data Leaks</h2>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Data friction does not present as software errors. It presents as high-value technical staff losing billable hours to administrative manual entry.
+                    </p>
+                    
+                    <!-- Micro ASCII Map -->
+                    <div class="border border-[#4A5568]/20 bg-[#1A1D20] text-slate-400 p-4 rounded-[4px] font-telemetry text-[10px] leading-relaxed hidden lg:block">
+                        <p class="text-[#FF5A00] font-bold mb-1 border-b border-[#4A5568]/20 pb-1">┌ SYSTEM OVERFLOW ┐</p>
+                        <p>PHYSICAL SENSORS ──&gt; [ MANUAL CSV ]</p>
+                        <p>PROCUREMENT DATA ──&gt; [ MANUAL COPY ]</p>
+                        <p>TECHNICAL SCHEMAS ──&gt; [ METADATA GAP ]</p>
+                    </div>
+                </div>
+
+                <!-- Right Column (Cassette Cards) -->
+                <div class="lg:col-span-2 space-y-3">
+                    
+                    <div class="border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/40 transition duration-300 relative group flex items-start gap-4">
+                        <span class="text-[#FF5A00] font-telemetry text-xs font-bold mt-0.5">01</span>
+                        <div>
+                            <h4 class="text-[#1A1D20] font-structural font-black text-sm mb-1">"We waste engineering hours manually structuring raw machine logs."</h4>
+                            <p class="text-slate-500 text-[11px] leading-relaxed">Physical test beds, acoustic meters, and telemetry rigs generate critical physical outputs, but engineers are stuck writing scripts on-site or converting formats by hand just to run standard calculations.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/40 transition duration-300 relative group flex items-start gap-4">
+                        <span class="text-[#FF5A00] font-telemetry text-xs font-bold mt-0.5">02</span>
+                        <div>
+                            <h4 class="text-[#1A1D20] font-structural font-black text-sm mb-1">"On-site resource metrics and dockets are completely isolated from our systems."</h4>
+                            <p class="text-slate-500 text-[11px] leading-relaxed">Physical inputs (logistics metrics, concrete dockets, fuel volumes) stay on paper or subcontractor tables. Project managers lose hundreds of hours manually keying physical site data into climate, cost, and compliance databases.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/40 transition duration-300 relative group flex items-start gap-4">
+                        <span class="text-[#FF5A00] font-telemetry text-xs font-bold mt-0.5">03</span>
+                        <div>
+                            <h4 class="text-[#1A1D20] font-structural font-black text-sm mb-1">"Standard IT pipelines strip away our custom engineering properties."</h4>
+                            <p class="text-slate-500 text-[11px] leading-relaxed">Off-the-shelf databases and CRMs expect basic numbers or text. They discard critical physical data dimensions, material grades, or custom geometric properties, creating massive gaps in the operational chain.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/40 transition duration-300 relative group flex items-start gap-4">
+                        <span class="text-[#FF5A00] font-telemetry text-xs font-bold mt-0.5">04</span>
+                        <div>
+                            <h4 class="text-[#1A1D20] font-structural font-black text-sm mb-1">"We have zero real-time alignment between site actuals and software models."</h4>
+                            <p class="text-slate-500 text-[11px] leading-relaxed">Multi-firm joint venture sites are tracking machinery uptime, pours, and layouts independently. Because these physical progress data lines aren't connected to financial schemas, leadership makes margin forecasts blindly.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-[#4A5568]/20 rounded-[4px] p-4 bg-[#F4F5F6]/30 hover:border-[#FF5A00]/40 transition duration-300 relative group flex items-start gap-4">
+                        <span class="text-[#FF5A00] font-telemetry text-xs font-bold mt-0.5">05</span>
+                        <div>
+                            <h4 class="text-[#1A1D20] font-structural font-black text-sm mb-1">"Standard software developers fail to grasp our real-world physical workflows."</h4>
+                            <p class="text-slate-500 text-[11px] leading-relaxed">Traditional programmers don't understand structural stress, equipment thresholds, or logistics routes. Without a multidisciplinary systems advocate to translate physics to code, expensive custom dev builds break.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+            <span class="text-xs font-telemetry uppercase text-[#FF5A00] tracking-widest font-bold">// TRACK RECORD</span>
+            <h2 class="text-2xl font-structural font-black text-[#1A1D20] mt-1">Proven Outcomes</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 items-stretch">
+            <div class="border border-[#4A5568]/15 p-5 rounded-[4px] bg-white shadow-sm flex flex-col justify-between">
+                <p class="text-slate-700 text-xs italic leading-relaxed">"SHIM mapped our sensor schemas and automated a simple SQL database pipeline, saving our acoustic engineers hours of manual timestamp alignment every week."</p>
+                <div class="text-[10px] font-telemetry font-bold text-[#FF5A00] mt-4 uppercase">Principal acoustics director</div>
+            </div>
+            <div class="border border-[#4A5568]/15 p-5 rounded-[4px] bg-white shadow-sm flex flex-col justify-between">
+                <p class="text-slate-700 text-xs italic leading-relaxed">"SHIM built ingestion pipelines to pull concrete procurement dockets directly from subcontractor portals. We got our compliance metrics without manual PM strain."</p>
+                <div class="text-[10px] font-telemetry font-bold text-[#FF5A00] mt-4 uppercase">GM, Civil Infrastructure</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Model -->
+    <section id="engagement" class="py-16 bg-[#1A1D20] text-white border-t border-[#4A5568]/20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-xs font-telemetry uppercase text-[#FF5A00] tracking-widest font-bold">// DE-RISKED TRANSITION</span>
+                <h2 class="text-2xl font-structural font-black text-white mt-1">Clean, 3-Phase Delivery</h2>
+            </div>
+
+            <!-- The 3 Phases -->
+            <div class="space-y-4">
+                
+                <div class="border border-[#4A5568]/50 bg-black/30 rounded-[4px] p-5 hover:border-[#FF5A00]/30 transition">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                        <h3 class="text-base font-structural font-black text-white">Phase 1: Systems Audit & Telemetry Blueprint</h3>
+                        <span class="text-sm font-structural text-[#FF5A00] font-black">Project-Specific Discovery [Flat-Fee]</span>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">A rapid operational audit. We map your current toolstack, identify manual data leaks, and hand you a standalone roadmap of simple low-code fixes. No obligation to proceed.</p>
+                </div>
+
+                <div class="border border-[#4A5568]/30 bg-black/20 rounded-[4px] p-5 hover:border-[#FF5A00]/20 transition">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                        <h3 class="text-base font-structural font-black text-white">Phase 2: Operational Retainer (Tactical Shims)</h3>
+                        <span class="text-sm font-structural text-slate-300 font-black">Monthly Retainer [Rolling 6-Month]</span>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">We develop and deploy lightweight, highly secure scripts, API wrappers, and localized automated pipelines to instantly bypass friction and recover operational margin.</p>
+                </div>
+
+                <div class="border border-[#4A5568]/30 bg-black/20 rounded-[4px] p-5 hover:border-[#FF5A00]/20 transition">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                        <h3 class="text-base font-structural font-black text-white">Phase 3: Enterprise Advocacy & Advisory</h3>
+                        <span class="text-sm font-structural text-slate-300 font-black">Governance Tier [As Needed]</span>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">If you need a major custom enterprise platform, we translate your operations into exact technical specs, source qualified external developers, and manage their delivery as your client-side advocate.</p>
+                </div>
+
+            </div>
+
+            <!-- Working Principles -->
+            <div class="border border-[#4A5568]/40 bg-black/30 rounded-[4px] mt-10 p-5 font-telemetry text-[11px] text-slate-400 space-y-3">
+                <div class="text-[#FF5A00] font-bold border-b border-[#4A5568]/25 pb-1">┌ WORKING PRINCIPLES ┐</div>
+                <p>↳ <strong class="text-slate-200">PHYSICAL GROUNDING:</strong> We speak sensors, logs, and site-level logistics. Your automated pipelines will respect the real-world properties of your physical operations, not just cloud theory.</p>
+                <p>↳ <strong class="text-slate-200">APPROPRIATE SOPHISTICATION:</strong> We reject unnecessary tech sprawl. If your internal team cannot easily operate and maintain a solution on their own, we will not build it. Simplicity is a critical engineering constraint.</p>
+                <p>↳ <strong class="text-slate-200">ABSOLUTE ALIGNMENT:</strong> We do not resell software or build custom enterprise platforms, ensuring our system advice remains 100% objective, independent, and client-side.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-[#4A5568]/20 py-10 text-center text-xs font-telemetry text-slate-500">
+        <p>© 2026 SHIM Systems Practice. Built strictly for peer positioning review.</p>
+    </footer>
+
+</body>
+</html>
