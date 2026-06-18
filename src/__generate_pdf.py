@@ -15,19 +15,54 @@ Prerequisites:
 
 import os
 import sys
+import glob
 import argparse
+from datetime import datetime
 from weasyprint import HTML, CSS
+
+def select_html_file():
+    """
+    Scans the current directory for HTML files and presents an interactive menu
+    allowing the user to select which file to compile.
+    """
+    html_files = glob.glob("*.html")
+    
+    if not html_files:
+        print("\n[!] Error: No HTML files found in the current directory.")
+        print("[*] Please make sure your HTML profile is saved in the same folder as this script.")
+        sys.exit(1)
+        
+    if len(html_files) == 1:
+        print(f"[*] Found 1 HTML file: '{html_files[0]}'")
+        return html_files[0]
+        
+    print("\nAvailable HTML files in this folder:")
+    for idx, filename in enumerate(html_files, 1):
+        print(f"  [{idx}] {filename}")
+        
+    while True:
+        try:
+            choice = input(f"\nSelect a file to convert (1-{len(html_files)}) [Default: 1]: ").strip()
+            if not choice:
+                return html_files[0]
+            choice_idx = int(choice) - 1
+            if 0 <= choice_idx < len(html_files):
+                return html_files[choice_idx]
+            else:
+                print(f"[!] Please enter a number between 1 and {len(html_files)}.")
+        except ValueError:
+            print("[!] Invalid input. Please enter a valid menu number.")
 
 def generate_profile_pdf(html_path, output_path):
     """
-    Loads the HTML portfolio and compiles it into an elegant, highly polished executive PDF.
+    Loads the selected HTML portfolio and compiles it into an elegant, highly polished executive PDF.
     Dynamically injects print-specific layout scaling and defensive page-breaking rules.
     """
     if not os.path.exists(html_path):
-        print(f"Error: Target HTML file '{html_path}' not found.")
+        print(f"[!] Error: Target HTML file '{html_path}' not found.")
         sys.exit(1)
 
-    print(f"[*] Initializing compilation of {html_path}...")
+    print(f"\n[*] Initializing compilation of '{html_path}'...")
     
     try:
         # Initialize the HTML engine with the source file
@@ -49,7 +84,7 @@ def generate_profile_pdf(html_path, output_path):
                     color: #64748b;
                 }
                 @bottom-left {
-                    content: "Jon Morgan • Technical Director";
+                    content: "Jon Morgan • Technical Director (Built Environment & Digital Integration)";
                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
                     font-size: 7.5pt;
                     color: #64748b;
@@ -70,6 +105,7 @@ def generate_profile_pdf(html_path, output_path):
             .title-sub {
                 font-size: 11.5pt !important;
                 margin-bottom: 2px !important;
+                
             }
             
             .contact-bar {
@@ -147,8 +183,8 @@ def generate_profile_pdf(html_path, output_path):
             stylesheets=[print_overrides]
         )
         
-        print(f"[✓] Success! PDF compiled flawlessly.")
-        print(f"[✓] File written to: {os.path.abspath(output_path)}")
+        print(f"\n[✓] Success! PDF compiled flawlessly.")
+        print(f"[✓] Output written to: {os.path.abspath(output_path)}\n")
         
     except Exception as e:
         print(f"\n[!] Compilation failed: {str(e)}")
@@ -156,17 +192,51 @@ def generate_profile_pdf(html_path, output_path):
         sys.exit(1)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Compile modern HTML portfolio to high-contrast PDF.")
+    parser = argparse.ArgumentParser(description="Compile modern HTML portfolio or cover letter to high-contrast PDF.")
     parser.add_argument(
         "-i", "--input", 
-        default="index.html", 
-        help="Path to source HTML file (default: index.html)"
+        default=None, 
+        help="Path to source HTML file (If omitted, script will launch interactive menu)"
     )
     parser.add_argument(
         "-o", "--output", 
-        default="Jon_Morgan_Technical_Profile.pdf", 
-        help="Path to destination PDF file (default: Jon_Morgan_Technical_Profile.pdf)"
+        default=None, 
+        help="Path to destination PDF file (If omitted, a name will be suggested dynamically based on the input filename)"
     )
     
     args = parser.parse_args()
-    generate_profile_pdf(args.input, args.output)
+    
+    # Resolve target HTML file
+    target_html = args.input
+    if target_html is None:
+        target_html = select_html_file()
+        
+    # Generate a dynamic default filename incorporating the formatted short month and year (e.g. Jun_2026)
+    short_month_year = datetime.now().strftime("%b_%Y")
+    html_basename = os.path.basename(target_html).lower()
+    
+    if "resume" in html_basename:
+        default_pdf_name = f"Jon_Morgan_Resume_{short_month_year}.pdf"
+    elif "letter" in html_basename:
+        default_pdf_name = f"Jon_Morgan_Cover_Letter_{short_month_year}.pdf"
+    else:
+        # Fallback incorporating the original HTML name
+        clean_html_name = os.path.splitext(os.path.basename(target_html))[0].replace(" ", "_")
+        default_pdf_name = f"Jon_Morgan_{clean_html_name}_{short_month_year}.pdf"
+        
+    # Resolve target PDF output filename
+    if args.output is None:
+        # If the user ran without CLI arguments, let them confirm or rename the dynamically resolved default
+        user_pdf_name = input(f"Output filename [Default: {default_pdf_name}]: ").strip()
+        if user_pdf_name:
+            if not user_pdf_name.lower().endswith(".pdf"):
+                user_pdf_name += ".pdf"
+            target_pdf = user_pdf_name
+        else:
+            target_pdf = default_pdf_name
+    else:
+        target_pdf = args.output
+        if not target_pdf.lower().endswith(".pdf"):
+            target_pdf += ".pdf"
+            
+    generate_profile_pdf(target_html, target_pdf)
