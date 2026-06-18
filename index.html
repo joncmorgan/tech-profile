@@ -340,10 +340,15 @@
                 <!-- Editorial Portrait -->
                 <div class="md:col-span-5 flex flex-col items-center">
                     <div class="w-full border border-black bg-offwhite p-2">
+                        <!-- 
+                            Tailwind CSS filters are used here to slightly mute/desaturate the portrait color.
+                            - To switch to full grayscale, change 'saturate-[65%]' to 'grayscale'
+                            - To restore natural colors, remove 'saturate-[65%] brightness-[1.01]'
+                        -->
                         <img 
                             src="portrait.jpg" 
-                            alt="Jon Morgan Portrait" 
-                            class="w-full h-auto block"
+                            alt="Jon Morgan" 
+                            class="w-full h-auto block filter saturate-[65%] brightness-[1.01]"
                             onerror="this.src='https://placehold.co/600x750/e5e5e5/111111?text=Jon+Morgan+Advisory'"
                         >
                     </div>
