@@ -54,18 +54,43 @@
 <body class="font-sans antialiased selection:bg-safety selection:text-white">
 
     <!-- Navigation Bar -->
-    <nav class="w-full border-b border-black text-[10px] font-mono tracking-widest bg-white z-50 sticky top-0 px-4 md:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
-        <div class="flex items-center gap-3">
-            <span class="inline-block w-2.5 h-2.5 bg-black"></span>
-            <span class="font-bold text-black">JON MORGAN</span>
-            <span class="text-mutedgrey hidden md:inline">|</span>
-            <span class="text-mutedgrey hidden md:inline">INDEPENDENT STRATEGIC ENGINEERING</span>
+    <nav class="w-full border-b border-black text-[10px] font-mono tracking-widest bg-white z-50 sticky top-0 px-4 md:px-8 py-4">
+        <div class="max-w-[1024px] mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-2.5 h-2.5 bg-black"></span>
+                <span class="font-bold text-black">JON MORGAN</span>
+                <span class="text-mutedgrey hidden md:inline">|</span>
+                <span class="text-mutedgrey hidden md:inline">INDEPENDENT STRATEGIC ENGINEERING</span>
+            </div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-6 text-black">
+                <a href="#competencies" class="hover:text-safety transition-colors duration-200">CORE COMPETENCIES</a>
+                <a href="#history" class="hover:text-safety transition-colors duration-200">PROFESSIONAL HISTORY</a>
+                <a href="#credentials" class="hover:text-safety transition-colors duration-200">QUALIFICATIONS</a>
+                <a href="mailto:office@jonmorgan.au" class="font-bold hover:text-safety transition-colors duration-200 text-safety">EMAIL</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden block p-1 focus:outline-none" aria-label="Toggle Menu">
+                <svg id="menu-icon-hamburger" class="w-5 h-5 text-black block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="menu-icon-close" class="w-5 h-5 text-black hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
-        <div class="flex items-center gap-6 text-black">
-            <a href="#competencies" class="hover:text-safety transition-colors duration-200">CORE COMPETENCIES</a>
-            <a href="#history" class="hover:text-safety transition-colors duration-200">PROFESSIONAL HISTORY</a>
-            <a href="#credentials" class="hover:text-safety transition-colors duration-200">QUALIFICATIONS</a>
-            <a href="mailto:info@jonmorgan.au" class="font-bold hover:text-safety transition-colors duration-200 text-safety">EMAIL</a>
+
+        <!-- Mobile Expandable Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden w-full bg-white border-t border-greyrule mt-4 pt-4 pb-2 space-y-3 transition-all duration-300">
+            <a href="#competencies" class="block text-black hover:text-safety py-1 transition-colors duration-200">CORE COMPETENCIES</a>
+            <hr class="border-greyrule">
+            <a href="#history" class="block text-black hover:text-safety py-1 transition-colors duration-200">PROFESSIONAL HISTORY</a>
+            <hr class="border-greyrule">
+            <a href="#credentials" class="block text-black hover:text-safety py-1 transition-colors duration-200">QUALIFICATIONS</a>
+            <hr class="border-greyrule">
+            <a href="mailto:office@jonmorgan.au" class="block font-bold text-safety py-1 transition-colors duration-200">EMAIL</a>
         </div>
     </nav>
 
@@ -374,7 +399,7 @@
                 <div class="space-y-1">
                     <div class="text-black font-semibold text-[9px] uppercase tracking-wider">PROJECT ENQUIRIES</div>
                     <div>
-                        <a href="mailto:info@jonmorgan.au" class="text-safety hover:underline text-xs font-semibold">info@jonmorgan.au</a>
+                        <a href="mailto:office@jonmorgan.au" class="text-safety hover:underline text-xs font-semibold">office@jonmorgan.au</a>
                     </div>
                 </div>
                 <div class="space-y-1">
@@ -391,5 +416,39 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Hamburger Toggle Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('menu-icon-hamburger');
+            const closeIcon = document.getElementById('menu-icon-close');
+
+            menuToggle.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    hamburgerIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
+            // Close mobile menu automatically when clicking any link inside it
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
