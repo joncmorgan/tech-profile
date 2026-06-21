@@ -154,12 +154,12 @@ strong {
     margin-bottom: 40px;
 }
 
-/* Markdown Heading 1 styling */
+/* Markdown Heading 1 styling (Elevated clarity with accent color) */
 .main-content h1 {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12pt;
     font-weight: 700;
-    color: #111111;
+    color: #FF4F00; /* Safety Orange Accent for distinct structural separation */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: 30px;
@@ -169,12 +169,13 @@ strong {
     page-break-after: avoid;
 }
 
-/* Markdown Heading 2 styling */
+/* Markdown Heading 2 styling (Demoted subtly via italics and softer dark grey) */
 .main-content h2 {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10pt;
     font-weight: 700;
-    color: #111111;
+    font-style: italic; /* Subtle demotion */
+    color: #444444; /* Soft dark grey color shift */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: 25px;

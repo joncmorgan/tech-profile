@@ -1,13 +1,14 @@
 # ==============================================================================
 # JON MORGAN ADVISORY - PDF GENERATOR CORESCRIPT
-# Version: 1.4.2 (Secure metadata stripping & absolute path sanitization release)
+# Version: 1.5.0 (Dynamic Master Formula File Naming & Token Mapping Release)
 # Last Updated: June 2026
 # ==============================================================================
 
 import argparse
 import sys
 import secrets
-from datetime import datetime, timezone
+import re
+from datetime import datetime, timezone, date
 from pathlib import Path
 
 import frontmatter
@@ -55,6 +56,60 @@ def parse_and_validate_markdown(content_path):
         sys.exit(1)
 
     return metadata, content
+
+
+def generate_formula_filename(metadata):
+    """
+    Constructs a filename based on the Master Formula:
+    [YYYY-MM-DD]-[CLIENT]-[DOC_TYPE]-[Description]-v[Version].pdf
+    """
+    # Hardcoded Client Lookup Table (Maps frontmatter values to clean, standardized tokens)
+    CLIENT_MAP = {
+        "deloitte": "DEL",
+        "pwc": "PWC",
+        "ey": "EY",
+        "kpmg": "KPMG",
+        "internal": "INT",
+        "acme corp": "ACM",
+        # Add future clients here as needed
+    }
+
+    # 1. Extract and format date (Guaranteed YYYY-MM-DD via ISO frontmatter formatting)
+    # 1. Extract and format date (Guaranteed YYYY-MM-DD via ISO frontmatter formatting)
+    raw_date = metadata.get('date')
+    if isinstance(raw_date, (datetime, date)):
+        date_str = raw_date.strftime("%Y-%m-%d")
+    else:
+        date_str = str(raw_date).strip() if raw_date else datetime.now().strftime("%Y-%m-%d")
+    
+    # raw_date = metadata.get('date')
+    # if isinstance(raw_date, (datetime, datetime.date)):
+    #     date_str = raw_date.strftime("%Y-%m-%d")
+    # else:
+    #     date_str = str(raw_date).strip() if raw_date else datetime.now().strftime("%Y-%m-%d")
+
+    # 2. Extract and match Client via Lookup Table
+    raw_client = str(metadata.get('client', 'INTERNAL')).strip().lower()
+    client_token = CLIENT_MAP.get(raw_client)
+    if not client_token:
+        # Fallback sanitation logic just in case a new client is added to frontmatter before mapping here
+        client_token = re.sub(r'[\s\-]+', '_', raw_client).upper()
+        client_token = re.sub(r'[^A-Z0-9_]', '', client_token)
+
+    # 3. Extract Document Type
+    doc_type = str(metadata.get('document_type', 'memo')).strip().upper()
+
+    # 4. Extract and sanitize Description (Fallback to subject if missing)
+    desc = str(metadata.get('description', metadata.get('subject', 'document'))).strip()
+    desc_sanitized = re.sub(r'[\s\-]+', '_', desc)
+    desc_sanitized = re.sub(r'[^a-zA-Z0-9_]', '', desc_sanitized)
+    desc_sanitized = desc_sanitized[:50].strip('_')  # Caps length safely for command-line navigation
+
+    # 5. Extract Version
+    version = str(metadata.get('version', '1.0')).strip()
+
+    # Combine into the Master Formula
+    return f"{date_str}-{client_token}-{doc_type}-{desc_sanitized}-v{version}.pdf"
 
 
 def apply_pdf_security_and_metadata(pdf_path, metadata):
@@ -135,10 +190,13 @@ def compile_document(content_path):
     converts to print-ready HTML, compiles PDF, and applies metadata and security locks.
     """
     content_path = Path(content_path).resolve()
-    output_path = content_path.with_suffix('.pdf')
-
+    
     print(f"[{content_path.name}] Reading and validating document structure...")
     metadata, markdown_prose = parse_and_validate_markdown(content_path)
+    
+    # Dynamically generate formulaic output filename and establish output path pathing
+    output_filename = generate_formula_filename(metadata)
+    output_path = content_path.parent / output_filename
     
     doc_type = str(metadata.get('document_type')).strip().lower()
     print(f"[{content_path.name}] Verification Key: Verified ('compiler: jonmorgan')")
@@ -167,15 +225,15 @@ def compile_document(content_path):
     template = env.get_template(template_file.name)
     rendered_html = template.render(meta=metadata, content=html_body)
 
-    # Generate PDF in-place (same directory as input markdown file) using absolute file URI references
-    print(f"[{content_path.name}] Compiling high-end PDF via WeasyPrint...")
+    # Generate PDF in-place using absolute file URI references
+    print(f"[{content_path.name}] Compiling high-end PDF via WeasyPrint -> Target: {output_filename}")
     HTML(string=rendered_html, base_url=TEMPLATES_DIR.as_uri()).write_pdf(str(output_path))
     
     # Apply standard metadata injection and security permissions lock
     try:
         apply_pdf_security_and_metadata(output_path, metadata)
     except Exception as e:
-        print(f"[{content_path.name}] Warning: Could not apply security/metadata lock: {e}", file=sys.stderr)
+        print(f"[{output_filename}] Warning: Could not apply security/metadata lock: {e}", file=sys.stderr)
 
     print(f"\nSuccess! Secure PDF compiled cleanly in-place to:")
     print(f"-> {output_path}\n")
