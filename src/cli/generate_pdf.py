@@ -1,3 +1,9 @@
+# ==============================================================================
+# JON MORGAN ADVISORY - PDF GENERATOR CORESCRIPT
+# Version: 1.4.0 (Stable release)
+# Last Updated: June 2026
+# ==============================================================================
+
 import argparse
 import sys
 from pathlib import Path
@@ -7,7 +13,8 @@ import markdown
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 
-# Resolve static directories relative to this script's position in the new tree
+# Resolve static directories at the start of the script.
+# Relies on the structured: <PROJECT_ROOT>/src/cli/generate_pdf.py
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TEMPLATES_DIR = PROJECT_ROOT / "src" / "templates"
 
@@ -87,7 +94,7 @@ def compile_document(content_path):
 
     # Generate PDF in-place (same directory as input markdown file)
     print(f"[{content_path.name}] Compiling high-end PDF via WeasyPrint...")
-    HTML(string=rendered_html, base_url=str(TEMPLATES_DIR)).write_pdf(str(output_path))
+    HTML(string=rendered_html, base_url=TEMPLATES_DIR.as_uri()).write_pdf(str(output_path))
     
     print(f"\nSuccess! PDF compiled cleanly in-place to:")
     print(f"-> {output_path}\n")

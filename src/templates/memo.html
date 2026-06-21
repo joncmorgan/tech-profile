@@ -1,30 +1,25 @@
-<!-- Template: Memo | Version: 1.2.0 -->
+<!-- Template: Memo | Version: 1.4.0 -->
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
     <meta charset="UTF-8">
     <title>{{ meta.subject }}</title>
     <style>
-        @import url('style.css');
+        /* Embed the stylesheet directly to eliminate relative path lookup issues */
+        {% include 'style.css' %}
     </style>
 </head>
 <body>
 
-    <!-- 
-      WeasyPrint extracts this footer out of the normal HTML rendering flow 
-      and flows it into the bottom-left margin box of every page. 
-    -->
     <footer class="running-footer">
         <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a>&nbsp;&nbsp;//&nbsp;&nbsp;<a href="tel:+61429357751">+61 429 357 751</a>&nbsp;&nbsp;//&nbsp;&nbsp;<a href="https://www.jonmorgan.au" target="_blank">www.jonmorgan.au</a>&nbsp;&nbsp;//&nbsp;&nbsp;v{{ meta.version | default('1.0') }}
     </footer>
 
-    <!-- Kicker, Structured Weighted Line, & Main Subject -->
     <div class="doc-kicker">SPECIALIST ADVISORY</div>
     <hr class="kicker-rule">
     
     <h1 class="doc-title">{{ meta.subject }}</h1>
 
-    <!-- Metadata Grid Block -->
     <div class="meta-grid">
         <div class="meta-row">
             <div class="meta-label">Date:</div>
@@ -48,13 +43,10 @@
         </div>
     </div>
 
-    <!-- Editorial Content -->
     <div class="main-content">
-        <!-- Using Jinja's safe filter to allow Markdown-generated HTML to render natively -->
         {{ content | safe }}
     </div>
 
-    <!-- Standard Professional Signature Block -->
     <div class="signature-block">
         <div class="signature-title">Jon Morgan</div>
         <div class="signature-role">Independent Advisor</div>
