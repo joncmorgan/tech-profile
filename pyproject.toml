@@ -4,5 +4,20 @@ version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "jinja2>=3.1.6",
+    "markdown>=3.10.2",
+    "python-frontmatter>=1.3.0",
     "weasyprint>=68.1",
 ]
+
+[project.scripts]
+tech-build-report = "tech_profile.cli.generate_pdf:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tech_profile", "tech_profile.cli"]
+
+[tool.setuptools.package-dir]
+"tech_profile" = "src"
