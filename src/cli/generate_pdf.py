@@ -1,20 +1,23 @@
 # ==============================================================================
 # JON MORGAN ADVISORY - PDF GENERATOR CORESCRIPT
-# Version: 1.4.0 (Stable release)
+# Version: 1.4.2 (Secure metadata stripping & absolute path sanitization release)
 # Last Updated: June 2026
 # ==============================================================================
 
 import argparse
 import sys
+import secrets
+from datetime import datetime, timezone
 from pathlib import Path
 
 import frontmatter
 import markdown
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
+from pypdf import PdfReader, PdfWriter
+from pypdf.constants import UserAccessPermissions
 
 # Resolve static directories at the start of the script.
-# Relies on the structured: <PROJECT_ROOT>/src/cli/generate_pdf.py
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 TEMPLATES_DIR = PROJECT_ROOT / "src" / "templates"
 
@@ -54,10 +57,82 @@ def parse_and_validate_markdown(content_path):
     return metadata, content
 
 
+def apply_pdf_security_and_metadata(pdf_path, metadata):
+    """
+    Reads the generated PDF, injects administrative metadata, completely clears 
+    the Catalog-level XMP stream to eliminate hidden absolute local file system 
+    path leaks, and applies a secure, empty-user-password print-only lock.
+    """
+    print(f"[{pdf_path.name}] Applying sanitized PDF metadata and secure permissions lock...")
+    
+    reader = PdfReader(pdf_path)
+    writer = PdfWriter()
+    
+    for page in reader.pages:
+        writer.add_page(page)
+
+    # Generate a clean timestamp for creation and modification in compliant PDF format (D:YYYYMMDDHHmmSSZ)
+    now = datetime.now(timezone.utc)
+    date_str = now.strftime("D:%Y%m%d%H%M%S") + "Z"
+
+    # Ingest PDF Document Metadata properties
+    doc_title = metadata.get('subject', 'Specialist Advisory Memorandum')
+    doc_author = metadata.get('from', 'Jon Morgan Advisory')
+    
+    # 1. Completely replace standard metadata dictionary (removes default/hidden tool-injected keys)
+    writer.metadata = {
+        "/Title": doc_title,
+        "/Author": doc_author,
+        "/Subject": "Specialist Engineering and Built Environment Advisory",
+        "/Creator": "Jon Morgan",
+        "/Producer": "Jon Morgan",
+        "/CreationDate": date_str,
+        "/ModDate": date_str,
+    }
+
+    # 2. Force-purge Catalog-level XMP Metadata streams (which house WeasyPrint's base_url path leakages)
+    try:
+        writer.xmp_metadata = None
+    except Exception:
+        pass
+
+    try:
+        if "/Metadata" in writer.root_object:
+            del writer.root_object["/Metadata"]
+    except Exception:
+        pass
+
+    # Restrict modifications while allowing high-resolution printing, copy-paste extraction, and accessibility
+    # Compute permission bits: Print (4) + Copy/Extract (16) + Accessibility (512) + High-Res Print (2048) = 2580
+    try:
+        permissions = (
+            UserAccessPermissions.PRINT
+            | UserAccessPermissions.EXTRACT
+            | UserAccessPermissions.EXTRACT_TEXT_AND_GRAPHICS
+            | UserAccessPermissions.PRINT_TO_REPRESENTATION
+        )
+    except AttributeError:
+        # Fallback to direct bitmask if pypdf constant mapping varies in older installations
+        permissions = 2580
+
+    # Generate a strong, secure random owner password to secure the access control list
+    owner_pwd = secrets.token_hex(32)
+
+    writer.encrypt(
+        user_password="",        # Empty user password means the reader opens instantly
+        owner_password=owner_pwd,  # Restricts modifications unless owner password is supplied
+        permissions_flag=permissions
+    )
+
+    # Overwrite the unencrypted PDF in-place with the secure variant
+    with open(pdf_path, "wb") as f:
+        writer.write(f)
+
+
 def compile_document(content_path):
     """
     Loads markdown and metadata, dynamically selects the HTML template, 
-    converts to print-ready HTML, and compiles the output PDF in place.
+    converts to print-ready HTML, compiles PDF, and applies metadata and security locks.
     """
     content_path = Path(content_path).resolve()
     output_path = content_path.with_suffix('.pdf')
@@ -92,17 +167,23 @@ def compile_document(content_path):
     template = env.get_template(template_file.name)
     rendered_html = template.render(meta=metadata, content=html_body)
 
-    # Generate PDF in-place (same directory as input markdown file)
+    # Generate PDF in-place (same directory as input markdown file) using absolute file URI references
     print(f"[{content_path.name}] Compiling high-end PDF via WeasyPrint...")
     HTML(string=rendered_html, base_url=TEMPLATES_DIR.as_uri()).write_pdf(str(output_path))
     
-    print(f"\nSuccess! PDF compiled cleanly in-place to:")
+    # Apply standard metadata injection and security permissions lock
+    try:
+        apply_pdf_security_and_metadata(output_path, metadata)
+    except Exception as e:
+        print(f"[{content_path.name}] Warning: Could not apply security/metadata lock: {e}", file=sys.stderr)
+
+    print(f"\nSuccess! Secure PDF compiled cleanly in-place to:")
     print(f"-> {output_path}\n")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Compile a compliant advisory Markdown file into an in-place PDF using its document template."
+        description="Compile a compliant advisory Markdown file into an in-place secure PDF."
     )
     parser.add_argument(
         "input_file",

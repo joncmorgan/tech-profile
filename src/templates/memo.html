@@ -1,25 +1,31 @@
-<!-- Template: Memo | Version: 1.4.0 -->
+<!-- Template: Memo | Version: 1.5.0 -->
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
     <meta charset="UTF-8">
     <title>{{ meta.subject }}</title>
     <style>
-        /* Embed the stylesheet directly to eliminate relative path lookup issues */
+        /* Dynamically embed stylesheet to avoid cross-directory path resolution bugs */
         {% include 'style.css' %}
     </style>
 </head>
 <body>
 
+    <!-- 
+      WeasyPrint extracts this footer out of the normal HTML rendering flow 
+      and flows it into the bottom-left margin box of every page. 
+    -->
     <footer class="running-footer">
         <a href="mailto:jonmorgan@fastmail.com">jonmorgan@fastmail.com</a>&nbsp;&nbsp;//&nbsp;&nbsp;<a href="tel:+61429357751">+61 429 357 751</a>&nbsp;&nbsp;//&nbsp;&nbsp;<a href="https://www.jonmorgan.au" target="_blank">www.jonmorgan.au</a>&nbsp;&nbsp;//&nbsp;&nbsp;v{{ meta.version | default('1.0') }}
     </footer>
 
+    <!-- Kicker, Reintroduced Solid Heavy Line, & Main Subject -->
     <div class="doc-kicker">SPECIALIST ADVISORY</div>
     <hr class="kicker-rule">
     
     <h1 class="doc-title">{{ meta.subject }}</h1>
 
+    <!-- Metadata Grid Block -->
     <div class="meta-grid">
         <div class="meta-row">
             <div class="meta-label">Date:</div>
@@ -27,8 +33,31 @@
         </div>
         <div class="meta-row">
             <div class="meta-label">To:</div>
-            <div class="meta-value"><strong>{{ meta.to }}</strong></div>
+            <div class="meta-value">
+                <strong>
+                    {% if meta.to is string %}
+                        {{ meta.to }}
+                    {% else %}
+                        {{ meta.to | join('<br>') | safe }}
+                    {% endif %}
+                </strong>
+            </div>
         </div>
+
+        <!-- Optional CC Block (Only renders if 'cc' explicitly exists in YAML frontmatter) -->
+        {% if meta.cc %}
+        <div class="meta-row">
+            <div class="meta-label">CC:</div>
+            <div class="meta-value">
+                {% if meta.cc is string %}
+                    {{ meta.cc }}
+                {% else %}
+                    {{ meta.cc | join('<br>') | safe }}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
         <div class="meta-row">
             <div class="meta-label">From:</div>
             <div class="meta-value">{{ meta.from }}</div>
@@ -43,10 +72,13 @@
         </div>
     </div>
 
+    <!-- Editorial Content -->
     <div class="main-content">
+        <!-- Using Jinja's safe filter to allow Markdown-generated HTML to render natively -->
         {{ content | safe }}
     </div>
 
+    <!-- Standard Professional Signature Block -->
     <div class="signature-block">
         <div class="signature-title">Jon Morgan</div>
         <div class="signature-role">Independent Advisor</div>
