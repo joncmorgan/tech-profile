@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cover Letter - {{ meta.application_details.target_role }}</title>
+    <style>
+        /* CSS Page Setup optimised for exact 1-page WeasyPrint PDF compilation */
+        @page {
+            size: A4;
+            margin: 14mm 16mm 14mm 16mm; /* Perfectly balanced margins for elegant negative space */
+            @bottom-right {
+                content: "Page " counter(page) " of " counter(pages);
+                font-family: 'Inter', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+                font-size: 7.5pt;
+                color: #94A3B8;
+            }
+        }
+
+        :root {
+            --primary: #0F172A;      /* Deep Obsidian */
+            --accent: #4F46E5;       /* Modern Indigo */
+            --text: #334155;         /* Muted Slate for elite readability */
+            --muted: #64748B;        /* Cool Grey */
+            --hairline: #E2E8F0;     /* Ultra-thin slate border */
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;        /* Restored to an elegant, highly readable print size */
+            line-height: 1.48;       /* Comfortable, professional leading */
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Executive Asymmetric Letterhead */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--hairline);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .candidate-name {
+            font-size: 20pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+            margin: 0;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .candidate-title {
+            font-size: 8.5pt;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        .contact-item {
+            margin-bottom: 2px;
+        }
+
+        .contact-item strong {
+            color: var(--primary);
+        }
+
+        /* Letter Meta Data (Date & Recipient) */
+        .letter-meta {
+            margin-bottom: 14px;
+            font-size: 9.2pt;
+        }
+
+        .date {
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 8.2pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .recipient {
+            line-height: 1.35;
+            color: var(--primary);
+        }
+
+        .subject {
+            font-weight: 800;
+            color: var(--primary);
+            margin-top: 10px;
+            margin-bottom: 14px;
+            font-size: 9.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-left: 2px solid var(--primary);
+            padding-left: 8px;
+        }
+
+        /* Content Structure */
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .pillar-list {
+            margin: 12px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .pillar-item {
+            margin-bottom: 10px;
+            padding-left: 14px;
+            border-left: 2px solid var(--accent); /* Thin, sharp indigo accent bar */
+            text-align: justify;
+        }
+
+        .pillar-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2px;
+            font-size: 9.5pt;
+            letter-spacing: -0.2px;
+        }
+
+        .pillar-body {
+            margin: 0;
+            color: var(--text);
+            font-size: 9.5pt;
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Sign-off & Digital Signature Configuration */
+        .sign-off-section {
+            margin-top: 16px;
+            page-break-inside: avoid;
+        }
+
+        .signature-container {
+            height: 52px;
+            margin: 6px 0;
+        }
+
+        .signature-img {
+            max-height: 48px;
+            display: block;
+        }
+
+        .sign-off-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Executive Letterhead -->
+    <header>
+        <div class="header-left">
+            <div class="candidate-name">{{ meta.candidate.name }}</div>
+            <div class="candidate-title">Systems Integration &amp; AI Enablement</div>
+        </div>
+        <div class="header-right">
+            <div class="contact-item"><strong>M:</strong> {{ meta.candidate.phone }}</div>
+            <div class="contact-item"><strong>E:</strong> {{ meta.candidate.email }}</div>
+            <div class="contact-item"><strong>LI:</strong> {{ meta.candidate.linkedin }}</div>
+        </div>
+    </header>
+
+    <!-- Metadata Details -->
+    <div class="letter-meta">
+        <div class="date">{{ meta.recipient.date }}</div>
+        <div class="recipient">
+            <strong>{{ meta.recipient.organization }}</strong><br>
+            {% if meta.recipient.partner_agency %}
+            c/o {{ meta.recipient.partner_agency }}<br>
+            {% endif %}
+            {{ meta.recipient.location }}
+        </div>
+        <div class="subject">{{ meta.application_details.subject_line }}</div>
+    </div>
+
+    <!-- Letter Body -->
+    <div class="letter-body">
+        <!-- 1. The Executive Pivot -->
+        <p>{{ sections.executive_pivot.content }}</p>
+
+        <!-- 2. The Three Strategic Pillars -->
+        <div class="pillar-list">
+            {% for pillar in sections.strategic_pillars %}
+            <div class="pillar-item">
+                <div class="pillar-title">{{ pillar.title }}</div>
+                <p class="pillar-body">{{ pillar.content }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- 3. Organisational Alignment -->
+        <p>{{ organizational_alignment.content }}</p>
+
+        <!-- 4. Action-Oriented Close -->
+        <p>{{ action_oriented_close.content }}</p>
+    </div>
+
+    <!-- Sign-off & Signature Integration -->
+    <div class="sign-off-section">
+        <div>{{ sign_off.salutation }}</div>
+        <div class="signature-container">
+            {% if signature_path_exists %}
+                <img class="signature-img" src="{{ signature_path }}" alt="Signature">
+            {% else %}
+                <div style="height: 35px;"></div> <!-- Spacing fallback if no signature PNG found -->
+            {% endif %}
+        </div>
+        <div class="sign-off-name">{{ sign_off.signature }}</div>
+    </div>
+
+</body>
+</html>

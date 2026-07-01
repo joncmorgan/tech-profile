@@ -22,7 +22,7 @@ def main():
     job_desc = load_text(JD_PATH)
 
     system_prompt = (
-        "You are an expert technical resume writer and full-stack developer. "
+        "You are an expert technical resume writer. "
         "Analyze the provided Job Description and extract relevant experience "
         "from the User's Master Resume to create a highly tailored, clean CV.\n\n"
         "CRITICAL RULES:\n"
@@ -37,17 +37,21 @@ def main():
 
     print(f"🚀 Prompting local model '{MODEL_NAME}' via Ollama...")
     
+    # Dynamic arguments to prevent 400 errors on standard models
+    chat_kwargs = {
+        "model": MODEL_NAME,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ],
+        "stream": True
+    }
+    
+    if "deepseek-r1" in MODEL_NAME.lower():
+        chat_kwargs["think"] = True
+
     try:
-        # Enforce think=True for reasoning models; Ollama ignores it safely on regular models
-        response_stream = ollama.chat(
-            model=MODEL_NAME,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            stream=True,
-            think=True
-        )
+        response_stream = ollama.chat(**chat_kwargs)
 
         tailored_content = []
         started_thinking = False
@@ -78,7 +82,6 @@ def main():
             
         print("\n\n✅ Generation complete.")
 
-        # Save only the clean resume to disk (safely excluding the thinking track)
         if tailored_content:
             OUTPUT_PATH.write_text("".join(tailored_content), encoding="utf-8")
             print(f"💾 Clean tailored resume saved to: {OUTPUT_PATH}")
