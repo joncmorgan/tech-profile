@@ -1,0 +1,14 @@
+ Role: Senior AI Pipeline & Platform Engineer
+Location: Melbourne (Hybrid)
+
+Key Responsibilities:
+- Design and maintain decoupled, local data orchestration pipelines written in Python.
+- Architect automated document parsing and data extraction frameworks using JSON and Markdown.
+- Optimize inference workloads for small language models (SLMs) and local compute infrastructure.
+- Build clean, print-ready document automation flows and analytical rendering systems.
+
+Requirements:
+- Strong competency with system optimization, Python script automation, and structured data serialization (JSON/YAML).
+- Experience setting up automated multi-stage background tasks and micro-pipelines.
+- Familiarity with local model engineering tools (e.g., Ollama, local model deployment).
+- Passion for pixel-perfect automated report generation or typesetting architectures.

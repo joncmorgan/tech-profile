@@ -1,0 +1,33 @@
+{
+  "technical_skills": {
+    "languages": ["Python", "Perl", "MATLAB", "SQL", "Bash"],
+    "frameworks_and_libraries": ["Plotly Dash", "PyLaTeX", "ANSYS CFX", "OpenFOAM", "Contam", "ParaView"],
+    "data_and_storage": ["Tableau", "NAC Databases", "Rclone", "PostgreSQL", "SQLite"],
+    "infrastructure_and_devops": ["Linux (Ubuntu 24.04 LTS)", "Nginx", "Gunicorn", "ngrok", "Systemd (Custom Scripting)", "High-Performance Computing Clusters", "NVIDIA GPU Hardware Acceleration"]
+  },
+  "domain_expertise": [
+    "Computational Fluid Dynamics (CFD)",
+    "Building Physics & Thermodynamics",
+    "Urban Microclimate & Overheating Simulation",
+    "Statutory Building Compliance (NCC Section J, NatHERS, Green Star)",
+    "Full-Stack Automated Engineering Architecture",
+    "Environmental Plume & Pollutant Dispersion Modelling",
+    "Local AI-Assisted Engineering Workflows",
+    "High-Fidelity Ray Tracing & Facade Glare Risk Assessment"
+  ],
+  "methodologies": [
+    "Asynchronous Backend Simulation Queuing",
+    "Wind Tunnel Testing & Scale Model Instrumentation",
+    "Automated PDF Engineering Report Generation Pipeline",
+    "Custom Predictive Energy & Load Profiling Modelling",
+    "Multi-Repository DevOps Server Provisioning Automation",
+    "End-to-End Enterprise Data Cleansing & Ingestion Pipelines"
+  ],
+  "soft_skills": [
+    "Multidisciplinary Technical Engineering Leadership",
+    "Technical Curriculum Design & Professional Instruction",
+    "Regulatory Agency Liaison & Statutory Advisory",
+    "Full-Stack UI/UX Systems Architecture Design",
+    "High-Fidelity Engineering Report Writing"
+  ]
+}

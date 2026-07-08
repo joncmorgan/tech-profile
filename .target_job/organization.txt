@@ -1,0 +1,5 @@
+ Company: Sovereign Data Solutions
+Industry: Aerospace & Built Environment Compliance Automation
+
+About Us:
+We are a highly specialized consultancy building sandboxed, air-gapped data platforms for defense, aerospace, and real estate enterprises. We prioritize local compliance tracking, data privacy, and deterministic algorithmic parsing models that run entirely on on-premise physical infrastructure. We value robust, modular software design patterns over bloated API wrappers.

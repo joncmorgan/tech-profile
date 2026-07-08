@@ -1,0 +1,46 @@
+[
+  {
+    "institution": "RMIT University",
+    "degree": "Bachelor of Engineering (B.Eng.)",
+    "major": "Aerospace",
+    "start_date": "1991",
+    "end_date": "1995",
+    "status": "Completed",
+    "key_achievements": [
+      "Core curriculum fields focused on fluid dynamics, aerodynamics, structural mechanics, control systems, and computational simulation."
+    ]
+  },
+  {
+    "institution": "RMIT University",
+    "degree": "Master of Urban Planning and Environment",
+    "major": "Urban Environmental Policy & Sustainable Infrastructure",
+    "start_date": "2009",
+    "end_date": "2014",
+    "status": "Completed",
+    "key_achievements": [
+      "Core curriculum fields focused on urban environmental policy, microclimate resilience, sustainable infrastructure, and quantitative resource modelling."
+    ]
+  },
+  {
+    "institution": "National Australian Built Environment Rating System (NABERS)",
+    "degree": "Accredited Assessor",
+    "major": "Upfront Carbon",
+    "start_date": "Present",
+    "end_date": "Present",
+    "status": "Active Certification",
+    "key_achievements": [
+      "Certified to conduct embodied carbon assessments across materials, structural assemblies, and supply-chain metrics."
+    ]
+  },
+  {
+    "institution": "Building Designers Association of Victoria (BDAV)",
+    "degree": "Advisory Board Member",
+    "major": "Energy & Sustainability Hub",
+    "start_date": "2015",
+    "end_date": "2018",
+    "status": "Completed Term",
+    "key_achievements": [
+      "Served on the advisory board providing technical guidance on energy and sustainability frameworks within the built environment."
+    ]
+  }
+]
