@@ -1,5 +1,3 @@
- Company: Sovereign Data Solutions
-Industry: Aerospace & Built Environment Compliance Automation
+Founded in New Zealand in 2017, Timescapes is a visual progress tracking solution for complex construction projects. Our mission is to simplify construction through shared visibility. Customers love Timescapes because it helps them stay on schedule, validate construction claims and communicate progress more effectively.
 
-About Us:
-We are a highly specialized consultancy building sandboxed, air-gapped data platforms for defense, aerospace, and real estate enterprises. We prioritize local compliance tracking, data privacy, and deterministic algorithmic parsing models that run entirely on on-premise physical infrastructure. We value robust, modular software design patterns over bloated API wrappers.
+We're a rapidly growing company, and are used by some of the largest construction firms across Australia, Canada, New Zealand and the United States. We're deliberate and thoughtful in everything that we do, and we emphasise awareness, care and quality in our approach to product development.

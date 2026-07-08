@@ -4,9 +4,8 @@ from pathlib import Path
 from typing import Dict, Any
 
 def run_ingest(base_dir: Path, target_dir: Path, data_dir: Path) -> Dict[str, Any]:
-    print("📥 [Task 1/4] Aggregating distributed work memories, job targets, and identity info...")
+    print("📥 [Task 1/4] Aggregating distributed work memories and job targets...")
     
-    # 1. Harvest work history (reversing alphabetical index for reverse-chronological layout)
     history_path = data_dir / "experience"
     job_records = []
     
@@ -25,18 +24,15 @@ def run_ingest(base_dir: Path, target_dir: Path, data_dir: Path) -> Dict[str, An
             meta["memories"] = "\n\n".join(memories)
             job_records.append(meta)
 
-    # 2. Load target specs and data files
     desc_file = target_dir / "description.txt"
     org_file = target_dir / "organization.txt"
     edu_file = data_dir / "education.json"
     skills_file = data_dir / "core_skills.json"
-    personal_file = data_dir / "personal_details.json" # New path
     
     return {
         "target_description": desc_file.read_text(encoding="utf-8").strip() if desc_file.exists() else "",
         "target_organization": org_file.read_text(encoding="utf-8").strip() if org_file.exists() else "",
         "work_history": job_records,
         "education": json.loads(edu_file.read_text(encoding="utf-8")) if edu_file.exists() else [],
-        "core_skills": json.loads(skills_file.read_text(encoding="utf-8")) if skills_file.exists() else {},
-        "personal": json.loads(personal_file.read_text(encoding="utf-8")) if personal_file.exists() else {} # Injected
+        "core_skills": json.loads(skills_file.read_text(encoding="utf-8")) if skills_file.exists() else {}
     }

@@ -1,44 +1,38 @@
 #set page(paper: "a4", margin: (x: 2cm, y: 2.5cm))
-    #set text(font: "Liberation Sans", size: 11pt)
+#set text(font: "Liberation Sans", size: 11pt)
 
-    = Jon Morgan
-    #text(size: 9pt, fill: gray)[+61 429 357 751 | jonmorgan@fatmail.com | https://www.linkedin.com/in/linkjonmorgan/]
-    #v(10pt)
-    #align(right)[#datetime.today().display("[day] [month repr:long] [year]")]
+= Jon Morgan
+#text(size: 9pt, fill: gray)[+61 429 357 751 | jonmorgan@fatmail.com | https://www.linkedin.com/in/linkjonmorgan/]
+#v(10pt)
+#align(right)[09 July 2026]
 
-    To the Hiring Team,
+To the Hiring Team,
 
-    #v(10pt)
-    **[Your Name]**
-**Senior AI Pipeline & Platform Engineer**
-**Sovereign Data Solutions**
-**Melbourne, Victoria, Australia**
+#v(10pt)
+**[Your Name]**  
+[Your Address]  
+[City, State ZIP Code]  
+[Email Address]  
+[Phone Number]  
 
----
+Dear [Name of the Hiring Manager],
 
-**Dear [Recipient's Name],**
+I am writing to express my strong interest in the Senior AI Pipeline & Platform Engineer position at Sovereign Data Solutions. As a seasoned engineer with over 15 years in the field, I bring a wealth of experience and a deep understanding of data-driven solutions tailored specifically for aerospace and built environment compliance automation.
 
-I am writing to express my interest in the **Senior AI Pipeline & Platform Engineer** position at Sovereign Data Solutions. With a strong background in system optimization, Python script automation, and structured data serialization (JSON/YAML), I believe my expertise aligns perfectly with your company’s mission of building sandboxed, air-gapped data platforms for defense, aerospace, and real estate enterprises.
+Throughout my career, I have honed my skills in system optimization, Python script automation, structured data serialization (JSON/YAML), and local model engineering tools. My extensive experience includes roles such as Senior Technical Advisor & Industry Educator at Professional Associations & Advisory, Director & Principal Systems Architect at Co-Perform Pty Ltd, Sustainable Systems Lead at Moreland Energy Foundation Ltd, Building Physics Leader at Arup Australia, Building Physics & Microclimate Specialist at Arup UK, British Maritime Technology (BMT) Computational Fluid Dynamics & Wind Tunnel Specialist, Consulting Engineer at Scott Wilson Irwin Johnston Pty Ltd, and Research & Development Systems Engineer at DSTO.
 
-In my previous roles at Co-Perform Pty Ltd, Arup Australia, Moreland Energy Foundation Ltd (MEFL), Arup UK, British Maritime Technology (BMT), Scott Wilson Irwin Johnston Pty Ltd, and Defence Science and Technology Organisation (DSTO), I have successfully designed, implemented, and maintained various software solutions. My experience includes advanced engineering code automation and load profiling, data sanitization pipelines, micro-pipeline architecture design, and system monitoring.
+I am particularly drawn to the opportunity to contribute to Sovereign's mission of building sandboxed, air-gapped data platforms for defense, aerospace, and real estate enterprises. My technical expertise in AI pipeline and platform development, coupled with my strong passion for clean, print-ready document automation flows and analytical rendering systems, aligns perfectly with the company's values.
 
-My passion for pixel-perfect automated report generation or typesetting architectures is particularly well-suited to your organization’s needs in the realm of compliance tracking and data privacy. I am eager to contribute my skills to your team and accelerate our projects by automating routine tasks such as document parsing, data extraction, and inference workloads.
+I am eager to leverage my years of experience and skills to contribute to your organization and help drive innovation in this critical field. Please feel free to reach out to me at your earliest convenience to discuss how I can contribute positively to the success of Sovereign Data Solutions.
 
-**Your Company:** Sovereign Data Solutions
-**Industry:** Aerospace & Built Environment Compliance Automation
-
----
-
-I look forward to the opportunity to discuss how my background and experience can contribute to your organization. Please let me know if you have any further questions or if there is anything else I need to provide.
-
-Thank you for considering my application. I am looking forward to hearing from you soon.
+Thank you for considering my application. I look forward to the opportunity to discuss this position further.
 
 Sincerely,
 
-[Your Full Name]
+[Your Full Name]  
 [Your Contact Information]
 
-    #v(20pt)
-    Sincerely,
+#v(20pt)
+Sincerely,
 
-    Jon Morgan
+Jon Morgan

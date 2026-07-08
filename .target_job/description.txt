@@ -1,14 +1,31 @@
- Role: Senior AI Pipeline & Platform Engineer
-Location: Melbourne (Hybrid)
+Director of AI Engineering
 
-Key Responsibilities:
-- Design and maintain decoupled, local data orchestration pipelines written in Python.
-- Architect automated document parsing and data extraction frameworks using JSON and Markdown.
-- Optimize inference workloads for small language models (SLMs) and local compute infrastructure.
-- Build clean, print-ready document automation flows and analytical rendering systems.
+Timescapes • Melbourne, Victoria, Australia (Hybrid)
 
-Requirements:
-- Strong competency with system optimization, Python script automation, and structured data serialization (JSON/YAML).
-- Experience setting up automated multi-stage background tasks and micro-pipelines.
-- Familiarity with local model engineering tools (e.g., Ollama, local model deployment).
-- Passion for pixel-perfect automated report generation or typesetting architectures.
+Timescapes is looking for a Director of AI Engineering to join our small, but growing team of high-performers. We're after someone who approaches problems from first principles, identifying underlying causes and diligently iterating towards the best solution. We believe that great products feature incredible experiences that customers never want to stop using.
+
+About The Role
+
+As our Director of AI Engineering, you'll be responsible for leading the engineering effort behind the AI capabilities that will shape the next generation of our product. This is a high-impact role for someone who can bring technical depth, structure and strong engineering judgement to an ambitious product area, while still being comfortable operating in the ambiguity of a startup environment. Key aspects of the role include:
+
+    AI engineering leadership: leading the development of Timescapes' AI systems, including computer vision, multimodal AI, model evaluation, data pipelines and production-grade AI infrastructure for both edge and cloud applications. 
+    Applied AI development: driving the engineering work required to turn early AI concepts into working product capabilities. Identifying ways in which off the shelf LLMs and LVMs can be combined with custom CV models to solve key construction problems
+    Technical judgement and architecture: providing strong engineering judgement across model performance, system design, data quality, observability, reliability, cost and scalability. 
+    AI evaluation and quality: building the processes required to understand whether our AI systems are working effectively. This includes defining evaluation approaches, performance benchmarks, acceptance criteria, failure modes and feedback loops
+    Cross-functional partnership: partnering closely with the Product, Software and Hardware teams to shape what is technically possible and also worth pursuing
+    Team building and management: helping define the right long-term path for the AI team. This may include hiring additional AI / ML engineers or other specialists, and determining where best to make use of external tools, models and partners
+
+Requirements
+
+We want curious, driven and enthusiastic people who are motivated by the prospect of building solutions that endure. The people who thrive at Timescapes are critical thinkers who are not afraid to embrace the unconventional. If the following resonates with you, we should definitely chat:
+
+    Value-oriented: we're focussed on ensuring that Timescapes as a business gets genuine value from engineering investments. You'll be someone who sees methodologies, best practices and patterns as useful tools, but you don't blindly adopt them and never let them get in the way of great customer outcomes. 
+    Obsessed with the "why": you're someone who cares about the details, and you take pride in sharing your rationale for every decision you make. You question things that don't make sense, and you expect others to do the same
+    All about the editing: when it comes to great solutions, we don't believe you generally nail it on the first attempt. You're someone who's not afraid to leave a lot of ideas on the cutting room floor, and you intuitively understand that the first release is just the beginning
+    Adaptable and creative: as a small company doing ambitious things, we don't always have the right answer, and we know that what's worked in the past may not work in the future, but we're not deterred by the unknown, and we're excited about trying new things and finding our way through. 
+    Communication matters: in addition to communicating clearly and succinctly, you're also a natural relationship-builder, and you're equally comfortable on Slack/email, video calls and in person
+
+The following are definitely not required, but would be a bonus in this role:
+
+    Startup / scale-up experience: you've experienced the chaos of startups, juggled lots of competing priorities and you've rebuilt unscalable processes
+    Team structure: you've been responsible for creating / driving the engineering structure within an organisation, especially as the company has grown from its earliest single-team form
