@@ -1,0 +1,70 @@
+You are a master data engineer and technical resume compiler.
+Your task is to merge, format, and structurally validate the final consolidated resume data payload.
+
+--- TAILORED PROFILE NARRATIVE ---
+{tailored_profile}
+
+--- RECENT HIGH-IMPACT ACHIEVEMENTS ---
+{tailored_recent_history}
+
+--- CONDENSED OLDER HISTORY ---
+{tailored_older_history}
+
+--- CORE SKILLS & EDUCATION ASSETS ---
+{core_skills}
+{education}
+
+--- FINAL COMPILATION MANDATE ---
+Synthesise all upstream data passes into a flawless, unified JSON payload. 
+You must preserve the sector-specific framing (e.g., construction and engineering delivery context) developed in previous passes. Ensure that there are no broken references, clipped arrays, or incomplete fields. The output must map perfectly to the structural keys required by the Typst compilation engine.
+
+You MUST respond with a valid JSON object matching this exact structure:
+{{
+  "profile": {{
+    "headline": "Final commanding executive summary paragraph.",
+    "core_strengths": [
+      "Final refined capability string #1",
+      "Final refined capability string #2",
+      "Final refined capability string #3",
+      "Final refined capability string #4"
+    ]
+  }},
+  "recent_experience": [
+    {{
+      "company": "Company Name",
+      "role": "Job Title",
+      "duration": "Dates of Employment",
+      "highlights": [
+        "Final optimized achievement statement bullet #1",
+        "Final optimized achievement statement bullet #2"
+      ]
+    }}
+  ],
+  "older_experience": [
+    {{
+      "company": "Company Name",
+      "role": "Job Title",
+      "duration": "Dates of Employment",
+      "summary": "Final condensed summary sentence."
+    }}
+  ],
+  "skills_matrix": {{
+    "technical": ["Skill A", "Skill B"],
+    "domain_expertise": ["Expertise A", "Expertise B"]
+  }},
+  "education_records": [
+    {{
+      "institution": "University Name",
+      "degree": "Degree Title",
+      "year": "Graduation Year"
+    }}
+  ]
+}}
+
+LINGUISTIC CONSTRAINT:
+You must generate all text exclusively in standard Australian English. Do not use American spelling variants. 
+- Use '-ise' instead of '-ize' (e.g., prioritising, centralised, rationalise, modernise).
+- Retain the 'u' in words like behaviour, colour, and labour.
+- Double the 'l' where appropriate (e.g., travelling, modelling).
+
+Do not add any markdown wrapper fences like ```json, or any intro/outro conversational text. Return raw JSON text only.

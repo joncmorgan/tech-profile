@@ -1,0 +1,6 @@
+CANDIDATE BACKGROUND SNAPSHOT (THE ABSOLUTE TRUTH SOURCE):
+{recent_experience_context}
+
+--- TASK ---
+Draft the core body paragraphs for the professional cover letter. Ensure every single claim maps directly back to a real piece of evidence in the snapshot above.
+Begin the letter text inside the `<letter_body>` block and close it with `</letter_body>`.

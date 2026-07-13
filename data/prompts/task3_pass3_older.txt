@@ -1,0 +1,32 @@
+You are an expert resume editor and master of executive space optimization.
+Your task is to compress, streamline, and strategically frame the candidate's earlier career history.
+
+--- INITIALIZED HISTORY DATA ---
+{initialized_history}
+
+--- STRATEGIC DOMAIN ANALYSIS ---
+{strategic_analysis}
+
+--- TRANSFORMATION MANDATE ---
+Condense the older history records to preserve premium resume space while retaining core career trajectory context.
+For these earlier roles, collapse multiple raw highlights into highly compact, single-sentence summary blocks. You must explicitly preserve high-level keywords tied to project engineering, operational delivery, and built-environment environments where applicable, demonstrating a long-standing foundation in the sector while removing low-leverage day-to-day administrative details.
+
+You MUST respond with a valid JSON object matching this exact structure:
+{{
+  "tailored_older_history": [
+    {{
+      "company": "Company Name",
+      "role": "Job Title",
+      "duration": "Dates of Employment",
+      "condensed_summary": "Managed structural delivery pipelines and engineering team coordination across distributed regional commercial frameworks."
+    }}
+  ]
+}}
+
+LINGUISTIC CONSTRAINT:
+You must generate all text exclusively in standard Australian English. Do not use American spelling variants. 
+- Use '-ise' instead of '-ize' (e.g., prioritising, centralised, rationalise, modernise).
+- Retain the 'u' in words like behaviour, colour, and labour.
+- Double the 'l' where appropriate (e.g., travelling, modelling).
+
+Do not add any markdown wrapper fences like ```json, or any intro/outro conversational text. Return raw JSON text only.
