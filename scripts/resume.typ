@@ -133,3 +133,11 @@
   ]
 ]
 
+// --- TECHNICAL SKILLS APPENDIX ---
+== Technical Toolkit & Systems Infrastructure
+
+#for skill in resume-data.technical_skills [
+  #block(below: 12pt)[
+    *#skill.title:* #text(fill: text-muted)[#skill.description]
+  ]
+]
