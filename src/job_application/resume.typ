@@ -8,14 +8,19 @@
 #let bg-box = rgb("#f8fafc")
 #let border-grey = rgb("#cbd5e1")
 
+//#set page(
+//  paper: "a4",
+//  margin: (x: 2cm, y: 2.5cm),
+//  footer: align(center)[
+//    #text(size: 8.5pt, fill: text-muted)[
+//      #resume-data.contact.phone  |  #resume-data.contact.email  |  #resume-data.contact.linkedin
+//    ]
+//  ]
+//)
+
 #set page(
   paper: "a4",
-  margin: (x: 2cm, y: 2.5cm),
-  footer: align(center)[
-    #text(size: 8.5pt, fill: text-muted)[
-      #resume-data.contact.phone  |  #resume-data.contact.email  |  #resume-data.contact.linkedin
-    ]
-  ]
+  margin: (x: 2cm, y: 2.5cm)
 )
 
 // Font stack array automatically falls back safely if a font is missing

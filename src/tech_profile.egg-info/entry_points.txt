@@ -1,0 +1,3 @@
+[console_scripts]
+build-job-app = job_application.build:main
+skill-builder = skill_builder.main:main

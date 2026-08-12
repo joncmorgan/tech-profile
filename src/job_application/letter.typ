@@ -8,7 +8,11 @@
 
 #set page(
   paper: "a4",
-  margin: (x: 2cm, top: 2.0cm, bottom: 2.0cm)
+  margin: (x: 2cm, top: 2.0cm, bottom: 1.2cm),
+  footer: [
+    #set text(size: 8pt, fill: text-muted)
+    #v(-4pt)
+  ]
 )
 
 #set text(
@@ -41,7 +45,7 @@
   )
 ]
 
-#v(10pt)
+#v(8pt)
 
 // --- METADATA & DYNAMIC DATE ---
 #align(left)[
@@ -50,28 +54,31 @@
   ]
 ]
 
-#v(10pt)
+#v(8pt)
 
 // --- RECIPIENT ---
 #text(weight: "bold")[#letter-data.recipient]
 
-#v(10pt)
+#v(8pt)
 
 // --- LETTER BODY ---
 #for para in letter-data.paragraphs [
-  #para
-  #v(10pt)
+  #eval(para, mode: "markup")
+  #v(6pt)
 ]
 
-#v(4pt)
-#letter-data.closing
-
-#v(20pt)
+// Safely handle missing closing property
+#let closing-text = letter-data.at("closing", default: none)
+#if closing-text != none [
+  #v(2pt)
+  #closing-text
+]
+#v(8pt)
 
 Sincerely,
 
-#v(6pt)
+#v(4pt)
 #image("sig-jon.png", width: 3.5cm)
-#v(6pt)
+#v(4pt)
 
 *#resume-data.name*

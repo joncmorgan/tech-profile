@@ -1,0 +1,29 @@
+{
+  "recruiter_dorks": {
+    "internal_ta_url": "https://www.google.com/search?q=site%3Alinkedin.com%2Fin+%28%22Talent+Acquisition%22+OR+%22Recruitment+Partner%22+OR+%22People+%26+Culture+Director%22%29+%28%22Conscious+Investment+Management%22+OR+%22Impact+Investment+Group%22+OR+%22Assemble%22+OR+%22Future+Super%22+OR+%22Nightingale+Housing%22+OR+%22MAKE+Property+Group%22+OR+%22Habitat+for+Humanity+Victoria%22+OR+%22Nexus+Developments%22+OR+%22Sefa%22+OR+%22Lord+Mayor%27s+Charitable+Foundation%22+OR+%22Australian+Impact+Investments%22+OR+%22Fontic%22+OR+%22Housing+Australia%22+OR+%22Development+Victoria%22+OR+%22Homes+Victoria%22+OR+%22Housing+Choices+Australia%22+OR+%22SGCH%22+OR+%22HousingFirst%22+OR+%22Slattery%22+OR+%22Impact+Investing+Australia%22%29+%22Melbourne%22",
+    "agency_sector_url": "https://www.google.com/search?q=site%3Alinkedin.com%2Fin+%28%22Recruiter%22+OR+%22Search+Consultant%22+OR+%22Principal+Consultant%22+OR+%22Talent+Partner%22%29+%28%22Property%22+OR+%22Real+Estate%22+OR+%22Affordable+Housing%22+OR+%22ESG%22+OR+%22Impact+Investment%22%29+%22Melbourne%22",
+    "agency_client_url": "https://www.google.com/search?q=site%3Alinkedin.com%2Fin+%28%22Recruiter%22+OR+%22Executive+Search%22+OR+%22Consultant%22%29+%28%22Conscious+Investment+Management%22+OR+%22Impact+Investment+Group%22+OR+%22Assemble%22+OR+%22Future+Super%22+OR+%22Nightingale+Housing%22+OR+%22MAKE+Property+Group%22+OR+%22Habitat+for+Humanity+Victoria%22+OR+%22Nexus+Developments%22+OR+%22Sefa%22+OR+%22Lord+Mayor%27s+Charitable+Foundation%22+OR+%22Australian+Impact+Investments%22+OR+%22Fontic%22+OR+%22Housing+Australia%22+OR+%22Development+Victoria%22+OR+%22Homes+Victoria%22+OR+%22Housing+Choices+Australia%22+OR+%22SGCH%22+OR+%22HousingFirst%22+OR+%22Slattery%22+OR+%22Impact+Investing+Australia%22%29+%22Melbourne%22"
+  },
+  "agencies": [
+    {
+      "name": "Capstone Recruitment",
+      "focus": "Property & Infrastructure"
+    },
+    {
+      "name": "Macdonald & Company",
+      "focus": "Real Estate & Development"
+    },
+    {
+      "name": "Gough Recruitment",
+      "focus": "Property & Real Asset Management"
+    },
+    {
+      "name": "SHK Asia Pacific",
+      "focus": "Executive & Government/NFP"
+    },
+    {
+      "name": "Davidson",
+      "focus": "Public Sector & Community Housing"
+    }
+  ]
+}
