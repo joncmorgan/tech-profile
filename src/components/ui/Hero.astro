@@ -1,29 +1,43 @@
 ---
 import { Image } from 'astro:assets'
 
-import SocialIcons from './SocialIcons.astro'
-
-
-const {fullName, title, institute, profilePicture} = Astro.props
+const { fullName, title, institute, headline, subheadline, practiceStatement, profilePicture } = Astro.props
 ---
-<div class='flex-1'>
-  <h1 class='text-4xl font-bold mb-4'>
-    Welcome! I'm <span class='text-secondary'>{fullName}</span>
-  </h1>
-  <p class='text-xl text-gray-600 mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
-  <p class='text-lg mb-6'>
-    Brief impactful description of your research focus and academic mission.
-    Highlight your key contributions and areas of expertise.
-  </p>
-  <div class='flex gap-4'>
-    <SocialIcons />
+<div class='flex-1 space-y-6'>
+  <div class='space-y-1'>
+    <h1 class='text-3xl lg:text-4xl font-bold tracking-tight text-base-content'>
+      {fullName}
+    </h1>
+    <p class='text-lg font-medium text-base-content/80'>
+      {title}{institute ? ` — ${institute}` : ''}
+    </p>
   </div>
+  
+  {headline && (
+    <h2 class='text-xl font-semibold text-base-content'>
+      {headline}
+    </h2>
+  )}
+
+  {subheadline && (
+    <p class='text-base text-base-content/70 leading-relaxed'>
+      {subheadline}
+    </p>
+  )}
+
+  {practiceStatement && practiceStatement.length > 0 && (
+    <div class='space-y-3 text-base text-base-content/90 leading-relaxed'>
+      {practiceStatement.map((paragraph: string) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  )}
 </div>
-<div class='size-72 lg:block hidden'>
-  <!-- Add your profile image -->
+
+<div class='size-72 lg:block hidden shrink-0'>
   <Image
     src={profilePicture}
     alt={fullName}
-    class='w-full h-full mask mask-circle size-44'
+    class='w-full h-full object-cover mask mask-circle size-56'
   />
 </div>

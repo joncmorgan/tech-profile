@@ -1,52 +1,73 @@
 ---
 import { Image } from 'astro:assets'
-import {profile} from '../../settings'
-import SocialIcons from './SocialIcons.astro'
+import { profile, social, template } from '@/settings'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
-import { getCollection } from 'astro:content'
-import { template } from '@/settings'
 
-const isBlogPopulated = await getCollection('blog').then(collection => collection.length > 0)
-
-const {fullName, title} = profile
+const { fullName, title, institute } = profile
+const { email, linkedin } = social
 ---
+
 <aside
-	class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col'
+    class='px-4 pt-4 h-screen w-[20rem] bg-base-200 text-base-content flex flex-col justify-between'
 >
-	<div class='flex flex-col my-8 justify-between h-full'>
-		<div>
-			<div class='flex justify-center items-center flex-col'>
-				<Image
-					class='mask mask-circle size-44'
-					src={ProfilePictures}
-					alt={`Profile picture of ${fullName}`}
-				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block">{title} <span>{fullName}</span></h1>
-			</div>
-			<div class='mx-4 mt-16'>
-				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
-					<li>
-                        <a href={`${template.base}/`} class='text-lg'>Home</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/research`} class='text-lg'>Research</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/papers`} class='text-lg'>Papers</a>
-					</li>
-					<li>
-                        <a href={`${template.base}/cv`} class='text-lg'>CV</a>
-                    </li>
-                    {isBlogPopulated &&
-					<li>
-                        <a href={`${template.base}/blog/1`} class='text-lg'>Blog</a>
-</li>
-                    }
-				</ul>
-			</div>
-		</div>
-		<div class='mx-4'>
-			<SocialIcons/>
-		</div>
-	</div>
+    <div class='flex flex-col my-8 space-y-6 overflow-y-auto'>
+        <!-- Profile Header -->
+        <div class='flex items-start flex-col px-4 pt-2'>
+            <Image
+                class='mask mask-circle size-28 mb-4'
+                src={ProfilePictures}
+                alt={`Profile picture of ${fullName}`}
+            />
+            <h1 class="text-xl font-bold tracking-tight text-base-content">{fullName}</h1>
+            <p class='text-sm font-medium text-base-content/80 mt-1'>{title}</p>
+            
+            <!-- Degrees -->
+            <div class='mt-2 space-y-0.5 text-xs text-base-content/70 font-medium'>
+                <p>Bachelor of Engineering (Aerospace)</p>
+                <p>Master of Urban Planning and Environment</p>
+            </div>
+
+            {institute && <p class='text-sm text-base-content/60 mt-0.5'>{institute}</p>}
+        </div>
+
+        <!-- Contact & Social Details -->
+        <div class='mx-4 pt-4 border-t border-base-content/10 space-y-3 text-sm'>
+            <div>
+                <span class='font-semibold text-base-content/60 block text-xs uppercase tracking-wider mb-0.5'>Location</span>
+                <span class='text-base-content/80'>Melbourne, Australia</span>
+            </div>
+            <div>
+                <span class='font-semibold text-base-content/60 block text-xs uppercase tracking-wider mb-0.5'>Email</span>
+                <a href={`mailto:${email}`} class='text-secondary hover:underline flex items-center gap-2 truncate'>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <span class="truncate">{email}</span>
+                </a>
+            </div>
+            {linkedin && (
+                <div>
+                    <span class='font-semibold text-base-content/60 block text-xs uppercase tracking-wider mb-0.5'>LinkedIn</span>
+                    <a href={linkedin} target='_blank' rel='noopener noreferrer' class='text-secondary hover:underline flex items-center gap-2'>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span class="truncate">View Profile</span>
+                </a>
+            </div>
+            )}
+        </div>
+
+        <!-- Navigation Section After Information -->
+        <div class='mx-4 pt-4 border-t border-base-content/10 flex flex-col gap-2'>
+            <a 
+                href={`${template.base}/`} 
+                class='btn btn-sm btn-outline justify-start font-medium rounded-box normal-case hover:btn-primary transition-all shadow-xs'
+            >
+                Home
+            </a>
+            <a 
+                href={`${template.base}/projects`} 
+                class='btn btn-sm btn-outline justify-start font-medium rounded-box normal-case hover:btn-primary transition-all shadow-xs'
+            >
+                Projects
+            </a>
+        </div>
+    </div>
 </aside>

@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { projects } from '@/projects'
+
+// Group projects by category
+const groupedProjects = projects.reduce((acc, project) => {
+    const category = project.category || 'General Systems';
+    if (!acc[category]) {
+        acc[category] = [];
+    }
+    acc[category].push(project);
+    return acc;
+}, {} as Record<string, typeof projects>);
+---
+
+<Layout>
+    <div class='py-8 mb-12'>
+        <h1 class='text-3xl lg:text-4xl font-bold mb-2'>Projects</h1>
+        <p class='text-base text-base-content/70'>
+            A focused portfolio of engineering systems, computational models, and custom software architectures.
+        </p>
+    </div>
+
+    {/* Categorized Lists */}
+    <div class='max-w-3xl space-y-10 pb-12'>
+        {Object.entries(groupedProjects).map(([category, categoryProjects]) => (
+            <div class='space-y-4'>
+                <h2 class='text-xl font-bold text-primary tracking-tight'>{category}</h2>
+                <div class='space-y-3'>
+                    {categoryProjects.map((project) => {
+                        const globalIndex = projects.findIndex(p => p.title === project.title);
+                        return (
+                            <button 
+                                type='button'
+                                data-project-index={globalIndex}
+                                class='project-card text-left w-full py-3 px-4 rounded-lg border bg-card hover:border-primary transition-colors group cursor-pointer flex items-center justify-between'
+                            >
+                                <!-- Changed from font-semibold to font-normal (or medium) to lighten the visual weight -->
+                                <span class='font-medium text-base text-base-content group-hover:text-primary transition-colors'>{project.title}</span>
+                                <span class='text-base-content/40 group-hover:text-primary transition-colors'>&rarr;</span>
+                            </button>
+                        );
+                    })}
+                </div>
+            </div>
+        ))}
+    </div>
+
+    <!-- DaisyUI Modal Element -->
+    <dialog id='project-modal' class='modal'>
+        <div class='modal-box max-w-2xl space-y-6'>
+            <div class='space-y-3'>
+                <h3 id='modal-title' class='text-2xl font-bold text-primary'></h3>
+                <p id='modal-desc' class='text-base text-base-content/80 leading-relaxed'></p>
+            </div>
+            
+            <!-- Main Body Content (Bullets) -->
+            <div id='modal-body-container' class='hidden'>
+                <ul id='modal-bullets' class='list-disc list-inside space-y-3 text-base text-base-content/90 leading-relaxed'></ul>
+            </div>
+
+            <div class='modal-action'>
+                <form method='dialog'>
+                    <button class='btn btn-sm'>Close</button>
+                </form>
+            </div>
+        </div>
+        <form method='dialog' class='modal-backdrop'>
+            <button>close</button>
+        </form>
+    </dialog>
+</Layout>
+
+<script define:vars={{ projects }}>
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalBodyContainer = document.getElementById('modal-body-container');
+    const modalBullets = document.getElementById('modal-bullets');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const index = card.getAttribute('data-project-index');
+            const project = projects[index];
+
+            if (project) {
+                modalTitle.textContent = project.title;
+                modalDesc.textContent = project.description;
+
+                // Render highlights directly as main body bullet points
+                modalBullets.innerHTML = '';
+                if (project.highlights && project.highlights.length > 0) {
+                    modalBodyContainer.classList.remove('hidden');
+                    project.highlights.forEach(highlight => {
+                        const li = document.createElement('li');
+                        li.textContent = highlight;
+                        modalBullets.appendChild(li);
+                    });
+                } else {
+                    modalBodyContainer.classList.add('hidden');
+                }
+
+                modal.showModal();
+            }
+        });
+    });
+</script>

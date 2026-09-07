@@ -2,36 +2,78 @@
 import Layout from '../layouts/Layout.astro'
 
 import { profile } from '@/settings'
-import { publications } from '@/data/cv'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
 import Hero from '@/components/ui/Hero.astro'
-import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
 
-const { fullName, title, institute, research_areas } = profile
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const { 
+    fullName, 
+    title, 
+    institute, 
+    hero_headline,
+    hero_subheadline,
+    practice_statement, 
+    background_pillars, 
+    research_areas, 
+    modes_of_engagement 
+} = profile
 ---
 
 <Layout>
-	<!-- Hero Section -->
-	<section class='flex items-center gap-12 border-b pb-12'>
-		<Hero
-			fullName={fullName}
-			title={title}
-			institute={institute}
-			profilePicture={ProfilePictures}
-		/>
-	</section>
+    <!-- Hero Section -->
+    <section class='flex items-center gap-12 border-b pb-12'>
+        <Hero
+            fullName={fullName}
+            title={title}
+            institute={institute}
+            headline={hero_headline}
+            subheadline={hero_subheadline}
+            practiceStatement={practice_statement}
+            profilePicture={ProfilePictures}
+        />
+    </section>
 
-	<!-- Research Areas -->
-	<section class='py-12 border-b'>
-		<Grid gridTitle='Research Areas' gridItems={research_areas} />
-	</section>
+    <!-- Background & Perspective (3-Column Cards) -->
+    <section class='py-12 border-b space-y-6'>
+        <div class='mb-2'>
+            <h2 class='text-2xl font-bold tracking-tight text-primary'>Background & Perspective</h2>
+        </div>
+        <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            {background_pillars.map(pillar => (
+                <div class='p-6 rounded-lg border bg-card flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
+                    <div>
+                        <h3 class='font-semibold text-lg mb-2'>{pillar.title}</h3>
+                        <p class='text-sm opacity-80 leading-relaxed'>{pillar.description}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
 
-	<!-- Recent Publications -->
-	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
-	</section>
+    <!-- Capability Domains (2x2 Grid) -->
+    <section class='py-12 border-b space-y-6'>
+        <div class='mb-2'>
+            <h2 class='text-2xl font-bold tracking-tight text-primary'>Capability Domains</h2>
+        </div>
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            {research_areas.map(area => (
+                <div class='p-6 rounded-lg border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
+                    <h3 class='font-semibold text-lg mb-2'>{area.title}</h3>
+                    <p class='text-sm opacity-80 leading-relaxed'>{area.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Modes of Engagement -->
+    <section class='py-12 space-y-6'>
+        <h2 class='text-2xl font-bold tracking-tight text-primary'>Modes of Engagement</h2>
+        <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            {modes_of_engagement.map(mode => (
+                <div class='p-6 rounded-lg border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
+                    <h3 class='font-semibold text-lg mb-2'>{mode.title}</h3>
+                    <p class='text-sm opacity-80 leading-relaxed'>{mode.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
 </Layout>
