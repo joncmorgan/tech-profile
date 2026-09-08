@@ -2,47 +2,65 @@
 import Layout from '../layouts/Layout.astro'
 import { projects } from '@/projects'
 
-// Group projects by category
-const groupedProjects = projects.reduce((acc, project) => {
-    const category = project.category || 'General Systems';
-    if (!acc[category]) {
-        acc[category] = [];
-    }
-    acc[category].push(project);
-    return acc;
-}, {} as Record<string, typeof projects>);
+// Extract unique categories (disciplines) and outcomes for the filters
+const categories = Array.from(new Set(projects.map(p => p.category || 'General Systems')));
+const outcomes = Array.from(new Set(projects.map(p => p.outcome).filter(Boolean)));
 ---
 
 <Layout>
-    <div class='py-8 mb-12'>
+    <div class='py-8 mb-8'>
         <h1 class='text-3xl lg:text-4xl font-bold mb-2'>Projects</h1>
         <p class='text-base text-base-content/70'>
             A focused portfolio of engineering systems, computational models, and custom software architectures.
         </p>
     </div>
 
-    {/* Categorized Lists */}
-    <div class='max-w-3xl space-y-10 pb-12'>
-        {Object.entries(groupedProjects).map(([category, categoryProjects]) => (
-            <div class='space-y-4'>
-                <h2 class='text-xl font-bold text-primary tracking-tight'>{category}</h2>
-                <div class='space-y-3'>
-                    {categoryProjects.map((project) => {
-                        const globalIndex = projects.findIndex(p => p.title === project.title);
-                        return (
-                            <button 
-                                type='button'
-                                data-project-index={globalIndex}
-                                class='project-card text-left w-full py-3 px-4 rounded-lg border bg-card hover:border-primary transition-colors group cursor-pointer flex items-center justify-between'
-                            >
-                                <!-- Changed from font-semibold to font-normal (or medium) to lighten the visual weight -->
-                                <span class='font-medium text-base text-base-content group-hover:text-primary transition-colors'>{project.title}</span>
-                                <span class='text-base-content/40 group-hover:text-primary transition-colors'>&rarr;</span>
-                            </button>
-                        );
-                    })}
-                </div>
+    {/* Dual-Axis Filter Matrix Bar */}
+    <div class='max-w-3xl space-y-4 mb-10 p-4 rounded-xl border bg-card/50'>
+        <!-- Axis 1: Outcome / Leadership View -->
+        <div class='space-y-1.5'>
+            <span class='text-xs font-semibold text-base-content/60 uppercase tracking-wider block'>Filter by Outcome</span>
+            <div class='flex flex-wrap gap-2' id='outcome-filters'>
+                <button type='button' class='btn btn-xs btn-active rounded-md normal-case font-medium outcome-btn' data-outcome='all'>
+                    All Outcomes
+                </button>
+                {outcomes.map(outcome => (
+                    <button type='button' class='btn btn-xs btn-ghost rounded-md normal-case font-medium outcome-btn' data-outcome={outcome}>
+                        {outcome}
+                    </button>
+                ))}
             </div>
+        </div>
+
+        <!-- Axis 2: Technical Discipline / Category View -->
+        <div class='space-y-1.5 pt-2 border-t border-base-content/10'>
+            <span class='text-xs font-semibold text-base-content/60 uppercase tracking-wider block'>Filter by Discipline</span>
+            <div class='flex flex-wrap gap-2' id='discipline-filters'>
+                <button type='button' class='btn btn-xs btn-active rounded-md normal-case font-medium discipline-btn' data-discipline='all'>
+                    All Disciplines
+                </button>
+                {categories.map(cat => (
+                    <button type='button' class='btn btn-xs btn-ghost rounded-md normal-case font-medium discipline-btn' data-discipline={cat}>
+                        {cat}
+                    </button>
+                ))}
+            </div>
+        </div>
+    </div>
+
+    {/* Flat List of Projects (Stable Vertical Layout) */}
+    <div class='max-w-3xl space-y-3 pb-12' id='projects-container'>
+        {projects.map((project, index) => (
+            <button 
+                type='button'
+                data-project-index={index}
+                data-category={project.category || 'General Systems'}
+                data-outcome={project.outcome || 'General'}
+                class='project-card text-left w-full py-3 px-4 rounded-lg border bg-card hover:border-primary transition-colors group cursor-pointer flex items-center justify-between'
+            >
+                <span class='font-medium text-base text-base-content group-hover:text-primary transition-colors'>{project.title}</span>
+                <span class='text-base-content/40 group-hover:text-primary transition-colors'>&rarr;</span>
+            </button>
         ))}
     </div>
 
@@ -72,6 +90,7 @@ const groupedProjects = projects.reduce((acc, project) => {
 </Layout>
 
 <script define:vars={{ projects }}>
+    // Modal Logic
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
@@ -87,7 +106,6 @@ const groupedProjects = projects.reduce((acc, project) => {
                 modalTitle.textContent = project.title;
                 modalDesc.textContent = project.description;
 
-                // Render highlights directly as main body bullet points
                 modalBullets.innerHTML = '';
                 if (project.highlights && project.highlights.length > 0) {
                     modalBodyContainer.classList.remove('hidden');
@@ -102,6 +120,58 @@ const groupedProjects = projects.reduce((acc, project) => {
 
                 modal.showModal();
             }
+        });
+    });
+
+    // Dual-Axis Filtering Logic for Flat List
+    const outcomeBtns = document.querySelectorAll('.outcome-btn');
+    const disciplineBtns = document.querySelectorAll('.discipline-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    let currentOutcome = 'all';
+    let currentDiscipline = 'all';
+
+    function filterProjects() {
+        projectCards.forEach(card => {
+            const cardOutcome = card.getAttribute('data-outcome');
+            const cardDiscipline = card.getAttribute('data-category');
+
+            const matchesOutcome = (currentOutcome === 'all' || cardOutcome === currentOutcome);
+            const matchesDiscipline = (currentDiscipline === 'all' || cardDiscipline === currentDiscipline);
+
+            if (matchesOutcome && matchesDiscipline) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    outcomeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            outcomeBtns.forEach(b => {
+                b.classList.remove('btn-active');
+                b.classList.add('btn-ghost');
+            });
+            btn.classList.add('btn-active');
+            btn.classList.remove('btn-ghost');
+
+            currentOutcome = btn.getAttribute('data-outcome') || 'all';
+            filterProjects();
+        });
+    });
+
+    disciplineBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            disciplineBtns.forEach(b => {
+                b.classList.remove('btn-active');
+                b.classList.add('btn-ghost');
+            });
+            btn.classList.add('btn-active');
+            btn.classList.remove('btn-ghost');
+
+            currentDiscipline = btn.getAttribute('data-discipline') || 'all';
+            filterProjects();
         });
     });
 </script>

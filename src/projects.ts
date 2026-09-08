@@ -5,6 +5,7 @@ export interface Project {
     description: string
     highlights: string[]
     featured: boolean
+    outcome: string
 }
 
 export const projects: Project[] = [
@@ -18,7 +19,8 @@ export const projects: Project[] = [
             'Optimised building envelope parameters, thermal mass distribution, and shading geometries to prevent indoor overheating during severe climate events.',
             'Delivered a verified benchmark of climate-adaptive architecture currently used to inform regional resilient housing standards.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Masterplan microclimate and human thermal comfort index suite',
@@ -30,7 +32,8 @@ export const projects: Project[] = [
             'Synthesised meteorological wind, radiation, and humidity data into actionable spatial design parameters for urban master planning.',
             'Guided public realm design to mitigate urban heat island effects and significantly improve pedestrian thermal comfort.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Future climate weather file application and stress testing',
@@ -42,7 +45,8 @@ export const projects: Project[] = [
             'Calculated forward-looking HVAC energy consumption spikes and unadapted free-running building overheating rates.',
             'Provided asset owners with quantitative risk profiles to future-proof capital investments against projected climate extremes.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Decarbonization and ESG impact'
     },
     {
         title: 'Facade thermal physics and heat transfer analysis',
@@ -54,7 +58,8 @@ export const projects: Project[] = [
             'Modelled advanced glazing configurations to balance solar heat gain coefficients, centre-of-glass U-values, and low-emissivity coating performance.',
             'Eliminated localised condensation risks and ensured compliance with stringent envelope thermal performance standards.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Decarbonization and ESG impact'
     },
     {
         title: 'Enterprise data-driven reporting ecosystem and documentation engine',
@@ -66,7 +71,8 @@ export const projects: Project[] = [
             'Engineered automated document assembly pipelines linking simulation outputs and engineering tables directly into client deliverables.',
             'Containerised the entire typesetting workflow onto local servers, slashing report compilation times and removing quality assurance bottlenecks.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Enterprise and systems integration'
     },
     {
         title: 'Commercial rebrand and operational overhaul',
@@ -78,7 +84,8 @@ export const projects: Project[] = [
             'Standardised client-facing technical communications and digital touchpoints to streamline project acquisition.',
             'Protected senior engineering capacity and optimised operational workflows for resilient small practice management.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Enterprise and systems integration'
     },
     {
         title: 'Gas turbine engine performance digital twin',
@@ -90,7 +97,8 @@ export const projects: Project[] = [
             'Mapped multi-parameter thermodynamic degradation vectors against empirical pressure, temperature, and thrust measurements.',
             'Accurately identified component-level efficiency losses to support rigorous aerospace testing and diagnostic validation.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Enterprise and systems integration'
     },
     {
         title: 'Kilometre-high solar updraft chimney simulation pipeline',
@@ -102,7 +110,8 @@ export const projects: Project[] = [
             'Simulated dynamic solar transmission through massive glass canopies coupled with atmospheric thermodynamics over high vertical profiles.',
             'Quantified aerodynamic friction and turbine momentum extraction to validate large-scale renewable power generation potential.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Decarbonization and ESG impact'
     },
     {
         title: 'Battery energy storage systems digital twin and tariff optimisation',
@@ -114,7 +123,8 @@ export const projects: Project[] = [
             'Evaluated round-trip efficiency, degradation factors, and multi-tiered commercial electricity tariff structures.',
             'Delivered rapid, automated financial payback assessments to guide municipal energy infrastructure investments.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Decarbonization and ESG impact'
     },
     {
         title: 'Complex HVAC system simulation and NABERS commitment agreements',
@@ -126,7 +136,8 @@ export const projects: Project[] = [
             'Simulated multi-zone variable air volume and refrigerant flow systems alongside integrated photovoltaic metering layouts.',
             'Successfully secured official high-star pre-construction environmental ratings through rigorous independent third-party audits.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Decarbonization and ESG impact'
     },
     {
         title: 'Whole-of-building upfront embodied carbon quantification',
@@ -138,7 +149,8 @@ export const projects: Project[] = [
             'Applied rigorous data-cleansing rules to eliminate double-counting between structural reinforcement and concrete volumes.',
             'Linked material quantities to verified environmental product declarations to secure official green building sustainability ratings.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Decarbonization and ESG impact'
     },
     {
         title: 'Offshore platform explosion overpressure and CFD automation',
@@ -150,7 +162,8 @@ export const projects: Project[] = [
             'Engineered custom geometric translation scripts to ingest complex computer-aided design files directly into explosion simulation solvers.',
             'Eliminated manual geometry recreation bottlenecks, saving hundreds of engineering hours while enhancing structural safety analysis.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Industrial fire behaviour, smoke dynamics and compute infrastructure',
@@ -162,7 +175,8 @@ export const projects: Project[] = [
             'Specified and deployed a dedicated headless Linux compute cluster managed via batch queuing protocols to accelerate processing times.',
             'Delivered critical visibility and toxic gas timeline outputs to integrate seamlessly with life safety evacuation egress models.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Enterprise and systems integration'
     },
     {
         title: 'Industrial stack plume dispersion and aviation safety assessment',
@@ -174,7 +188,8 @@ export const projects: Project[] = [
             'Analysed historical meteorological data to track thermal buoyancy, vertical velocity, and worst-case atmospheric inversion conditions.',
             'Verified stack geometries against civil aviation obstacle limitation surfaces to prevent hazardous plume penetration into flight corridors.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Rail tunnel and enclosed car park ventilation architecture',
@@ -186,7 +201,8 @@ export const projects: Project[] = [
             'Optimised impulse jet fan placements and bulk airflow paths to eliminate stagnant pockets and drive pollutants toward extraction shafts.',
             'Verified pollutant levels against strict regulatory exposure thresholds to ensure safe environmental conditions for occupants.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Urban wind microclimate, pedestrian safety and CFD validation',
@@ -198,7 +214,8 @@ export const projects: Project[] = [
             'Resolved complex flow separation and high-velocity corner streams to evaluate peak gust forces against human instability criteria.',
             'Guided architectural canopy and podium setback designs to mitigate severe wind hazards in dense urban public realms.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Reflected glare hazard studies and geometric automation',
@@ -210,7 +227,8 @@ export const projects: Project[] = [
             'Generated synthetic luminance maps along complex transit corridors and road overpasses to measure driver visual impairment risks.',
             'Optimised facade glass reflectance limits and exterior shading geometry to eliminate hazardous glare into surrounding public zones.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Stadium pitch microclimate and cumulative PAR radiometric modelling',
@@ -222,7 +240,8 @@ export const projects: Project[] = [
             'Developed cumulative sky radiometric models integrating direct and diffuse solar radiation components against turf species requirements.',
             'Optimised mobile artificial growth lighting schedules and spatial placements to eliminate chronic shadow deficits while minimising operational costs.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Daylight availability, solar access and visual comfort simulation',
@@ -234,7 +253,8 @@ export const projects: Project[] = [
             'Evaluated internal daylight autonomy and computer screen glare to optimise workspace layouts and living area natural lighting.',
             'Formulated computational abstraction methods to run high-fidelity ray-tracing simulations within strict commercial delivery windows.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Indoor air quality and cleanroom aerodynamic CFD optimisation',
@@ -246,7 +266,8 @@ export const projects: Project[] = [
             'Evaluated cleanroom particle clearance dynamics and laminar flow preservation under operational boundary conditions.',
             'Partnered with mechanical design teams to refine diffuser placements and supply velocities for superior indoor air quality.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Spatial and infrastructure strategy'
     },
     {
         title: 'Enterprise infrastructure risk audit and systems formalisation',
@@ -258,6 +279,7 @@ export const projects: Project[] = [
             'Established standardised technical taxonomies and formal IT notations to document system dependencies and operational pipelines.',
             'Created a structured delegation matrix to uncouple high-value strategic architecture from routine maintenance tasks.'
         ],
-        featured: false
+        featured: false,
+        outcome: 'Enterprise and systems integration'
     }
 ]
