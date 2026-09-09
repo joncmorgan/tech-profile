@@ -41,6 +41,7 @@ const {
         </div>
 
     <!-- Core Competencies -->
+<!-- Core Competencies Section -->
     <section class='py-12 border-b space-y-6'>
         <div class='mb-2'>
             <h2 class='text-2xl font-bold tracking-tight text-primary'>Core Competencies</h2>
@@ -49,55 +50,67 @@ const {
             {background_pillars.map(pillar => (
                 <div class='p-6 rounded-lg border bg-card flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
                     <div>
-                        <h3 class='font-semibold text-lg mb-2'>{pillar.title}</h3>
+                        <div class='flex items-center gap-3 mb-3'>
+                            <div class='p-2 rounded-md bg-primary/10 text-primary'>
+                                {pillar.icon === 'briefcase' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='20' height='14' x='2' y='7' rx='2' ry='2'/><path d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'/></svg>
+                                )}
+                                {pillar.icon === 'leaf' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/><path d='M2 21c0-3 1.85-5.36 5.08-6C9.5 14.5 12 13 13 12'/></svg>
+                                )}
+                                {pillar.icon === 'code' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='16 18 22 12 16 6'/><polyline points='8 6 2 12 8 18'/></svg>
+                                )}
+                                {pillar.icon === 'cpu' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='16' height='16' x='4' y='4' rx='2'/><rect width='6' height='6' x='9' y='9' rx='1'/><path d='M15 2v2'/><path d='M15 20v2'/><path d='M2 15h2'/><path d='M2 9h2'/><path d='M20 15h2'/><path d='M20 9h2'/><path d='M9 2v2'/><path d='M9 20v2'/></svg>
+                                )}
+                            </div>
+                            <h3 class='font-semibold text-lg'>{pillar.title}</h3>
+                        </div>
                         <p class='text-sm opacity-80 leading-relaxed'>{pillar.description}</p>
                     </div>
                 </div>
             ))}
         </div>
-
     </section>
 
-    <section class='py-12 border-b space-y-6'>
+    <!-- Domain Knowledge Section -->
+    <section class='py-12 space-y-6'>
         <div class='mb-2'>
             <h2 class='text-2xl font-bold tracking-tight text-primary'>Domain Knowledge</h2>
         </div>
-        <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {domain_knowledge.map(area => (
-                <div class='p-6 rounded-lg border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
-                    <h3 class='font-semibold text-lg mb-2'>{area.title}</h3>
-                    <p class='text-sm opacity-80 leading-relaxed'>{area.description}</p>
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {domain_knowledge.map(domain => (
+                <div class='p-6 rounded-lg border bg-card flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
+                    <div>
+                        <div class='flex items-center gap-3 mb-3'>
+                            <div class='p-2 rounded-md bg-secondary/10 text-secondary'>
+                                {domain.icon === 'compass' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polygon points='16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76'/></svg>
+                                )}
+                                {domain.icon === 'anchor' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='5' r='3'/><line x1='12' x2='12' y1='22' y2='8'/><path d='M5 12H2a10 10 0 0 0 20 0h-3'/></svg>
+                                )}
+                                {domain.icon === 'thermometer' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z'/></svg>
+                                )}
+                                {domain.icon === 'wind' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2'/><path d='M9.6 4.6A2 2 0 1 1 11 8H2'/><path d='M12.6 19.4A2 2 0 1 0 14 16H2'/></svg>
+                                )}
+                                {domain.icon === 'zap' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>
+                                )}
+                                {domain.icon === 'globe' && (
+                                    <svg xmlns='http://www.w3.org/2000/svg' class='w-5 h-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><line x1='2' x2='22' y1='12' y2='12'/><path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/></svg>
+                                )}
+                            </div>
+                            <h3 class='font-semibold text-lg'>{domain.title}</h3>
+                        </div>
+                        <p class='text-sm opacity-80 leading-relaxed'>{domain.description}</p>
+                    </div>
                 </div>
             ))}
         </div>
     </section>
 
-
-    <!-- Capability Domains (2x2 Grid)
-    <section class='py-12 border-b space-y-6'>
-        <div class='mb-2'>
-            <h2 class='text-2xl font-bold tracking-tight text-primary'>Capability Domains</h2>
-        </div>
-        <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {research_areas.map(area => (
-                <div class='p-6 rounded-lg border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
-                    <h3 class='font-semibold text-lg mb-2'>{area.title}</h3>
-                    <p class='text-sm opacity-80 leading-relaxed'>{area.description}</p>
-                </div>
-            ))}
-        </div>
-    </section> -->
-
-    <!-- Modes of Engagement
-    <section class='py-12 space-y-6'>
-        <h2 class='text-2xl font-bold tracking-tight text-primary'>Modes of Engagement</h2>
-        <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
-            {modes_of_engagement.map(mode => (
-                <div class='p-6 rounded-lg border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary'>
-                    <h3 class='font-semibold text-lg mb-2'>{mode.title}</h3>
-                    <p class='text-sm opacity-80 leading-relaxed'>{mode.description}</p>
-                </div>
-            ))}
-        </div>
-    </section> -->
 </Layout>

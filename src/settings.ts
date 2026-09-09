@@ -11,45 +11,55 @@ export const profile = {
     background_pillars: [
         {
             title: 'Commercial & Operational Ownership',
-            description: 'Running a small ESD consulting practice for nearly a decade means owning everything from cash flow, billing, and admin to branding, strategy, and team leadership. I understand the unglamorous mechanics of what it takes to keep an independent engineering business alive, solvent, and moving forward.'
+            description: 'Running a small ESD consulting practice for nearly a decade means owning everything from cash flow, billing, and admin to branding, strategy, and team leadership. I understand the unglamorous mechanics of what it takes to keep an independent engineering business alive, solvent, and moving forward.',
+            icon: 'briefcase'
         },
         {
             title: 'Sustainability & Built Environment',
-            description: 'Two decades of applied work across sustainable buildings, human-focused design, and environmental systems. This isn’t theoretical policy work—it’s the ground-level reality of shaping how spaces actually perform for the people using them and the environment surrounding them.'
+            description: 'Two decades of applied work across sustainable buildings, human-focused design, and environmental systems. This isn’t theoretical policy work—it’s the ground-level reality of shaping how spaces actually perform for the people using them and the environment surrounding them.',
+            icon: 'leaf'
         },
         {
             title: 'Full-Stack Development & Infrastructure',
-            description: 'Building custom software because commercial tools rarely fit the job. My stack spans the full width: from front-end user interfaces and custom data pipelines all the way down to containerization, deployment, and local-first DevOps architecture.'
+            description: 'Building custom software because commercial tools rarely fit the job. My stack spans the full width: from front-end user interfaces and custom data pipelines all the way down to containerization, deployment, and local-first DevOps architecture.',
+            icon: 'code'
         },
         {
             title: 'Physical Systems Simulation & Analytics',
-            description: 'Decades of deep engineering work modeling how the physical world behaves. Whether it\'s fluid dynamics, thermal physics, or complex environmental mechanics, my focus has always been ensuring that analytical tools accurately reflect physical reality.'
+            description: 'Decades of deep engineering work modeling how the physical world behaves. Whether it\'s fluid dynamics, thermal physics, or complex environmental mechanics, my focus has always been ensuring that analytical tools accurately reflect physical reality.',
+            icon: 'cpu'
         }
     ],
     domain_knowledge: [
         {
             title: 'Critical Infrastructure & Transport',
-            description: 'Applied systems work across road, rail, and major transport corridors, focusing on environmental integration, safety mechanics, and long-term asset resilience.'
+            description: 'Applied systems work across road, rail, and major transport corridors, focusing on environmental integration, safety mechanics, and long-term asset resilience.',
+            icon: 'compass'
         },
         {
             title: 'Offshore & Marine Engineering',
-            description: 'Specialised environmental and hydrodynamic modelling for offshore installations and marine assets operating under extreme structural and weather loads.'
+            description: 'Specialised environmental and hydrodynamic modelling for offshore installations and marine assets operating under extreme structural and weather loads.',
+            icon: 'anchor'
         },
         {
             title: 'Thermal Dynamics & Building Physics',
-            description: 'Advanced thermal performance modelling, bioclimatic design, and environmental systems optimisation for complex built environments.'
+            description: 'Advanced thermal performance modelling, bioclimatic design, and environmental systems optimisation for complex built environments.',
+            icon: 'thermometer'
         },
         {
             title: 'Fluid Dynamics & Atmospheric Flow',
-            description: 'Numerical simulation of fluid mechanics, ventilation performance, dispersion modelling, and microclimate interactions across physical assets.'
+            description: 'Numerical simulation of fluid mechanics, ventilation performance, dispersion modelling, and microclimate interactions across physical assets.',
+            icon: 'wind'
         },
         {
             title: 'Energy Systems & Infrastructure',
-            description: 'Modelling for renewable energy integration, storage systems, complex HVAC mechanics, and grid-interactive built environments.'
+            description: 'Modelling for renewable energy integration, storage systems, complex HVAC mechanics, and grid-interactive built environments.',
+            icon: 'zap'
         },
         {
             title: 'Climate Resilience & Adaptation',
-            description: 'Assessing long-term environmental stress, urban heat dynamics, and climate vulnerability frameworks for cities and regional assets.'
+            description: 'Assessing long-term environmental stress, urban heat dynamics, and climate vulnerability frameworks for cities and regional assets.',
+            icon: 'globe'
         }
     ],
     research_areas: [

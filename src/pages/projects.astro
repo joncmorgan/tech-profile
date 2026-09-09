@@ -4,11 +4,20 @@ import projects from '@/data/transformed_projects.json'
 ---
 
 <Layout>
-    <div class='py-8 mb-8'>
-        <h1 class='text-3xl lg:text-4xl font-bold mb-2'>Projects</h1>
-        <p class='text-base text-base-content/70'>
-            A focused portfolio of engineering systems, computational models, and custom software architectures.
-        </p>
+    <!-- Projects Title in its own space -->
+    <div class='py-6'>
+        <h1 class='text-3xl lg:text-4xl font-bold'>Projects</h1>
+    </div>
+
+    <!-- Lead-in Text and Return Button Together -->
+    <div class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-lg border bg-card/50 mb-8'>
+        <p class='text-sm text-base-content/70'>A portfolio of engineering systems, models, and software.</p>
+        <a 
+            href='/' 
+            class='inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors shrink-0'
+        >
+            &larr; Return to Homepage
+        </a>
     </div>
 
     {/* Minimal Flat List of Projects */}
