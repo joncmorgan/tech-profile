@@ -4,22 +4,22 @@ export const profile = {
     institute: '',
     author_name: 'Jon Morgan',
     practice_statement: [
-        'I sit at the intersection of complex physical engineering, automated spatial data pipelines, and scalable technical architecture. My focus is helping leadership and operations teams in the built environment build robust computational systems that stress-test critical assets against extreme environmental risk and climate adaptation challenges.',
-        'Drawing on decades of applied physical-digital systems engineering and commercial practice, my goal remains simple: build more functional cities and resilient communities by ensuring software platforms and simulations strictly reflect physical reality on the ground.'
+        'I sit at the intersection of complex physical engineering, automated spatial data pipelines, and scalable technical architecture. My focus is helping engineering and operations teams in the built environment build robust computational systems that stress-test critical assets against extreme environmental risk and climate adaptation challenges.',
+        'Drawing on decades of applied physical-digital systems engineering and commercial practice, my goal is simple: build more functional cities and resilient communities by ensuring software platforms and simulations strictly reflect physical reality on the ground.'
     ],
-    background_pillars: [
+background_pillars: [
         {
             title: 'Commercial & Operational Ownership',
-            description: 'Eight years co-managing an engineering practice provided unfiltered exposure to commercial realities, risk management, and operational mechanics. I approach systems design with an owner’s focus on eliminating real-world waste and unnecessary complexity.'
+            description: 'Years co-managing an engineering practice provided unfiltered exposure to commercial realities, risk management, and operational mechanics. I approach systems design with an owner’s focus on eliminating real-world waste and unnecessary complexity.'
         },
         {
-            title: 'Physics & Full-Stack Integration',
-            description: 'Moving from advanced engineering consulting into custom software development created a rare hybrid skill set. I build complete, local-first computational engines that directly bridge physical systems with modern software execution—without middle-tier translators or enterprise overhead.'
+            title: 'Consulting Practice & Systems Insight',
+            description: 'My background as a consulting engineer, paired with hands-on technical experience, gives me a rare vantage point. I deeply understand the software and data challenges teams face behind the scenes, bridging client needs with realistic execution.'
         },
         {
-            title: 'System Resilience Focus',
-            description: 'Having worked across defence, automotive, energy foundations, and critical infrastructure, my focus centres on architecting robust computational models and analytical tools that help engineers evaluate how physical assets perform under extreme environmental stress.'
-        },
+            title: 'Analytical Asset Resilience',
+            description: 'Having worked across defence, automotive, energy foundations, and critical infrastructure, my focus centres on architecting robust computational models and analytical tools that evaluate how physical assets perform under extreme environmental stress.'
+        }
     ],
     research_areas: [
         { title: 'Physical-Digital Systems Architecture', description: 'Custom data schemas, automated computational pipelines, and local software architectures connecting field operations with digital platforms.', field: 'architecture' },
@@ -28,9 +28,18 @@ export const profile = {
         { title: 'Energy & Microclimate Dynamics', description: 'High-yield modelling for renewable energy integration, storage, complex HVAC optimisation, and urban heat dynamics.', field: 'energy' },
     ],
     modes_of_engagement: [
-        { title: 'Advisory & Strategy', description: 'Auditing operational bottlenecks, evaluating software feasibility early, and guiding leadership teams toward appropriate-scale technical architectures that preserve team autonomy.' },
-        { title: 'Technical Leadership', description: 'Guiding multidisciplinary engineering and software teams through complex implementations to keep workflows practical, usable, and tied to physical reality.' },
-        { title: 'Architectural R&D', description: 'Designing robust computational engines and automated data pipelines that elevate daily operations from manual effort to systemic automation.' },
+        { 
+            title: 'Technical Direction & Leadership', 
+            description: 'Guiding multidisciplinary engineering and software teams through complex implementations, ensuring analytical workflows remain rigorous, practical, and tied to physical reality.' 
+        },
+        { 
+            title: 'Systems Architecture & R&D', 
+            description: 'Designing robust computational engines, spatial data pipelines, and automated simulation workflows that elevate operational capability beyond manual spreadsheets.' 
+        },
+        { 
+            title: 'Specialist Domain Execution', 
+            description: 'Applying deep expertise in environmental physics, fluid dynamics, and microclimate systems to solve intractable computational problems for critical infrastructure.' 
+        },
     ]
 }
 
