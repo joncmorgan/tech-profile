@@ -1,0 +1,24 @@
+You are helping format engineering portfolio data specifically for a professional CV/resume.
+Review the source project data below and transform it into a strict JSON object suited for a resume bullet point breakdown.
+
+SOURCE DATA:
+- ID/Slug: {project_id}
+- Title: {title}
+- Impact: {impact}
+- Domain: {domain}
+- Scale: {scale}
+- Description: {description}
+- Execution Highlights: {highlights}
+
+INSTRUCTIONS:
+1. Write a punchy, action-oriented resume bullet point (or 1-2 concise sentences) starting with strong active verbs (e.g., Architected, Engineered, Developed, Deployed).
+2. Highlight technical depth (Python, n8n, Docker, AI, GIS, etc.) and commercial/operational outcomes.
+3. Keep the output clean and professional.
+
+Return ONLY a valid JSON object matching this exact structure:
+{{
+    "id": "{project_id}",
+    "title": "...",
+    "resume_bullet": "...",
+    "tags": ["stream:...", "layer:...", "domain:..."]
+}}

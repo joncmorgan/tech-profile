@@ -1,0 +1,447 @@
+{
+  "projects": [
+    {
+      "id": "government-resilient-housing-prototype",
+      "title": "Government Resilient Housing Prototype",
+      "company": "Moreland Energy Foundation",
+      "role": "Lead Systems Architect & Thermal Performance Modeller",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Climate Resilience, Adaptation & Strategic Policy",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Partnered directly with an architectural practice to design and optimise a state government-backed resilient housing prototype constructed on the Mornington Peninsula.",
+      "execution": [
+        "Digital Twin & Envelope Modelling: Built the digital twin and computational models to inform building envelope performance parameters.",
+        "Heatwave Climate Splicing: Mined historical Bureau of Meteorology (BOM) datasets against official heatwave definitions and spliced those sequences directly into EnergyPlus weather files (.epw) to rigorously simulate building performance under severe heatwave conditions.",
+        "Physical Build Benchmark: Evaluated building resilience under extreme stress testing to guide envelope parameters, resulting in a physical build that stands as a recognised benchmark of climate-adaptive architecture."
+      ]
+    },
+    {
+      "id": "comprehensive-thermal-comfort-modelling-suite",
+      "title": "Comprehensive Thermal Comfort Modelling Suite (PMV, SET, PET)",
+      "company": "Arup UK / Arup Australia",
+      "role": "Principal Computational Modeller & Researcher",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Microclimate, Urban Physics & Human Comfort",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Over 25 years of deep research, academic literature review, and custom implementation of human thermal comfort indices across diverse global master plans and environments (including White City in London, numerous shopping centres, outdoor public spaces across Melbourne and regional areas, and Singapore).",
+      "execution": [
+        "Bioclimatic Physics Translation: Translated complex bioclimatic physics into actionable design parameters for urban master planning and outdoor microclimates.",
+        "Index Suite Implementation: Coded, integrated, and deployed advanced comfort models—spanning PMV (Predicted Mean Vote), SET (Standard Effective Temperature), and PET (Physiological Equivalent Temperature)—across diverse international built environments."
+      ]
+    },
+    {
+      "id": "future-climate-weather-file-application",
+      "title": "Future Climate Weather File Application & Stress Testing",
+      "company": "Arup UK (London)",
+      "role": "Senior Modeller & Technical Specialist",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Climate Resilience, Adaptation & Strategic Policy",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Moving beyond static historical baselines to evaluate true long-term asset resilience under projected climate change scenarios.",
+      "execution": [
+        "Dynamic Energy Simulation: Applied synthetic future climate weather files developed by specialist teams to dynamic energy simulation models.",
+        "HVAC Operational Stress Testing: Quantified forward-looking operational questions, determining how much additional energy HVAC systems would consume under projected extreme future conditions.",
+        "Free-Running Overheating Quantification: Quantified the increased rate of overheating in free-running buildings if architectural designs remained unadapted."
+      ]
+    },
+    {
+      "id": "facade-thermal-physics-heat-transfer-analysis",
+      "title": "Facade Thermal Physics & Heat Transfer Analysis",
+      "company": "Arup Australia",
+      "role": "Facade Thermal Specialist",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Building Physics & Envelope Performance",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Detailed thermal bridging and assembly performance analysis for high-performance architectural envelopes.",
+      "execution": [
+        "2D Framing Heat Transfer (THERM): Conducted 2D steady-state heat transfer modelling of facade framing components (transoms, mullions) using LBNL THERM under NFRC reference conditions to calculate accurate linear thermal transmittance and frame U-values.",
+        "Glazing Performance Analysis (WINDOW): Utilised LBNL WINDOW to model complex single, double, and triple-glazed configurations, evaluating solar heat gain coefficients (SHGC), centre-of-glass U-values, and the impact of low-emissivity (low-E) coatings."
+      ]
+    },
+    {
+      "id": "enterprise-data-driven-reporting-ecosystem",
+      "title": "Enterprise Data-Driven Reporting Ecosystem & Documentation Engine",
+      "company": "Co-Perform",
+      "role": "Technical Director & Systems Architect",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Addressed systemic inefficiencies in manual engineering documentation and regulatory building permit reporting, designing the central documentation engine through which all outward-facing consulting deliverables across the organisation were compiled (spanning approximately 10 distinct technical reporting types).",
+      "execution": [
+        "Database Architecture & Single Source of Truth: Built an internal database in Knack (low-code operational database) tracking 3,000+ fields. Project metadata, client details, and site attributes were entered once at inception and automatically propagated into document builds, eliminating redundant data entry.",
+        "Dynamic Content Integration: Built automated pipelines linking thermal simulation outputs, calculated numerical tables, custom author-written commentary fields, and external graphics directly into deliverables, eliminating manual copy-paste bottlenecks and QA errors.",
+        "Document Typesetting Engine (PyLaTeX, LaTeX, Typst): Programmed document assembly routines and conditional dynamic document templates using PyLaTeX and LaTeX (with ongoing evaluation of Typst as a next-generation engine). Connected Google Drive enterprise data storage to automatically pull external files into reports.",
+        "Containerisation & Server Infrastructure: Packaged the application codebase alongside the complete LaTeX distribution into a container deployed on the company work server. Implemented a batch queuing pipeline to process and render technical report builds sequentially on demand."
+      ]
+    },
+    {
+      "id": "commercial-rebrand-operational-overhaul",
+      "title": "Commercial Rebrand & Operational Overhaul",
+      "company": "Co-Perform",
+      "role": "Co-Director / Partner",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "secondaryCategory": "Strategy & Practice Operations",
+      "context": "Navigated macroeconomic market headwinds by proactively restructuring professional services and client communications.",
+      "execution": [
+        "Strategic Market Repositioning: Engaged specialised branding studios and communications experts to overhaul market positioning and realign service offerings with high-value advisory work.",
+        "Technical Communication Standardisation: Standardised client-facing technical language across all service streams to improve clarity and engagement.",
+        "Digital Content Strategy: Optimised digital messaging (LinkedIn and technical content strategy) to articulate practice capabilities and thought leadership."
+      ]
+    },
+    {
+      "id": "gas-turbine-engine-digital-twin",
+      "title": "Gas Turbine Engine Digital Twin",
+      "company": "Defence Science and Technology Organisation (DSTO)",
+      "role": "Junior / Core Modeller",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Thermodynamic Systems & Power Generation",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Very first major job; acquiring and processing test bed performance data from Pratt & Whitney F404 aircraft engines run on a test bed at Fishermans Bend.",
+      "execution": [
+        "Simplex Algorithm Implementation: Programmed an iterative optimisation process in MATLAB using a downhill simplex algorithm.",
+        "Parameter Degradation Modelling: Built simulation routines incorporating multiple thermodynamic parameter degradation vectors (such as turbine efficiency losses).",
+        "Sensor Signal Matching: Systematically solved for the specific set of degradation parameters required to reconcile and match physical test bed sensor recordings of pressures, temperatures, fuel flows, and net thrust output."
+      ]
+    },
+    {
+      "id": "kilometre-high-solar-updraft-chimney",
+      "title": "Kilometre-High Solar Updraft Chimney",
+      "company": "Arup",
+      "role": "Computational Fluid Dynamics Modeller & Physics Modeller",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Thermodynamic Systems & Power Generation",
+      "secondaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "context": "Architecting the fluid dynamics and thermal-updraft simulation pipeline for an extreme-scale 1 km solar power tower featuring a 3 km glass skirt.",
+      "execution": [
+        "Literature Synthesis & Physics Modelling: Extensively reviewed foundational technical literature to synthesise the governing physics and architect modular numerical routines.",
+        "Ground Heat Transfer: Modelled heat transfer from air flowing under the glass skirt to the surface, coupled with a 1D heat transfer calculation down to stable ground temperature to simulate diurnal daytime heat storage and nighttime release.",
+        "Canopy Solar Transmission: Calculated dynamic solar radiation transmission through the glass canopy as a function of sun angle.",
+        "Aerodynamic Losses: Modelled friction and flow losses across the extensive skirt geometry, alongside momentum removal calculations as air passes through the power generation turbines at the base of the chimney.",
+        "Atmospheric Thermodynamics & Ambient Effects: Factored in atmospheric lapse rates over the 1-kilometre height to account for pressure/temperature differentials between ground level and the chimney summit, alongside ambient wind effects at the top.",
+        "Cross-Disciplinary Collaboration: Partnered closely with structural engineers evaluating physical constructability and facade engineers specialising in the complex skirt structural arrangement."
+      ]
+    },
+    {
+      "id": "battery-energy-storage-systems-digital-twin",
+      "title": "Battery Energy Storage Systems (BESS) Digital Twin",
+      "company": "Co-Perform",
+      "role": "Systems Architect & Energy Modeller",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Energy Systems, Decarbonisation & Carbon Accounting",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Developed for local government clients looking to right-size battery energy storage systems and evaluate financial viability under various commercial tariff structures.",
+      "execution": [
+        "Agentic Tooling & Container Architecture: Built as one of the earliest AI agentic tooling experiments prototyped in VS Code. Wrapped the NREL System Advisory Model (SAM) engine into a custom Python codebase packaged into a container for on-demand ephemeral execution.",
+        "Demand Profiling Module: Simulated diurnal and monthly variations across HVAC, lighting, and general electrical demand.",
+        "Solar Generation Module: Factored in solar panel sizing, orientation, efficiency, degradation factors, and inverter losses.",
+        "Battery Storage Module: Evaluated charging/discharging rates, round-trip efficiency, and total capacity.",
+        "Tariff & Cost Analysis Module: Compared complex commercial tariff structures to evaluate financial payback.",
+        "Automated Reporting: Streamlined automated compilation of technical outputs and client-ready reports."
+      ]
+    },
+    {
+      "id": "complex-hvac-system-modelling",
+      "title": "Complex HVAC System Modelling & NABERS Commitment Agreements",
+      "company": "Co-Perform",
+      "role": "Senior Thermodynamic Modeller & Technical Director",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Thermodynamic Systems & Power Generation",
+      "secondaryCategory": "Energy Systems, Decarbonisation & Carbon Accounting",
+      "context": "Over 10 years of specialised HVAC system simulation, focused on formal NABERS Commitment Agreements that allow building owners to market pre-construction environmental ratings (e.g., NABERS 5-Star).",
+      "execution": [
+        "High-Fidelity EnergyPlus Simulation: Configured and executed predictive EnergyPlus thermal energy simulations engineered to replicate real-world operational building physics as closely as possible.",
+        "Off-Axis & Degraded Risk Scenarios: Modelled degraded performance scenarios required for risk validation (e.g., fan schedule drift, chiller efficiency degradation, stuck control valves, and 24/7 running zones).",
+        "Complex HVAC & Generation Schemes: Modelled complex mechanical plant including Variable Air Volume (VAV), Variable Refrigerant Flow (VRF), split systems, and inline PV solar generation with intricate metering layouts.",
+        "Independent Regulatory Auditing: Successfully passed rigorous independent audits by accredited third-party NABERS assessors across multiple high-stakes commercial projects."
+      ]
+    },
+    {
+      "id": "building-upfront-carbon-footprint-analysis",
+      "title": "Building Upfront Carbon Footprint Analysis",
+      "company": "Co-Perform",
+      "role": "Accredited NABERS Upfront Carbon Assessor & Sustainability Architect",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Energy Systems, Decarbonisation & Carbon Accounting",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Whole-of-building embodied carbon quantification and regulatory rating submission delivered for major builder partner Hutchinson Builders (\"Hutchies\").",
+      "execution": [
+        "BOQ Ingestion & Standardisation: Ingested, cleaned, and standardised complex contractor Bills of Quantities (BOQs), verifying engineering units of measure across thousands of line items.",
+        "Assembly Categorisation: Categorised elements into core building assemblies: substructure, superstructure, facade, and primary services.",
+        "Data Sanitisation Rules: Engineered data-sanitisation rules to eliminate double-counting (e.g., separating structural rebar tonnage from reinforced concrete volume calculations).",
+        "EPD Linking & Rating Submission: Linked cleaned material quantities to Environmental Product Declarations (EPDs) and material carbon emission factors within specialised SAS analysis platforms to deliver official rating submissions for Green Star accreditation."
+      ]
+    },
+    {
+      "id": "offshore-platform-blast-modelling",
+      "title": "Offshore Platform Blast Modelling & CFD Pipeline Automation",
+      "company": "British Maritime Technology (BMT)",
+      "role": "Structural Simulation Specialist & CFD Modeller",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Offshore oil and gas platform explosion overpressure assessments evaluating flame acceleration and structural shockwave impacts.",
+      "execution": [
+        "Congested Pipework Physics: Addressed the physical phenomenon where igniting gas clouds pass through dense, small-diameter piping networks (tens to hundreds of kilometres of 2-inch to 12-inch pipework), causing intense turbulence that accelerates blast wave propagation and increases overpressure.",
+        "Rhino 3D Scripting Pipeline: Built a custom automated scripting pipeline in Rhino 3D (a novel workflow at the time) to automatically ingest platform CAD pipe networks and translate them directly into AutoReaGas CFD solvers.",
+        "Workflow Acceleration & Accuracy: Eliminated manual CAD geometry recreation, saving hundreds of engineering hours per project while increasing solver accuracy."
+      ]
+    },
+    {
+      "id": "fire-behaviour-smoke-dynamics",
+      "title": "Fire Behaviour, Smoke Dynamics & Compute Infrastructure Architecture",
+      "company": "Arup",
+      "role": "Australasia Building Physics Leader & Workflow Architect",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Partnering with fire engineering teams to optimise computational fire modelling workflows and provision high-performance computing infrastructure.",
+      "execution": [
+        "Simulation Workflow & Tooling: Configured fire and smoke dynamics simulations using regulatory-approved software (NIST FDS). Built a custom Rhino 3D front-end interface to accelerate geometric setup within FDS’s strict rectilinear grid constraint.",
+        "Interdisciplinary Egress Integration: Delivered fire and smoke arrival timeline outputs (visibility, temperature, toxic gas concentrations) to feed directly into external human movement and crowd evacuation simulations performed by separate egress specialists.",
+        "HPC Cluster Architecture: Designed, specified, and deployed an 8-node headless Linux compute cluster managed via a batch queuing system (qsub, qhold), dramatically accelerating batch processing times for fire modelling and Australasia-wide building physics simulations.",
+        "Enterprise Systems Administration: Maintained cluster hardware, managed networking throughput, and enforced security protocols in direct collaboration with enterprise IT.",
+        "Team Leadership & Mentorship: Led the Australasia Building Physics group, training and mentoring graduate analysts and junior mechanical engineers in computational physics and simulation pipelines."
+      ]
+    },
+    {
+      "id": "industrial-stack-plume-dispersion",
+      "title": "Industrial Stack Plume Dispersion & CASA Airspace Assessment (TAPM)",
+      "company": "Arup",
+      "role": "Environmental Fluid Dynamics Specialist",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "secondaryCategory": "Microclimate, Urban Physics & Human Comfort",
+      "context": "Environmental compliance and aviation safety modelling to determine whether industrial exhaust stack emissions create thermal buoyancy, vertical velocity, or turbulence hazards that penetrate protected aviation airspace or violate regulatory ground-level criteria. Undertaken using CSIRO's TAPM (The Air Pollution Model) around the era of regional dispersion modelling transitions (alongside tools such as AUSPLUME).",
+      "execution": [
+        "Atmospheric Boundary Layer (ABL) Physics: Modelled the atmospheric boundary layer profile by establishing surface roughness lengths across varying surrounding environments (such as built-up residential areas versus open terrain), capturing how local roughness alters velocity gradients and atmospheric dispersion.",
+        "Meteorological Analysis: Analysed historical meteorological datasets to identify prevailing wind regimes, mean wind speeds, and adverse atmospheric conditions (including atmospheric temperature inversions).",
+        "Dispersion & Trajectory Modelling: Utilised TAPM to calculate plume trajectories, dispersion geometry, and maximum plume rise heights across a defined matrix of wind speeds and stability classes.",
+        "Aviation & Building Downwash Criteria: Evaluated stack design parameters, including stack height and discharge exit velocity, to assess critical thresholds: ensuring exit velocity prevents building downwash/cavity recirculation, while verifying whether the buoyant plume trajectory breaches maximum allowable heights or penetrates aviation flight corridors under Civil Aviation Safety Authority (CASA) guidelines, specifically protecting Obstacle Limitation Surfaces (OLS)."
+      ]
+    },
+    {
+      "id": "tunnel-enclosed-car-park-ventilation",
+      "title": "Tunnel & Enclosed Car Park Ventilation (Rail & Automotive)",
+      "company": "Arup",
+      "role": "Ventilation & Aerodynamics Engineer",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Airflow distribution, jet fan design, and contaminant concentration assessments for enclosed/underground multi-level car parks and preliminary assessment of diesel emissions in rail tunnels.",
+      "execution": [
+        "Car Park 3D Geometry & Contaminant Modelling: Built 3D computational geometries of underground and multi-level car parks. Determined vehicle contaminant source terms by establishing fleet average emission rates (specifically carbon monoxide, CO) from historical vehicle emissions data.",
+        "Traffic Flow & Queue Integration: Collaborated with traffic engineers responsible for road network connections to determine incoming/outgoing traffic rates and projected queue lengths, using this data to define spatial distribution of contaminant emission sources within the model.",
+        "Jet Fan Placement & Airflow Induction: Positioned and oriented mechanical impulse jet fans across the floor plates to drive bulk air movement, eliminate stagnant zones, and sweep exhaust gases towards dedicated mechanical extract shafts. Factored in boundary conditions such as natural ventilation openings and prevailing winds where present.",
+        "Exposure Threshold Verification: Calculated steady-state carbon monoxide concentrations across pedestrian circulation zones to verify whether pollutant levels breached allowable regulatory exposure thresholds.",
+        "Rail Corridor Assessment: Conducted preliminary evaluations examining diesel exhaust contaminant behaviour within rail tunnel environments."
+      ]
+    },
+    {
+      "id": "urban-wind-environment-pedestrian-safety",
+      "title": "Urban Wind Environment, Pedestrian Safety & CFD Validation",
+      "company": "British Maritime Technology (BMT) / Arup",
+      "role": "Wind Microclimate & CFD Specialist / Aerodynamic Modeller",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Microclimate, Urban Physics & Human Comfort",
+      "secondaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "context": "5 to 10 years of specialised work spanning BMT and Arup across the UK and Australia. The work occurred during the key industry transition in the early 2000s when numerical CFD was emerging to challenge physical boundary layer wind tunnel testing, which had historically been the only trusted method for pedestrian wind risk assessment.",
+      "execution": [
+        "Wind Tunnel Testing & Validation Studies: Participated in physical wind tunnel testing at BMT—setting up scale models, generating atmospheric boundary layers using upstream roughness blocks, and taking static pressure sensor measurements at ground level to measure peak gusts. Conducted formal validation studies running concurrent numerical CFD models alongside physical wind tunnel tests to benchmark and verify the accuracy of the CFD approach.",
+        "Boundary Layer Physics & Grid Resolution: Solved complex atmospheric boundary layer mechanics in CFD. Managed the technical balance between hardware compute limits and the high grid resolution required to accurately capture upstream boundary layer shear profiles, flow separation, and fluid acceleration around building corners.",
+        "Turbulence Modelling Limitations: Navigated fundamental turbulence modelling constraints. Overcame the limitations of steady-state Reynolds-Averaged Navier-Stokes (RANS) models—which average out turbulence and fail to resolve peak gusts—by implementing transient methods such as Large Eddy Simulation (LES) to assess dynamic peak gust forces capable of causing pedestrian instability.",
+        "Statistical Wind Climate Analysis: Synthesised numerical and experimental velocity data with historical meteorological wind probability records to calculate peak gust wind loads on pedestrians and assess safety and comfort against Lawson and Penwarden criteria.",
+        "Architectural Mitigation Design: Applied results to guide the architectural design, sizing, and positioning of pedestrian-level canopies, podium setbacks, and porous screens to alleviate wind issues on medium- and high-rise developments."
+      ]
+    },
+    {
+      "id": "reflected-glare-hazard-studies",
+      "title": "Reflected Glare Hazard Studies & Numerical Hassall Automation",
+      "company": "Arup",
+      "role": "Solar Physics & Computational Modeller",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Microclimate, Urban Physics & Human Comfort",
+      "secondaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "context": "Mitigation of specular reflections and veiling glare from architectural glazing and metallic cladding impacting drivers, transport infrastructure, and surrounding urban streets. Historically, assessments relied on the Hassall methodology—a manual, highly time-consuming geometric drafting method to determine whether reflected sunlight falls within an observer's sensitive optical line of sight. In the early 2000s, spearheaded the development of an automated, numerical equivalent to replace manual calculations and evaluate driver hazard risks across major transport infrastructure projects (including Level Crossing Removal Project road overpasses, rail corridors, and new railway stations such as Williams Landing) and dense urban developments.",
+      "execution": [
+        "Numerical Translation of Hassall Methodology: Transformed the manual Hassall geometric guidelines into a numerical algorithmic workflow, quantifying the angular separation between reflected sunlight vectors and an observer's or driver's central line of sight to identify the threshold of disabling veiling glare.",
+        "Simulation Automation (Rhino 3D & Radiance): Scripted custom computational workflows in Rhino 3D coupled with the Radiance synthetic imaging engine. Automated the generation of synthetic visual fields and luminance distributions sequentially along defined transit corridors and urban streetscapes through 3D models.",
+        "Hazard Quantification: Calculated veiling glare intensity, contrast ratios, and exposure durations directly from simulated luminance maps, evaluating potential visual impairment and safety risks for road vehicle drivers, train operators, and pedestrians.",
+        "Architectural Envelope Optimisation: Applied numerical glare evaluations to inform facade glass selection (reflectance limits), envelope geometry, and external shading design to mitigate hazardous reflections into adjacent public zones and transit corridors.",
+        "Reporting Artifacts & Industry Benchmark: Produced structured technical reports, visual mapping diagrams, and communication artifacts for transport infrastructure and property development clients. Pioneered an automated numerical approach at Arup that established the technical foundation for subsequent internal glare assessment workflows."
+      ]
+    },
+    {
+      "id": "stadium-pitch-microclimate",
+      "title": "Stadium Pitch Microclimate & Cumulative PAR Modelling",
+      "company": "Arup / Independent Consultant (Subcontractor)",
+      "role": "Microclimate Modeller & Turf Solar Specialist",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Microclimate, Urban Physics & Human Comfort",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Delivered pitch microclimate, solar access, and Photosynthetically Active Radiation (PAR) assessments across approximately half a dozen major stadia both while at Arup and subsequently as an independent consultant and subcontractor.",
+      "execution": [
+        "3D Stadium Geometry & Overshadowing: Built detailed 3D digital models of stadium bowls, grandstands, and roof canopies to model precise diurnal and seasonal shading patterns cast across the playing surface.",
+        "Turf Agronomic Criteria: Liaised directly with specialist turf consultants to establish species-specific PAR threshold targets, accounting for the distinct radiation requirements of warm-season (summer) and cool-season (winter) turf grasses.",
+        "Cumulative Sky Formulation: Developed a cumulative sky methodology derived from local meteorological climate files, integrating direct beam and diffuse solar radiation components into a consolidated radiometric model.",
+        "Monthly Pitch Radiation Mapping: Ran cumulative radiation simulations across the playing surface grid to calculate spatial and temporal PAR distribution on a monthly basis, identifying chronic shadow zones and quantifying PAR deficits.",
+        "Supplemental Lighting Rig Optimisation: Formulated operational strategies to bridge the radiation deficit using mobile artificial growth lighting rigs. Calculated the minimum required rig count, spatial positioning, operational run times, and rotational sequencing schedules across pitch zones to minimise client capital and operational expenditure while maintaining turf viability."
+      ]
+    },
+    {
+      "id": "daylight-solar-access-visual-comfort",
+      "title": "Daylight, Solar Access & Visual Comfort Simulation",
+      "company": "Arup",
+      "role": "Senior Daylight & Optical Modeller",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Building Physics & Envelope Performance",
+      "secondaryCategory": "Microclimate, Urban Physics & Human Comfort",
+      "context": "Delivered dozens of daylight availability, solar access, and visual comfort assessments across commercial office developments, aged care facilities, and multi-residential projects over many years. Work spanned two distinct objectives: regulatory compliance and human-centric design optimisation.",
+      "execution": [
+        "Compliance & Benchmark Metrics: Modelled baseline daylight metrics to meet statutory planning and Green Star requirements, evaluating Daylight Factor (DF), Daylight Autonomy (DA), and compliance against Illuminating Engineering Society (IES) standards.",
+        "Design Optimisation & Visual Comfort: Conducted seasonal daylight and internal glare assessments to resolve functional design challenges: evaluating visual comfort in commercial offices to eliminate disabling glare on computer visual display units (VDUs); assessing direct daylight hours in aged care facilities to guarantee residents had sufficient natural light to comfortably read newspapers adjacent to windows; and guiding architectural massing, sizing, and geometric proportioning of internal light wells and light courts.",
+        "Optical Physics & Envelope Materiality: Modelled solar trajectories coupled with seasonal sky brightness distribution algorithms to accurately represent local atmospheric conditions. Calibrated glass optical properties, deploying advanced angle-dependent transmission, reflection, and absorption models for high-performance facades alongside simplified visible light transmittance (VLT) algorithms for regulatory submissions, and assigned internal surface reflectances across floors, walls, and ceilings.",
+        "Computational Strategy & Runtime Optimisation: Navigated commercial compute constraints within the Radiance synthetic imaging engine, where rigorous ray-tracing on large models can take multiple days. Formulated practical simplification and abstraction methodologies to run accurate, robust simulations within realistic commercial delivery windows (~10-minute compute targets) without sacrificing necessary physical fidelity."
+      ]
+    },
+    {
+      "id": "commercial-indoor-air-quality",
+      "title": "Commercial Indoor Air Quality, HVAC Distribution & Cleanroom Aerodynamics",
+      "company": "Arup",
+      "role": "Airflow & Indoor Air Quality CFD Specialist",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Computational fluid dynamics (CFD) modelling to evaluate internal air distribution, contaminant clearance, and indoor air quality across commercial buildings and specialised cleanroom environments.",
+      "execution": [
+        "HVAC Distribution & Air Circulation: Modelled 3D internal airflow regimes across varying mechanical delivery systems—including underfloor or displacement ventilation systems and VRV/overhead diffuser arrangements—simulating supply, return, and exhaust configurations.",
+        "Contaminant Dispersion & IAQ Benchmarking: Simulated internal contaminant dispersal and air circulation patterns, evaluating local age of air and tracking carbon dioxide concentration profiles against statutory 400-1000 ppm thresholds to avoid stagnant pockets.",
+        "Cleanroom Aerodynamics: Conducted CFD simulations of cleanroom environments to assess laminar airflow integrity and particle clearance dynamics.",
+        "Interdisciplinary HVAC Optimisation: Partnered directly with mechanical design teams to iteratively optimize diffuser locations, supply velocities, and exhaust return grille placements."
+      ]
+    },
+    {
+      "id": "enterprise-infrastructure-risk-audit",
+      "title": "Enterprise Infrastructure Risk Audit, Systems Formalisation & Role Delegation",
+      "company": "Co-Perform",
+      "role": "Technical Director / Principal Systems Architect (Senior IC)",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "secondaryCategory": "Strategy & Practice Operations",
+      "context": "Engaged an external IT and systems auditing consultant to conduct a rigorous deep-dive review into the practice's sprawling digital infrastructure. The primary drivers were operational risk mitigation, mapping team data interactions, and addressing critical key-person risk: single-handedly managing an unmanageable full-stack individual contributor (IC) workload (spanning sysadmin, DevOps, UI/UX, software architecture, and database operations). The overarching objective was to systematically deconstruct and formalise the entire digital ecosystem to identify tasks suitable for operational delegation or offshoring, thereby reducing overheads and protecting senior engineering capacity.",
+      "execution": [
+        "Full-Stack Infrastructure Deconstruction: Audited and mapped the end-to-end digital ecosystem, spanning bare-metal work servers, cloud infrastructure, containerised workloads, relational and operational databases, and automated reporting toolchains.",
+        "Standardised IT Notations & Formal Taxonomy: Systematically categorised, labelled, and documented all digital pipelines and system dependencies using formalised IT engineering notations to ensure full institutional transparency.",
+        "Operational Risk & Data Workflow Auditing: Examined how internal engineering teams interacted with shared data stores, source files, and computational models to identify failure points, security vulnerabilities, single points of failure, and data integrity risks.",
+        "Responsibility Uncoupling & Delegation Matrix: Disentangled high-value strategic architecture from operational maintenance. Mapped out which functions required dedicated senior IC oversight versus tasks that could be standardised, delegated, or offshored.",
+        "Role Specification & Operational Job Descriptions: Authored targeted job descriptions, technical capability briefs, and standard operating procedures (SOPs) for newly defined modular IT, DevOps, and administration roles to facilitate targeted recruitment and offloading."
+      ]
+    },
+    {
+      "id": "city-of-melbourne-sustainable-building-standards",
+      "title": "City of Melbourne Sustainable Building Standards & Resilient Refuges Strategy",
+      "company": "Co-Perform (Sub-consultant to Nation Partners)",
+      "role": "Lead Resilience Architect & Strategic Consultant",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Climate Resilience, Adaptation & Strategic Policy",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Partnered as lead technical sub-consultant to Nation Partners for the City of Melbourne to overhaul municipal building standards, embedding climate adaptation, critical event resilience, and sustainability targets across council-owned assets.",
+      "execution": [
+        "Resilient Infrastructure Guidelines: Formulated strategic protocols for retrofitting existing facilities and designing new builds to withstand future climate extremes, including bushfire smoke events, severe heatwaves, and flooding. Addressed mechanical service adaptation, backup/off-grid power generation, and solar-battery integration.",
+        "Community Heatwave Refuge Design: Defined architectural, thermal, and HVAC criteria to convert select municipal assets into public heatwave refuges, ensuring safe indoor air quality, passive/active cooling endurance, and power resilience for vulnerable populations during extreme weather emergencies.",
+        "Standards Alignment: Recommended minimum sustainability performance targets using the Green Star and BESS frameworks, balancing long-term climate resilience with carbon mitigation objectives."
+      ]
+    },
+    {
+      "id": "victorian-local-government-technical-capacity-building",
+      "title": "Victorian Local Government Technical Capacity Building & BESS Framework",
+      "company": "Co-Perform / MAV (Municipal Association of Victoria) / CASBE",
+      "role": "Lead Technical Educator & Sustainability Advisor",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Climate Resilience, Adaptation & Strategic Policy",
+      "secondaryCategory": "Strategy & Practice Operations",
+      "context": "Multi-year capacity building initiatives delivered for the Municipal Association of Victoria (MAV) and the Council Alliance for a Sustainable Built Environment (CASBE) to empower local government statutory planners.",
+      "execution": [
+        "Non-Residential Engineering Review Training: Developed and delivered comprehensive technical training programs (conducted in 2025) for local government sustainability planners across Victoria. Trained planners on auditing complex non-residential energy modelling submissions, understanding thermal simulation workflows, verifying engineering assumptions, and identifying quality control red flags prior to permit approval.",
+        "BESS Framework Integration: Collaborated closely with CASBE under the MAV umbrella to support and refine the Built Environment Sustainability Scorecard (BESS) framework, standardising environmental assessment tools and technical evaluation criteria across Victorian municipalities."
+      ]
+    },
+    {
+      "id": "automated-point-cloud-to-terrain",
+      "title": "Automated Point Cloud to Terrain & CFD Domain Pipeline",
+      "company": "Arup / Physical Computing Practice",
+      "role": "Computational Workflow Specialist",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "secondaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "context": "Processing raw point-cloud datasets and topographic spatial files into watertight 3D surfaces for atmospheric microclimate and terrain CFD simulations.",
+      "execution": [
+        "Tool Identification & Integration: Evaluated, identified, and integrated existing Rhino point-cloud to contour tools and surface extraction modules into an operational workflow, avoiding redundant bespoke algorithm development.",
+        "Mesh Generation for Numerical Solvers: Automated domain meshing routines to convert spatial point and contour data into structured and unstructured meshes for CFD solvers (OpenFOAM / Ansys).",
+        "Workflow Acceleration: Streamlined model setup by eliminating manual CAD geometry repair and expediting domain mesh preparation for microclimate and wind studies."
+      ]
+    },
+    {
+      "id": "bespoke-2.5d-to-3d-computational-geometry-engine",
+      "title": "Bespoke 2.5D to 3D Computational Geometry Engine",
+      "company": "Arup / Co-Perform",
+      "role": "Principal Computational Geometry Architect",
+      "outcome": "Enterprise and Systems Integration",
+      "primaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "secondaryCategory": "Spatial and Infrastructure Strategy",
+      "context": "Architecting a custom procedural geometry engine to convert 2.5D building definitions into articulated 3D physical models for thermal and physical simulations.",
+      "execution": [
+        "2.5D Architectural Definition to 3D Extrusion: Built routines to take 2.5D building plan definitions—including footprints, eaves, external shading devices, glazing bands, and roof profiles—and automatically convert them into watertight 3D geometries.",
+        "Rapid Model Generation: Designed the pipeline to dramatically accelerate model creation, allowing designers and modellers to define building elements in plan and generate 3D simulation-ready geometry near-instantaneously.",
+        "Calibrated Simulation Complexity: Selected an appropriate level of geometric complexity tailored to simulation requirements, balancing rapid generation against analytical fidelity while avoiding the computational overhead of full 3D CAD modeling environments."
+      ]
+    },
+    {
+      "id": "wind-tunnel-cfd-facade-pressure-load",
+      "title": "Wind Tunnel & CFD Facade Pressure Load Integration",
+      "company": "Arup",
+      "role": "Facade Aerodynamics & Structural Loading Specialist",
+      "outcome": "Spatial and Infrastructure Strategy",
+      "primaryCategory": "Fluid Dynamics, Aerodynamics & Safety Engineering",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Evaluating structural wind pressure and cladding load dynamics on complex structures by integrating physical wind tunnel pressure tap data with high-resolution CFD numerical models.",
+      "execution": [
+        "Dynamic Sensor Mapping: Processed, normalised, and mapped dynamic wind tunnel pressure spectra onto high-density 3D structural meshes.",
+        "Aerodynamic & Safety Assessment: Evaluated peak velocity pressure distributions, aerodynamic shedding, and localised suction loads for structural and facade safety compliance."
+      ]
+    },
+    {
+      "id": "physics-informed-ml-surrogate-model",
+      "title": "Physics-Informed ML Surrogate Model for Dynamic Building Performance",
+      "company": "Co-Perform / Arup",
+      "role": "Machine Learning & Computational Physics Specialist",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Computational Tooling, Infrastructure & Enterprise Systems",
+      "secondaryCategory": "Building Physics & Envelope Performance",
+      "context": "Overcoming the computational cost and latency of numerical physics simulations by building a high-speed machine learning surrogate model to predict dynamic building thermodynamic behaviour in milliseconds.",
+      "execution": [
+        "Parametric Simulation Orchestration: Scripted and orchestrated hundreds of parameterised multi-zone thermal dynamic simulations across diverse architectural, weather, and operational variables.",
+        "Feature Engineering & Normalisation: Processed multi-dimensional input and output datasets, cleaning and normalising feature spaces spanning thermal mass, HVAC capacities, solar heat gain coefficients, and internal gains.",
+        "Model Training with scikit-learn: Implemented and tested variants of regression models using scikit-learn to map input parameters directly to dynamic performance outcomes (energy loads, peak thermal demand, internal temperature fields).",
+        "Inference & Accuracy Evaluation: Evaluated prediction accuracy against baseline physical simulation results, enabling rapid interactive scenario exploration without traditional solver run times."
+      ]
+    },
+    {
+      "id": "low-income-public-housing-asset-energy-retrofit",
+      "title": "Low-Income Public Housing Asset & Energy Retrofit Platform",
+      "company": "Moreland Energy Foundation (MEFL) / Dept. of Health and Human Services (DHHS)",
+      "role": "Lead Systems Architect & Energy Strategist",
+      "outcome": "Decarbonisation and ESG Impact",
+      "primaryCategory": "Energy Systems, Decarbonisation & Carbon Accounting",
+      "secondaryCategory": "Climate Resilience, Adaptation & Strategic Policy",
+      "context": "Auditing low-income public housing stock across Victoria to establish the empirical data foundation for state-funded heating, energy efficiency, and solar PV upgrade programs.",
+      "execution": [
+        "Mobile-First Ingestion Framework: Built a custom data collection framework on the Zoho low-code ecosystem, enabling field auditors to capture physical building enclosure details, simple residential heating equipment (e.g. basic electric element space heaters), and occupant survey responses via mobile devices.",
+        "Qualitative Occupant Experience Capture: Integrated questionnaires into the audit workflow to capture tenant lived experiences, thermal comfort challenges, and specific household needs across vulnerable populations.",
+        "Utility Billing & Data Integration: Ingested and cleansed historical utility billing data alongside physical asset conditions within a relational database schema.",
+        "Privacy & De-Identification Safeguards: Engineered automated data-scrubbing routines to separate personally identifiable tenant information (PII) from physical asset records for regulatory compliance and downstream analytics.",
+        "Tailored Upgrade Recommendations: Analysed combined asset conditions, lived-experience feedback, and billing data to recommend and prioritise high-yield capital retrofits (thermal shell improvements, split-system heat pumps, solar PV) across residential units."
+      ]
+    }
+  ]
+}

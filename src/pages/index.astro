@@ -9,8 +9,6 @@ const {
     fullName, 
     title, 
     institute, 
-    hero_headline,
-    hero_subheadline,
     practice_statement, 
     background_pillars, 
     research_areas, 
@@ -25,17 +23,15 @@ const {
             fullName={fullName}
             title={title}
             institute={institute}
-            headline={hero_headline}
-            subheadline={hero_subheadline}
             practiceStatement={practice_statement}
             profilePicture={ProfilePictures}
         />
     </section>
 
-    <!-- Background & Perspective (3-Column Cards) -->
+    <!-- Core Competencies -->
     <section class='py-12 border-b space-y-6'>
         <div class='mb-2'>
-            <h2 class='text-2xl font-bold tracking-tight text-primary'>Background & Perspective</h2>
+            <h2 class='text-2xl font-bold tracking-tight text-primary'>Core Competencies</h2>
         </div>
         <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {background_pillars.map(pillar => (

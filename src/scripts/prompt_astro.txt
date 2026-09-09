@@ -1,0 +1,60 @@
+You are helping format engineering portfolio data for an Astro website.
+Review the source project data below and transform it into a strict JSON object mapping to the requested 3D classification taxonomy.
+
+SOURCE DATA:
+- ID/Slug: {project_id}
+- Title: {title}
+- Primary Category: {primary_cat}
+- Secondary Category: {secondary_cat}
+- Outcome: {outcome}
+- Context: {context}
+- Execution steps: {execution}
+
+TONE & STYLE GUIDELINES:
+- Use Australian English spelling (e.g., optimised, modelled).
+- Keep the tone professional, concise, strictly honest, and direct. 
+- Avoid any marketing fluff, hyperbole, grandiose phrasing, or inflation. Present the technical facts squarely as an experienced engineer.
+
+INSTRUCTIONS & TAXONOMY:
+1. "id": Preserve the exact ID or slug provided in the source data.
+2. "title": Keep or refine the title if needed.
+3. "tag": A short descriptive keyword or thematic label for the project.
+4. "impact" (Choose ONE that best fits the executive/leader lens):
+   - "Systems Architecture" (Platform design, enterprise scaling, infrastructure)
+   - "Capability Building" (Mentorship, workflow automation, training planners/teams)
+   - "Digital Transformation" (Legacy to modern cloud/local migration, tooling overhauls)
+   - "Risk & Resilience" (Climate adaptation, disaster mitigation, policy compliance)
+   - "Product R&D" (Prototypes, custom engines, zero-to-one software builds)
+5. "domain" (Choose ONE that best fits the specialist lens):
+   - "Spatial / GIS" (3D meshes, LiDAR, terrain, vector/shapefiles)
+   - "Machine Learning" (Surrogate models, multi-dimensional regression, AI pipelines)
+   - "Building Physics" (HVAC, thermal comfort, envelope/facade, indoor air quality)
+   - "Computational Mechanics" (CFD, fluid dynamics, blast overpressure, aerodynamics)
+   - "Energy Infrastructure" (BESS, grid optimization, PV microgrids, decarbonization)
+6. "scale" (Choose ONE that best fits the operational footprint lens):
+   - "Enterprise / Municipal" (City-wide policy, utility networks, state-wide data)
+   - "Asset / Building" (Specific facilities, high-rise, industrial plants, residential stock)
+   - "Platform / Tooling" (Software engines, Linux HPC, automated reporting tools)
+7. "image": Assign a deterministic local path based on the chosen "domain":
+   - If "Spatial / GIS" -> "/images/projects/spatial-gis.jpg"
+   - If "Machine Learning" -> "/images/projects/machine-learning.jpg"
+   - If "Building Physics" -> "/images/projects/building-physics.jpg"
+   - If "Computational Mechanics" -> "/images/projects/computational-mechanics.jpg"
+   - If "Energy Infrastructure" -> "/images/projects/energy-infrastructure.jpg"
+8. "description": Write a concise, professional project description synthesizing the context and outcome objectively.
+9. "highlights": Convert the execution steps into a clean list of 2 to 3 sharp, factual highlight strings.
+10. "featured": Set to false by default.
+
+Return ONLY a valid JSON object with these exact keys:
+{{
+    "id": "...",
+    "title": "...",
+    "tag": "...",
+    "impact": "...",
+    "domain": "...",
+    "scale": "...",
+    "image": "...",
+    "description": "...",
+    "highlights": ["...", "..."],
+    "featured": false
+}}

@@ -1,0 +1,401 @@
+[
+    {
+        "id": "government-resilient-housing-prototype",
+        "title": "Government Resilient Housing Prototype",
+        "tag": "Climate-Adaptive Housing",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Partnered with an architectural practice to design and optimise a state government-backed resilient housing prototype constructed on the Mornington Peninsula. The project used digital twin modelling and historical climate data to stress-test building envelope performance under extreme heatwave conditions, informing a physical build recognised as a benchmark for climate-adaptive architecture.",
+        "highlights": [
+            "Built a digital twin and computational models to inform building envelope performance parameters.",
+            "Mined historical Bureau of Meteorology (BOM) datasets against official heatwave definitions and spliced sequences into EnergyPlus weather files (.epw) to simulate performance under severe heatwave conditions.",
+            "Evaluated building resilience under extreme stress testing to guide envelope parameters, resulting in a physical build recognised as a benchmark of climate-adaptive architecture."
+        ],
+        "featured": false
+    },
+    {
+        "id": "comprehensive-thermal-comfort-modelling-suite",
+        "title": "Comprehensive Thermal Comfort Modelling Suite (PMV, SET, PET)",
+        "tag": "Thermal Comfort Modelling",
+        "impact": "Product R&D",
+        "domain": "Building Physics",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "A custom-built suite of human thermal comfort indices developed over 25 years of applied research and academic review, implementing PMV, SET, and PET models across diverse global master plans and public environments, including White City in London, shopping centres, Melbourne's outdoor public spaces, and Singapore.",
+        "highlights": [
+            "Translated complex bioclimatic physics into actionable design parameters for urban master planning and outdoor microclimate assessment.",
+            "Coded, integrated, and deployed PMV, SET, and PET comfort models across multiple international built environments.",
+            "Applied consistently across large-scale master plans spanning London, Melbourne, regional Australia, and Singapore."
+        ],
+        "featured": false
+    },
+    {
+        "id": "future-climate-weather-file-application",
+        "title": "Future Climate Weather File Application & Stress Testing",
+        "tag": "Future Climate Resilience",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Assessed long-term asset resilience by moving beyond static historical weather baselines, applying synthetic future climate weather files to dynamic energy simulation models. The work quantified how projected climate scenarios would affect HVAC energy consumption and overheating risk in free-running buildings, providing an evidence base for adaptation planning and ESG reporting.",
+        "highlights": [
+            "Applied synthetic future climate weather files, developed by specialist teams, within dynamic energy simulation models.",
+            "Quantified the additional HVAC energy consumption expected under projected extreme future climate conditions.",
+            "Determined the increased rate of overheating in free-running buildings where architectural designs remained unadapted."
+        ],
+        "featured": false
+    },
+    {
+        "id": "facade-thermal-physics-heat-transfer-analysis",
+        "title": "Facade Thermal Physics & Heat Transfer Analysis",
+        "tag": "Thermal Bridging Analysis",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Detailed thermal bridging and assembly performance analysis for high-performance architectural envelopes, quantifying heat transfer through facade framing and glazing systems to support decarbonisation and ESG reporting objectives.",
+        "highlights": [
+            "Modelled 2D steady-state heat transfer through facade framing components (transoms, mullions) in LBNL THERM under NFRC reference conditions to derive linear thermal transmittance and frame U-values.",
+            "Analysed single, double, and triple-glazed configurations in LBNL WINDOW, evaluating SHGC, centre-of-glass U-values, and the performance impact of low-emissivity coatings."
+        ],
+        "featured": false
+    },
+    {
+        "id": "enterprise-data-driven-reporting-ecosystem",
+        "title": "Enterprise Data-Driven Reporting Ecosystem & Documentation Engine",
+        "tag": "Automated Reporting Infrastructure",
+        "impact": "Systems Architecture",
+        "domain": "Building Physics",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Designed and built the central documentation engine underpinning approximately 10 distinct technical reporting types across the organisation's consulting output, replacing manual, error-prone document assembly with an integrated data-to-deliverable pipeline. The system consolidated project metadata, thermal simulation results, and regulatory building permit reporting into a single automated workflow, removing redundant data entry and reducing QA risk across outward-facing engineering documentation.",
+        "highlights": [
+            "Built an internal Knack database as a single source of truth, tracking 3,000+ fields entered once and automatically propagated across all document builds.",
+            "Developed automated pipelines integrating thermal simulation outputs, calculated tables, author commentary, and external graphics directly into deliverables.",
+            "Programmed a document typesetting engine using PyLaTeX and LaTeX with conditional templating, containerised alongside the full LaTeX distribution and deployed via a batch queuing pipeline on company server infrastructure."
+        ],
+        "featured": false
+    },
+    {
+        "id": "gas-turbine-engine-digital-twin",
+        "title": "Gas Turbine Engine Digital Twin",
+        "tag": "Engine Performance Modelling",
+        "impact": "Systems Architecture",
+        "domain": "Machine Learning",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/machine-learning.jpg",
+        "description": "Early-career project developing a digital twin for Pratt & Whitney F404 aircraft engines undergoing performance testing at Fishermans Bend. The work involved acquiring and processing test bed sensor data, then building an optimisation routine to back-solve for engine degradation parameters that reconciled the model against physical measurements.",
+        "highlights": [
+            "Implemented a downhill simplex algorithm in MATLAB to drive an iterative parameter optimisation process.",
+            "Built simulation routines modelling multiple thermodynamic degradation vectors, including turbine efficiency losses.",
+            "Solved for the specific degradation parameter sets required to match test bed sensor recordings of pressure, temperature, fuel flow, and net thrust."
+        ],
+        "featured": false
+    },
+    {
+        "id": "battery-energy-storage-systems-digital-twin",
+        "title": "Battery Energy Storage Systems (BESS) Digital Twin",
+        "tag": "BESS Sizing & Financial Modelling",
+        "impact": "Product R&D",
+        "domain": "Energy Infrastructure",
+        "scale": "Asset / Building",
+        "image": "/images/projects/energy-infrastructure.jpg",
+        "description": "A digital twin tool developed for local government clients to right-size battery energy storage systems and assess financial viability against varying commercial tariff structures. The tool wraps NREL's System Advisory Model (SAM) engine into a custom, containerised Python application, enabling on-demand simulation of demand, solar generation, and battery performance to support evidence-based procurement decisions.",
+        "highlights": [
+            "Packaged the NREL SAM engine into a custom Python codebase deployed as an ephemeral container, developed as an early AI agentic tooling experiment in VS Code.",
+            "Modelled diurnal and monthly demand profiles alongside solar generation factors including panel sizing, orientation, degradation, and inverter losses.",
+            "Evaluated battery charging/discharging rates and round-trip efficiency against commercial tariff structures, with automated compilation of client-ready technical reports."
+        ],
+        "featured": false
+    },
+    {
+        "id": "complex-hvac-system-modelling",
+        "title": "Complex HVAC System Modelling & NABERS Commitment Agreements",
+        "tag": "NABERS Compliance Modelling",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Over 10 years of specialised HVAC system simulation work supporting formal NABERS Commitment Agreements, enabling building owners to market pre-construction environmental ratings such as NABERS 5-Star. Involves high-fidelity thermal modelling of complex mechanical plant and degraded-performance risk scenarios, with all outputs subject to independent third-party regulatory audit.",
+        "highlights": [
+            "Configured and executed high-fidelity EnergyPlus simulations engineered to replicate real-world operational building physics.",
+            "Modelled degraded performance and off-axis risk scenarios, including fan schedule drift, chiller efficiency degradation, stuck control valves, and 24/7 running zones.",
+            "Simulated complex mechanical plant (VAV, VRF, split systems) and inline PV solar generation with intricate metering layouts, passing independent NABERS assessor audits across multiple commercial projects."
+        ],
+        "featured": false
+    },
+    {
+        "id": "building-upfront-carbon-footprint-analysis",
+        "title": "Building Upfront Carbon Footprint Analysis",
+        "tag": "Embodied Carbon Accounting",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Whole-of-building upfront embodied carbon quantification delivered for major builder partner Hutchinson Builders, converting raw contractor Bills of Quantities into a structured carbon inventory to support a formal Green Star rating submission.",
+        "highlights": [
+            "Ingested, cleaned, and standardised contractor BOQs across thousands of line items, verifying engineering units of measure and categorising elements into substructure, superstructure, facade, and primary services assemblies.",
+            "Engineered data-sanitisation rules to eliminate double-counting, including separating structural rebar tonnage from reinforced concrete volume calculations.",
+            "Linked cleaned material quantities to Environmental Product Declarations and carbon emission factors within SAS analysis platforms to produce the official Green Star accreditation submission."
+        ],
+        "featured": false
+    },
+    {
+        "id": "offshore-platform-blast-modelling",
+        "title": "Offshore Platform Blast Modelling & CFD Pipeline Automation",
+        "tag": "Blast Overpressure CFD Automation",
+        "impact": "Digital Transformation",
+        "domain": "Computational Mechanics",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Explosion overpressure assessments for offshore oil and gas platforms, modelling flame acceleration and structural shockwave impacts through congested pipework networks. Developed an automated geometry translation pipeline to eliminate manual CAD-to-CFD rework and improve solver accuracy.",
+        "highlights": [
+            "Modelled flame acceleration and overpressure increases caused by igniting gas clouds propagating through tens to hundreds of kilometres of 2-inch to 12-inch pipework networks.",
+            "Built a custom Rhino 3D scripting pipeline, novel at the time, to automatically ingest platform CAD pipe networks and translate them directly into AutoReaGas CFD solvers.",
+            "Eliminated manual CAD geometry recreation, saving hundreds of engineering hours per project while increasing solver accuracy."
+        ],
+        "featured": false
+    },
+    {
+        "id": "fire-behaviour-smoke-dynamics",
+        "title": "Fire Behaviour, Smoke Dynamics & Compute Infrastructure Architecture",
+        "tag": "Fire & Smoke Simulation Infrastructure",
+        "impact": "Systems Architecture",
+        "domain": "Computational Mechanics",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Partnered with fire engineering teams to optimise computational fire modelling workflows and provision the high-performance computing infrastructure required to run them at scale, supporting Australasia-wide building physics analysis.",
+        "highlights": [
+            "Configured NIST FDS fire and smoke simulations and built a custom Rhino 3D front-end to accelerate geometric setup within FDS's rectilinear grid constraints.",
+            "Designed and deployed an 8-node headless Linux HPC cluster with batch queuing (qsub, qhold), significantly reducing batch processing times for fire and building physics modelling.",
+            "Delivered fire and smoke timeline outputs (visibility, temperature, toxic gas concentrations) to external egress specialists, and led the Australasia Building Physics group, mentoring graduate analysts and junior engineers."
+        ],
+        "featured": false
+    },
+    {
+        "id": "industrial-stack-plume-dispersion",
+        "title": "Industrial Stack Plume Dispersion & CASA Airspace Assessment (TAPM)",
+        "tag": "Atmospheric Dispersion Modelling",
+        "impact": "Risk & Resilience",
+        "domain": "Computational Mechanics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Environmental compliance and aviation safety assessment modelling industrial exhaust stack emissions to determine whether thermal buoyancy, vertical velocity, or turbulence effects breach protected aviation airspace or violate ground-level regulatory criteria. Undertaken using CSIRO's TAPM during the era of regional dispersion modelling transitions, alongside comparative tools such as AUSPLUME.",
+        "highlights": [
+            "Modelled the atmospheric boundary layer profile by establishing surface roughness lengths across varying terrains, capturing how local roughness alters velocity gradients and dispersion behaviour.",
+            "Analysed historical meteorological datasets to identify prevailing wind regimes, mean wind speeds, and adverse conditions including atmospheric temperature inversions.",
+            "Used TAPM to calculate plume trajectories, dispersion geometry, and maximum plume rise across a defined matrix of wind speeds and stability classes, evaluating stack exit velocity against building downwash and CASA Obstacle Limitation Surface criteria."
+        ],
+        "featured": false
+    },
+    {
+        "id": "tunnel-enclosed-car-park-ventilation",
+        "title": "Tunnel & Enclosed Car Park Ventilation (Rail & Automotive)",
+        "tag": "Ventilation & Contaminant Dispersion Modelling",
+        "impact": "Risk & Resilience",
+        "domain": "Computational Mechanics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Airflow and contaminant dispersion assessments for enclosed and underground multi-level car parks, focused on jet fan-driven ventilation strategies to maintain safe carbon monoxide concentrations in pedestrian and vehicle circulation zones. Work extended to preliminary evaluations of diesel exhaust behaviour within rail tunnel environments.",
+        "highlights": [
+            "Built 3D computational geometries of underground and multi-level car parks, establishing fleet average CO emission rates from historical vehicle data as contaminant source terms.",
+            "Integrated traffic engineering inputs on incoming/outgoing rates and queue lengths to spatially define emission sources, then positioned jet fans to eliminate stagnant zones and direct exhaust to mechanical extract shafts.",
+            "Verified steady-state CO concentrations against regulatory exposure thresholds and conducted preliminary diesel exhaust assessments for rail tunnel corridors."
+        ],
+        "featured": false
+    },
+    {
+        "id": "urban-wind-environment-pedestrian-safety",
+        "title": "Urban Wind Environment, Pedestrian Safety & CFD Validation",
+        "tag": "Pedestrian Wind Safety",
+        "impact": "Risk & Resilience",
+        "domain": "Computational Mechanics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Specialist wind engineering work carried out across BMT and Arup in the UK and Australia during the early 2000s, a period when numerical CFD was emerging as a challenger to physical boundary layer wind tunnel testing for pedestrian wind risk assessment. The work involved validating CFD against physical wind tunnel results, resolving atmospheric boundary layer and turbulence modelling challenges, and translating peak gust predictions into safety assessments against established pedestrian comfort criteria. Findings were applied directly to inform architectural mitigation measures on medium- and high-rise developments.",
+        "highlights": [
+            "Conducted physical wind tunnel testing at BMT, including scale model setup, atmospheric boundary layer generation using upstream roughness blocks, and static pressure measurements, alongside formal CFD validation studies benchmarking numerical results against physical test data.",
+            "Managed the trade-off between hardware compute limits and grid resolution required to capture boundary layer shear, flow separation, and corner acceleration, and overcame steady-state RANS limitations by implementing transient LES to resolve peak gusts.",
+            "Combined numerical and experimental velocity data with historical meteorological records to assess pedestrian safety and comfort against Lawson and Penwarden criteria, informing the design of canopies, podium setbacks, and porous screens."
+        ],
+        "featured": false
+    },
+    {
+        "id": "reflected-glare-hazard-studies",
+        "title": "Reflected Glare Hazard Studies & Numerical Hassall Automation",
+        "tag": "Glare Hazard Simulation",
+        "impact": "Product R&D",
+        "domain": "Building Physics",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Development of a numerical, automated replacement for the manual Hassall methodology used to assess reflected sunlight and veiling glare hazards from glazed and metallic facades. Applied to transport infrastructure (including Level Crossing Removal Project overpasses, rail corridors, and stations such as Williams Landing) and dense urban developments, the workflow evaluated driver and pedestrian safety risks and informed facade design decisions, establishing an internal benchmark for subsequent glare assessment practice.",
+        "highlights": [
+            "Translated the manual Hassall geometric method into a numerical algorithm quantifying angular separation between reflected sunlight vectors and an observer's line of sight to identify disabling glare thresholds.",
+            "Scripted automated Rhino 3D and Radiance workflows to generate synthetic luminance maps along transit corridors and streetscapes, calculating glare intensity, contrast ratios, and exposure durations.",
+            "Applied findings to optimise facade glazing selection, envelope geometry, and shading design, producing structured technical reports that became the foundation for subsequent internal glare assessment workflows."
+        ],
+        "featured": false
+    },
+    {
+        "id": "stadium-pitch-microclimate",
+        "title": "Stadium Pitch Microclimate & Cumulative PAR Modelling",
+        "tag": "Pitch Solar Access & Turf Viability",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Delivered pitch microclimate, solar access, and Photosynthetically Active Radiation (PAR) assessments across approximately half a dozen major stadia, both as part of Arup and subsequently as an independent consultant and subcontractor. The work quantified radiation deficits against turf agronomic thresholds and informed supplemental lighting strategies to maintain playing surface viability.",
+        "highlights": [
+            "Built detailed 3D stadium bowl, grandstand, and roof canopy models to simulate diurnal and seasonal overshadowing patterns on the playing surface.",
+            "Developed a cumulative sky methodology from local climate files, integrating direct and diffuse solar components to run monthly PAR mapping and identify chronic shadow zones against species-specific turf thresholds.",
+            "Formulated supplemental lighting rig strategies, calculating rig counts, positioning, and rotational scheduling to address PAR deficits while minimising capital and operational expenditure."
+        ],
+        "featured": false
+    },
+    {
+        "id": "daylight-solar-access-visual-comfort",
+        "title": "Daylight, Solar Access & Visual Comfort Simulation",
+        "tag": "Daylight Simulation",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Delivered dozens of daylight availability, solar access, and visual comfort assessments across commercial office, aged care, and multi-residential developments, addressing both statutory compliance and human-centric design optimisation objectives over many years of practice.",
+        "highlights": [
+            "Modelled Daylight Factor, Daylight Autonomy, and IES-standard compliance metrics against statutory planning and Green Star requirements.",
+            "Conducted seasonal daylight and glare assessments to eliminate VDU glare in offices, verify reading light adequacy in aged care facilities, and guide light well and light court geometry.",
+            "Calibrated angle-dependent glass optical properties and sky brightness models, and developed simplification methods to run robust Radiance simulations within ~10-minute commercial delivery windows."
+        ],
+        "featured": false
+    },
+    {
+        "id": "commercial-indoor-air-quality",
+        "title": "Commercial Indoor Air Quality, HVAC Distribution & Cleanroom Aerodynamics",
+        "tag": "HVAC & Cleanroom CFD",
+        "impact": "Systems Architecture",
+        "domain": "Computational Mechanics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "CFD modelling of internal air distribution, contaminant clearance, and indoor air quality across commercial buildings and cleanroom environments, supporting HVAC system design decisions with quantitative airflow and contaminant dispersion analysis.",
+        "highlights": [
+            "Modelled 3D airflow regimes across underfloor, displacement, VRV and overhead diffuser systems, simulating supply, return and exhaust configurations.",
+            "Simulated contaminant dispersion and local age of air, benchmarking CO2 concentration profiles against statutory 400-1000 ppm thresholds to identify stagnant pockets.",
+            "Assessed cleanroom laminar airflow integrity and particle clearance, working with mechanical design teams to optimise diffuser locations, supply velocities and grille placements."
+        ],
+        "featured": false
+    },
+    {
+        "id": "city-of-melbourne-sustainable-building-standards",
+        "title": "City of Melbourne Sustainable Building Standards & Resilient Refuges Strategy",
+        "tag": "Climate-Resilient Municipal Standards",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Enterprise / Municipal",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Engaged as lead technical sub-consultant to Nation Partners to overhaul the City of Melbourne's municipal building standards. The work embedded climate adaptation, critical event resilience, and sustainability performance targets across council-owned assets, spanning retrofit protocols, refuge conversion criteria, and updated design benchmarks.",
+        "highlights": [
+            "Formulated resilient infrastructure guidelines for retrofitting existing facilities and designing new builds to withstand bushfire smoke, heatwaves, and flooding, covering mechanical service adaptation, backup/off-grid power, and solar-battery integration.",
+            "Defined architectural, thermal, and HVAC criteria to convert selected municipal assets into public heatwave refuges, ensuring safe indoor air quality and power resilience for vulnerable populations.",
+            "Recommended minimum sustainability performance targets aligned with Green Star and BESS frameworks, balancing climate resilience with carbon mitigation objectives."
+        ],
+        "featured": false
+    },
+    {
+        "id": "victorian-local-government-technical-capacity-building",
+        "title": "Victorian Local Government Technical Capacity Building & BESS Framework",
+        "tag": "Planner Training & Sustainability Scorecard",
+        "impact": "Capability Building",
+        "domain": "Building Physics",
+        "scale": "Enterprise / Municipal",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Multi-year capacity building initiative delivered for the Municipal Association of Victoria (MAV) and the Council Alliance for a Sustainable Built Environment (CASBE), aimed at strengthening the technical capability of local government statutory planners across Victoria in reviewing energy modelling submissions and applying standardised sustainability assessment tools.",
+        "highlights": [
+            "Developed and delivered technical training in 2025 for Victorian sustainability planners on auditing non-residential energy modelling submissions, including thermal simulation workflows and engineering assumption verification.",
+            "Trained planners to identify quality control red flags in engineering submissions prior to permit approval.",
+            "Collaborated with CASBE under the MAV umbrella to refine the Built Environment Sustainability Scorecard (BESS) framework, standardising environmental assessment criteria across municipalities."
+        ],
+        "featured": false
+    },
+    {
+        "id": "automated-point-cloud-to-terrain",
+        "title": "Automated Point Cloud to Terrain & CFD Domain Pipeline",
+        "tag": "Terrain Meshing Automation",
+        "impact": "Digital Transformation",
+        "domain": "Spatial / GIS",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/spatial-gis.jpg",
+        "description": "A workflow for converting raw point-cloud and topographic spatial data into watertight 3D terrain surfaces suitable for atmospheric microclimate and terrain CFD simulations. The pipeline integrates existing point-cloud processing tools with automated domain meshing to remove manual CAD repair steps from the model setup process.",
+        "highlights": [
+            "Evaluated and integrated existing Rhino point-cloud to contour and surface extraction tools into an operational pipeline, avoiding redundant bespoke algorithm development",
+            "Automated domain meshing routines to convert point and contour data into structured and unstructured meshes for OpenFOAM and Ansys solvers",
+            "Streamlined model setup by eliminating manual CAD geometry repair, expediting domain mesh preparation for microclimate and wind studies"
+        ],
+        "featured": false
+    },
+    {
+        "id": "bespoke-2.5d-to-3d-computational-geometry-engine",
+        "title": "Bespoke 2.5D to 3D Computational Geometry Engine",
+        "tag": "Procedural Geometry Automation",
+        "impact": "Product R&D",
+        "domain": "Spatial / GIS",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/spatial-gis.jpg",
+        "description": "A custom procedural geometry engine developed to convert 2.5D building plan definitions into watertight 3D physical models, enabling rapid preparation of simulation-ready geometry for thermal and physical analysis without reliance on full 3D CAD workflows.",
+        "highlights": [
+            "Built routines to automatically extrude 2.5D building definitions\u2014footprints, eaves, external shading devices, glazing bands, and roof profiles\u2014into watertight 3D geometries.",
+            "Designed the pipeline to allow designers and modellers to define building elements in plan and generate simulation-ready 3D geometry near-instantaneously.",
+            "Calibrated geometric complexity to balance rapid generation against analytical fidelity, avoiding the overhead of full 3D CAD modelling environments."
+        ],
+        "featured": false
+    },
+    {
+        "id": "wind-tunnel-cfd-facade-pressure-load",
+        "title": "Wind Tunnel & CFD Facade Pressure Load Integration",
+        "tag": "Wind Load Analysis",
+        "impact": "Risk & Resilience",
+        "domain": "Computational Mechanics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Evaluated structural wind pressure and cladding load dynamics on a complex structure by integrating physical wind tunnel pressure tap data with high-resolution CFD numerical models, supporting facade and structural safety compliance assessments.",
+        "highlights": [
+            "Processed, normalised, and mapped dynamic wind tunnel pressure spectra onto high-density 3D structural meshes.",
+            "Evaluated peak velocity pressure distributions and aerodynamic shedding across the structural envelope.",
+            "Assessed localised suction loads against structural and facade safety compliance requirements."
+        ],
+        "featured": false
+    },
+    {
+        "id": "physics-informed-ml-surrogate-model",
+        "title": "Physics-Informed ML Surrogate Model for Dynamic Building Performance",
+        "tag": "ML Surrogate Modelling",
+        "impact": "Product R&D",
+        "domain": "Machine Learning",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/machine-learning.jpg",
+        "description": "Developed a machine learning surrogate model to replicate dynamic building thermodynamic behaviour, reducing prediction times from minutes to milliseconds compared to traditional numerical physics simulations. The model enables rapid, interactive exploration of design and operational scenarios without the computational overhead of conventional solvers.",
+        "highlights": [
+            "Orchestrated hundreds of parameterised multi-zone thermal dynamic simulations spanning architectural, weather, and operational variables.",
+            "Engineered and normalised multi-dimensional feature sets covering thermal mass, HVAC capacities, solar heat gain coefficients, and internal gains.",
+            "Trained and evaluated scikit-learn regression models against baseline simulation results to validate predictive accuracy for energy loads, peak thermal demand, and internal temperature fields."
+        ],
+        "featured": false
+    },
+    {
+        "id": "low-income-public-housing-asset-energy-retrofit",
+        "title": "Low-Income Public Housing Asset & Energy Retrofit Platform",
+        "tag": "Public Housing Energy Audit",
+        "impact": "Risk & Resilience",
+        "domain": "Building Physics",
+        "scale": "Enterprise / Municipal",
+        "image": "/images/projects/building-physics.jpg",
+        "description": "Established the empirical data foundation for state-funded heating, energy efficiency, and solar PV upgrade programs by auditing low-income public housing stock across Victoria. Combined physical building enclosure data, occupant thermal comfort feedback, and historical utility billing records to prioritise high-yield capital retrofits for vulnerable tenant populations.",
+        "highlights": [
+            "Built a mobile-first data collection framework on Zoho to capture building enclosure conditions, basic heating equipment details, and occupant surveys directly from the field.",
+            "Integrated qualitative tenant questionnaires alongside physical asset and utility billing data within a relational database schema, with automated PII scrubbing for regulatory compliance.",
+            "Analysed combined asset, billing, and lived-experience data to recommend and prioritise thermal shell improvements, heat pump installations, and solar PV upgrades across residential units."
+        ],
+        "featured": false
+    }
+]

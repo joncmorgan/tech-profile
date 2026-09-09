@@ -1,0 +1,12 @@
+[
+    {
+        "id": "government-resilient-housing-prototype",
+        "title": "Government Resilient Housing Prototype",
+        "resume_bullet": "Architected a resilient housing prototype for a government initiative, integrating GIS-based site analysis and modular design principles to enhance structural durability against environmental hazards.",
+        "tags": [
+            "stream:government",
+            "layer:prototype",
+            "domain:housing"
+        ]
+    }
+]

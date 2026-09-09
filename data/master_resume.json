@@ -1,0 +1,148 @@
+{
+  "contact": {
+    "name": "Jon Morgan",
+    "post_nominals": "BEng(AeroEng), MUrbPlanEnv",
+    "location": "Melbourne, Australia",
+    "phone": "0429 357 751",
+    "email": "jonmorgan@fastmail.com",
+    "linkedin": "linkedin.com/in/linkjonmorgan"
+  },
+  "profiles": {
+    "ai_solutions": {
+      "title": "Lead, AI Solutions & Technical Transformation",
+      "tags": ["stream:boutique", "stream:enterprise", "layer:handson", "layer:leadership"],
+      "about": "I bridge operational workflows, business systems, and modern AI capability. With 30 years of engineering and technical leadership experience—backed by eight years co-directing a technical consultancy—I specialise in identifying operational bottlenecks, architecting pragmatic data and AI pipelines, and building custom containerized automation tools. I combine systems thinking with hands-on technical execution (Python, Docker, local/cloud LLMs, n8n) to deliver production-ready solutions that eliminate manual friction, modernize processes, and unlock measurable commercial value."
+    },
+    "automation_delivery": {
+      "title": "Business Systems & Automation Lead",
+      "tags": ["stream:enterprise", "stream:advisory", "layer:leadership", "layer:handson"],
+      "about": "I operate as a practical bridge between daily operational workflows, system integrations, and cross-functional team needs. With 30 years across systems engineering, data pipeline alignment, and technical project delivery, I specialise in connecting enterprise SaaS platforms, fixing post-go-live friction, and automating routine administrative workflows. Having co-directed an independent technical consultancy, I bring a grounded, commercial mindset to technology choices—ensuring software integrations protect project margins, simplify data accuracy, and eliminate double-handling."
+    },
+    "data_product": {
+      "title": "Technical Product Director – Data Systems & Digital Integration",
+      "tags": ["stream:enterprise", "stream:advisory", "layer:advisory", "layer:leadership"],
+      "about": "I operate as a practical bridge between business objectives, complex physical datasets, and engineering teams. With a background spanning systems engineering, data pipeline automation, and technical compliance, I specialise in translating complex, multi-variable engineering challenges into structured documentation, calculation engines, and software requirements. Having co-founded and directed a technical consultancy, I focus on managing cross-functional delivery streams, controlling project scope, and ensuring complex backend logic supports practical commercial outcomes."
+    },
+    "built_environment": {
+      "title": "Technical Director – Built Environment & Digital Integration",
+      "tags": ["stream:advisory", "stream:boutique", "layer:advisory", "layer:leadership"],
+      "about": "I work at the intersection of systems research, building performance simulation, and software automation, complemented by practical experience running a small consultancy. I focus on designing automated data pipelines that connect physical building systems to sustainability reporting frameworks, ensuring automation is balanced with human oversight to translate operational metrics into reliable compliance outputs. This combination of hands-on technical experience and business operations helps me act as a practical bridge, translating complex technical datasets into clear, transparent, and auditable structures for senior leadership."
+    }
+  },
+  "capabilities_pool": [
+    {
+      "id": "cap_ai_agentic",
+      "title": "Hands-On AI Execution & Agentic Automation",
+      "tags": ["stream:boutique", "layer:handson", "domain:ai"],
+      "description": "Designing and deploying practical AI solution pipelines. Hands-on experience with containerised development (Docker), modern package managers (uv), local open-source LLM/SLM orchestration (Llama/Ollama), cloud APIs (Gemini), document intelligence engines (IBM Docling), and agentic coding workflows (VS Code, Cline, Continue) to solve unstructured data challenges."
+    },
+    {
+      "id": "cap_systems_integration",
+      "title": "Systems Integration & Practical Automation",
+      "tags": ["stream:enterprise", "stream:boutique", "layer:handson", "domain:automation"],
+      "description": "Extensive experience designing functional data pipelines and connecting business platforms. Pragmatic focus on using low-code workflow tools (Make, Zapier, Knack) and code-based integration layers (n8n, Python, REST APIs, SQLite/SQL) to turn operational friction into clean, automated data flows."
+    },
+    {
+      "id": "cap_data_migration",
+      "title": "Data Migration, Continuity & Decommissioning",
+      "tags": ["stream:enterprise", "stream:advisory", "layer:leadership", "domain:data_product"],
+      "description": "Proven capability supporting major system transitions, moving data securely between platforms, and standardising historical schemas. Experienced in managing sensitive public sector datasets, enforcing strict data privacy/de-identification protocols, and establishing physical air-gapped transport mechanisms."
+    },
+    {
+      "id": "cap_cross_functional_leadership",
+      "title": "Cross-Functional Technical & Delivery Leadership",
+      "tags": ["stream:advisory", "stream:enterprise", "layer:leadership", "domain:automation"],
+      "description": "Demonstrated history managing technical engineering teams, including five years leading Arup's regional Building Physics function. Experienced in setting delivery priorities, driving process improvements, leading client discovery, and coordinating parameters across multi-disciplinary functions."
+    },
+    {
+      "id": "cap_ba_workflow_mapping",
+      "title": "Business Analysis & Process Redesign",
+      "tags": ["stream:advisory", "stream:enterprise", "layer:advisory", "domain:automation"],
+      "description": "Analysing operational friction, mapping business workflows, eliciting core technical requirements from executive stakeholders, and setting clear measurement baselines to hold process automation accountable."
+    },
+    {
+      "id": "cap_building_decarbonisation",
+      "title": "Building Decarbonisation & Feasibility Modelling",
+      "tags": ["stream:advisory", "stream:boutique", "layer:advisory", "domain:built_env"],
+      "description": "Extensive background in building performance simulation. Skilled at evaluating physical/financial trade-offs and building predictive models—integrating operational load curves, solar PV sizing, battery storage parameters, and energy tariffs—to underpin asset feasibility."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Co-Perform Pty Ltd",
+      "role": "Co-Founder & Systems Architecture Director / Operational Lead",
+      "period": "2018 – Present",
+      "summary": "Co-founded and scaled this specialised technical consultancy, managing internal software infrastructure, process automation, financial data flows, relational databases, and cross-functional engineering delivery pipelines.",
+      "highlights": []
+    },
+    {
+      "company": "Moreland Energy Foundation Ltd & Visergy",
+      "role": "Senior Consultant (MEFL) / Principal & Sole Trader (Visergy)",
+      "period": "2014 – 2018",
+      "summary": "Delivered high-level engineering analytics, solar feasibility tooling, regional decarbonisation models, and database configurations for public sector frameworks and commercial real estate.",
+      "highlights": []
+    },
+    {
+      "company": "Arup (Melbourne)",
+      "role": "Leader of the Australasian Building Physics Team (2009 – 2014) & Senior Consulting Engineer (2005 – 2009)",
+      "period": "2005 – 2014",
+      "summary": "Progressed to lead the regional Building Physics team, managing direct reports, rotational graduate engineers, analytical capacity, Linux compute infrastructure, and computational simulation workflows.",
+      "highlights": []
+    },
+    {
+      "company": "Arup (UK) & BMT Fluid Mechanics",
+      "role": "Consulting Engineer / Analyst",
+      "period": "2002 – 2005",
+      "summary": "Executed computational fluid dynamics (CFD) simulations, physical wind tunnel testing, and spatial modelling automation across commercial real estate, sports stadia, and energy infrastructure.",
+      "highlights": []
+    },
+    {
+      "company": "Defence Science and Technology Organisation (DSTO)",
+      "role": "Research & Development Systems Engineer",
+      "period": "1996 – 2000",
+      "summary": "Executed advanced aerodynamic, hydrodynamic, and acoustic performance research for military aircraft and maritime assets using high-performance computational environments.",
+      "highlights": []
+    }
+  ],
+  "technical_skills": [
+    {
+      "group": "AI, Automation & Development Stack",
+      "tags": ["stream:boutique", "stream:enterprise", "layer:handson", "domain:ai", "domain:automation"],
+      "description": "Python (Pandas, NumPy), SQLite/SQL, Docker containerisation, uv package management, n8n, REST APIs, Webhooks, IBM Docling, Local Model Orchestration (Llama, Ollama), Gemini API, VS Code Agentic Extensions (Cline, Continue), Linux (systemd, HPC schedulers), Nginx, Gunicorn, Selenium web automation."
+    },
+    {
+      "group": "Business Systems & Workflow Platforms",
+      "tags": ["stream:enterprise", "stream:advisory", "layer:leadership", "domain:automation"],
+      "description": "Low-code relational databases (Knack), Make, Zapier, Pneumatic, SaaS operational platforms (WorkflowMax, Runn, Clockify, Xero), Zoho Ecosystem, Google Workspace Administration, Microsoft 365, Tableau, Astro."
+    },
+    {
+      "group": "Domain Architecture & Compliance Systems",
+      "tags": ["stream:advisory", "stream:boutique", "layer:advisory", "domain:built_env"],
+      "description": "Building Management Systems (BMS) data analysis, NABERS Upfront Carbon assessment, statutory compliance (NCC Section J, NatHERS, Green Star), physical simulation tools (ANSYS CFX, OpenFOAM, Contam, ParaView, MATLAB), Aconex, Procore, SafetyCulture."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Professional Credentials & Industry Accreditations",
+      "role": "Accredited Credentials",
+      "period": "",
+      "highlights": [
+        "Member — Australian Institute of Refrigeration, Air Conditioning and Heating (M.AIRAH)",
+        "Accredited Assessor — NABERS Upfront Carbon (Embodied carbon assessment)",
+        "Energy & Sustainability Hub Advisory Board Member — Building Designers Association of Victoria (2015 – 2018)"
+      ]
+    },
+    {
+      "institution": "RMIT University",
+      "role": "Master of Urban Planning and Environment",
+      "period": "2009 – 2014",
+      "summary": "Advanced postgraduate studies focusing on policy, sustainable infrastructure, microclimate resilience, and quantitative resource modelling."
+    },
+    {
+      "institution": "RMIT University",
+      "role": "Bachelor of Engineering (B.Eng.), Aerospace",
+      "period": "1991 – 1995",
+      "summary": "Rigorous four-year engineering degree covering fluid dynamics, structural mechanics, control systems, and computational simulation."
+    }
+  ]
+}

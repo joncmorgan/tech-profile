@@ -1,13 +1,11 @@
 export const profile = {
     fullName: 'Jon Morgan',
-    title: 'Physical-Digital Systems & Technical Architecture',
+    title: 'Principal Solutions Architect',
     institute: '',
     author_name: 'Jon Morgan',
-    hero_headline: '',
-    hero_subheadline: '',
-	practice_statement: [
-        'I help leadership and operations teams in the built environment bridge the gap between strategic vision, engineering physics, and working software. My goal has always been simple: build more functional cities and resilient communities.',
-        'My focus is delivering lean, self-contained tools that strictly reflect physical and environmental reality on the ground—removing administrative drag, eliminating clunky workarounds, and driving practical adoption for frontline operators.'
+    practice_statement: [
+        'I sit at the intersection of complex physical engineering, automated spatial data pipelines, and scalable technical architecture. My focus is helping leadership and operations teams in the built environment build robust computational systems that stress-test critical assets against extreme environmental risk and climate adaptation challenges.',
+        'Drawing on decades of applied physical-digital systems engineering and commercial practice, my goal remains simple: build more functional cities and resilient communities by ensuring software platforms and simulations strictly reflect physical reality on the ground.'
     ],
     background_pillars: [
         {
@@ -20,8 +18,8 @@ export const profile = {
         },
         {
             title: 'System Resilience Focus',
-            description: 'Having worked across defence, automotive, energy foundations, and critical infrastructure, my work centres on building durable, transparent tools that help physical and digital systems perform reliably under extreme stress.'
-        }
+            description: 'Having worked across defence, automotive, energy foundations, and critical infrastructure, my focus centres on architecting robust computational models and analytical tools that help engineers evaluate how physical assets perform under extreme environmental stress.'
+        },
     ],
     research_areas: [
         { title: 'Physical-Digital Systems Architecture', description: 'Custom data schemas, automated computational pipelines, and local software architectures connecting field operations with digital platforms.', field: 'architecture' },
@@ -30,9 +28,9 @@ export const profile = {
         { title: 'Energy & Microclimate Dynamics', description: 'High-yield modelling for renewable energy integration, storage, complex HVAC optimisation, and urban heat dynamics.', field: 'energy' },
     ],
     modes_of_engagement: [
-        { title: 'Advisory', description: 'Auditing operational bottlenecks, evaluating software feasibility early, and guiding leadership teams toward simple, appropriate-scale technical architectures that preserve team autonomy.' },
+        { title: 'Advisory & Strategy', description: 'Auditing operational bottlenecks, evaluating software feasibility early, and guiding leadership teams toward appropriate-scale technical architectures that preserve team autonomy.' },
         { title: 'Technical Leadership', description: 'Guiding multidisciplinary engineering and software teams through complex implementations to keep workflows practical, usable, and tied to physical reality.' },
-        { title: 'Hands-on Building', description: 'Writing lightweight, local-first software tools and automated data pipelines that streamline daily site and office operations.' },
+        { title: 'Architectural R&D', description: 'Designing robust computational engines and automated data pipelines that elevate daily operations from manual effort to systemic automation.' },
     ]
 }
 
@@ -53,8 +51,8 @@ export const template = {
     website_url: 'https://localhost:4321',
     menu_left: false,
     transitions: true,
-    lightTheme: 'light',
-    darkTheme: 'dark',
+    lightTheme: 'autumn',
+    darkTheme: 'autumn',
     excerptLength: 200,
     postPerPage: 5,
     base: ''
