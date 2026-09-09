@@ -1,0 +1,15 @@
+Hi [Name], I’m mapping out specialist climate-resilience & infrastructure technology firms in Melbourne. With 25 yrs in computational physics and physical-digital systems, [Company] is a strong overlap. I'd love to connect and swap notes: jonmorgan.au. Cheers, Jon
+
+Hi [First Name],
+
+Thanks for connecting.
+
+To be upfront, I’m not reaching out with an agenda or a pitch—I’m currently mapping out how different teams in the physical modeling and infrastructure space are tackling data pipelines, simulation, and scale.
+
+After 25 years bouncing between consulting engineering, physics simulation, and building my own internal software tools, I’m just looking to swap notes with other technical folks to see how different shops are handling the realities of this work.
+
+If you’ve got 15 minutes over the next week or two for a quick coffee or call, I’d love to hear how you guys do things over at [Company Name].
+
+Cheers,
+
+Jon
