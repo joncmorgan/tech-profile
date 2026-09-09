@@ -9,7 +9,8 @@ const {
     fullName, 
     title, 
     institute, 
-    practice_statement, 
+    practice_statement,
+    practice_quote,
     background_pillars, 
     domain_knowledge, 
     research_areas, 
@@ -29,8 +30,17 @@ const {
         />
     </section>
 
+    {/* Practice Quote Block */}
+    {practice_quote && (
+        <section class='py-12 border-b'>
+            <blockquote class='text-lg lg:text-xl font-medium leading-relaxed italic text-base-content/90 border-l-4 border-primary pl-6 py-2'>
+                "{practice_quote}"
+            </blockquote>
+        </section>
+    )}
+
     <!-- Projects Link Callout -->
-        <div class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-lg border bg-card/50'>
+        <div class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-lg border bg-card/50 my-8'>
             <p class='text-sm opacity-90'>Want to see some of the projects I've worked on over the years?</p>
             <a 
                 href='/projects' 
@@ -40,8 +50,7 @@ const {
             </a>
         </div>
 
-    <!-- Core Competencies -->
-<!-- Core Competencies Section -->
+    <!-- Core Competencies Section -->
     <section class='py-12 border-b space-y-6'>
         <div class='mb-2'>
             <h2 class='text-2xl font-bold tracking-tight text-primary'>Core Competencies</h2>

@@ -5,9 +5,11 @@ export const profile = {
     author_name: 'Jon Morgan',
     practice_statement: [
         'Drawing on over 25 years of hands-on engineering experience, I combine technical expertise with strategic execution and leadership. Over that time, I have run an independent ESD consulting practice, designed full-stack software architectures from the user interface down to containerisation, and built deep computational models for physical and environmental systems.',
-        'I enjoy solving complex problems end-to-end, embracing an agile approach to adapt and deliver quickly. My focus is firmly on applying my multidisciplinary background and skill set where it can make a tangible difference, working with meaning and purpose.',
-        'We are entering a pivotal period for our cities, infrastructure, and natural resources. Navigating this demands rigorous resilience and adaptation planning—challenges that are never just technology problems, but engineering, economic, human, and environmental issues all at once. Meeting this moment requires a systems-thinking approach that cuts through complexity, builds functional models, and turns deep insight into actionable strategies.'
+        'I enjoy solving complex problems end-to-end, embracing an agile approach to adapt and deliver quickly. My focus is firmly on applying my multidisciplinary background and skill set where it can make a tangible difference, working with meaning and purpose.'
     ],
+    practice_quote: 
+        'Cities, infrastructure, and natural resources face a pivotal transition. Navigating this demands rigorous resilience and adaptation planning—challenges that are never just technology problems, but economic, human, and environmental issues all at once. Meeting this moment takes systems thinking and practical engineering to cut through complexity and turn insight into action.'
+    ,
     background_pillars: [
         {
             title: 'Commercial & Operational Ownership',
