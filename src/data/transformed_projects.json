@@ -13,7 +13,7 @@
             "Mined historical Bureau of Meteorology (BOM) datasets against official heatwave definitions and spliced sequences into EnergyPlus weather files (.epw) to simulate performance under severe heatwave conditions.",
             "Evaluated building resilience under extreme stress testing to guide envelope parameters, resulting in a physical build recognised as a benchmark of climate-adaptive architecture."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "comprehensive-thermal-comfort-modelling-suite",
@@ -76,7 +76,7 @@
             "Developed automated pipelines integrating thermal simulation outputs, calculated tables, author commentary, and external graphics directly into deliverables.",
             "Programmed a document typesetting engine using PyLaTeX and LaTeX with conditional templating, containerised alongside the full LaTeX distribution and deployed via a batch queuing pipeline on company server infrastructure."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "gas-turbine-engine-digital-twin",
@@ -108,7 +108,7 @@
             "Modelled diurnal and monthly demand profiles alongside solar generation factors including panel sizing, orientation, degradation, and inverter losses.",
             "Evaluated battery charging/discharging rates and round-trip efficiency against commercial tariff structures, with automated compilation of client-ready technical reports."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "complex-hvac-system-modelling",
@@ -124,7 +124,7 @@
             "Modelled degraded performance and off-axis risk scenarios, including fan schedule drift, chiller efficiency degradation, stuck control valves, and 24/7 running zones.",
             "Simulated complex mechanical plant (VAV, VRF, split systems) and inline PV solar generation with intricate metering layouts, passing independent NABERS assessor audits across multiple commercial projects."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "building-upfront-carbon-footprint-analysis",
