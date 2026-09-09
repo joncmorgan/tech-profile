@@ -6,7 +6,7 @@ export const profile = {
     practice_statement: [
         'Drawing on over 25 years of hands-on engineering experience, I combine technical expertise with strategic execution and leadership. Over that time, I have run an independent ESD consulting practice, designed full-stack software architectures from the user interface down to containerisation, and built deep computational models for physical and environmental systems.',
         'I enjoy solving complex problems end-to-end, embracing an agile approach to adapt and deliver quickly. My focus is firmly on applying my multidisciplinary background and skill set where it can make a tangible difference, working with meaning and purpose.',
-        'We are entering a pivotal period for our cities, infrastructure, and natural resources. Navigating this successfully demands deep experience in resilience and adaptation planning—challenges that are never just technology problems. They are engineering, economic, human, and environmental problems all at once. Because they are fundamentally integrated, they require systems thinkers who can make sense of that complexity, render it understandable, build functional models, and turn insight into actionable, useful strategies.'
+        'We are entering a pivotal period for our cities, infrastructure, and natural resources. Navigating this demands deep resilience and adaptation planning—challenges that are never just technology problems. They are engineering, economic, human, and environmental problems all at once. Because they are integrated, they require systems thinkers who make sense of complexity, build functional models, and turn insight into actionable strategies.'
     ],
     background_pillars: [
         {
