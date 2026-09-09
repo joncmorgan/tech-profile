@@ -1,10 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import projects from '@/data/transformed_projects.json'
-
-// Extract unique taxonomy dimensions for filters
-const impacts = Array.from(new Set(projects.map(p => p.impact || 'Systems Architecture')));
-const domains = Array.from(new Set(projects.map(p => p.domain || 'Spatial / GIS')));
 ---
 
 <Layout>
@@ -13,39 +9,6 @@ const domains = Array.from(new Set(projects.map(p => p.domain || 'Spatial / GIS'
         <p class='text-base text-base-content/70'>
             A focused portfolio of engineering systems, computational models, and custom software architectures.
         </p>
-    </div>
-
-    {/* Dual-Axis Filter Matrix Bar */}
-    <div class='max-w-3xl space-y-4 mb-10 p-4 rounded-xl border bg-card/50'>
-        <!-- Axis 1: Impact Filter -->
-        <div class='space-y-1.5'>
-            <span class='text-xs font-semibold text-base-content/60 uppercase tracking-wider block'>Filter by Strategic Impact</span>
-            <div class='flex flex-wrap gap-2' id='impact-filters'>
-                <button type='button' class='btn btn-xs btn-active rounded-md normal-case font-medium impact-btn' data-impact='all'>
-                    All Impacts
-                </button>
-                {impacts.map(impact => (
-                    <button type='button' class='btn btn-xs btn-ghost rounded-md normal-case font-medium impact-btn' data-impact={impact}>
-                        {impact}
-                    </button>
-                ))}
-            </div>
-        </div>
-
-        <!-- Axis 2: Domain Filter -->
-        <div class='space-y-1.5 pt-2 border-t border-base-content/10'>
-            <span class='text-xs font-semibold text-base-content/60 uppercase tracking-wider block'>Filter by Core Domain</span>
-            <div class='flex flex-wrap gap-2' id='domain-filters'>
-                <button type='button' class='btn btn-xs btn-active rounded-md normal-case font-medium domain-btn' data-domain='all'>
-                    All Domains
-                </button>
-                {domains.map(domain => (
-                    <button type='button' class='btn btn-xs btn-ghost rounded-md normal-case font-medium domain-btn' data-domain={domain}>
-                        {domain}
-                    </button>
-                ))}
-            </div>
-        </div>
     </div>
 
     {/* Minimal Flat List of Projects */}
@@ -147,78 +110,6 @@ const domains = Array.from(new Set(projects.map(p => p.domain || 'Spatial / GIS'
 
                 modal.showModal();
             }
-        });
-    });
-
-    // Dual-Axis Filtering Logic for Flat List
-    const impactBtns = document.querySelectorAll('.impact-btn');
-    const domainBtns = document.querySelectorAll('.domain-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    let currentImpact = 'all';
-    let currentDomain = 'all';
-
-    function filterProjects() {
-        projectCards.forEach(card => {
-            const cardImpact = card.getAttribute('data-impact');
-            const cardDomain = card.getAttribute('data-domain');
-
-            const matchesImpact = (currentImpact === 'all' || cardImpact === currentImpact);
-            const matchesDomain = (currentDomain === 'all' || cardDomain === currentDomain);
-
-            if (matchesImpact && matchesDomain) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-
-    function resetDomainFilter() {
-        currentDomain = 'all';
-        domainBtns.forEach(b => {
-            const isAll = b.getAttribute('data-domain') === 'all';
-            b.classList.toggle('btn-active', isAll);
-            b.classList.toggle('btn-ghost', !isAll);
-        });
-    }
-
-    function resetImpactFilter() {
-        currentImpact = 'all';
-        impactBtns.forEach(b => {
-            const isAll = b.getAttribute('data-impact') === 'all';
-            b.classList.toggle('btn-active', isAll);
-            b.classList.toggle('btn-ghost', !isAll);
-        });
-    }
-
-    impactBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            impactBtns.forEach(b => {
-                b.classList.remove('btn-active');
-                b.classList.add('btn-ghost');
-            });
-            btn.classList.add('btn-active');
-            btn.classList.remove('btn-ghost');
-
-            currentImpact = btn.getAttribute('data-impact') || 'all';
-            resetDomainFilter();
-            filterProjects();
-        });
-    });
-
-    domainBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            domainBtns.forEach(b => {
-                b.classList.remove('btn-active');
-                b.classList.add('btn-ghost');
-            });
-            btn.classList.add('btn-active');
-            btn.classList.remove('btn-ghost');
-
-            currentDomain = btn.getAttribute('data-domain') || 'all';
-            resetImpactFilter();
-            filterProjects();
         });
     });
 </script>
