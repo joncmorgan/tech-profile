@@ -4,9 +4,9 @@ export const profile = {
     institute: '',
     author_name: 'Jon Morgan',
     practice_statement: [
-        'I have spent 25 years doing the varied, hands-on work of an engineer and technical leader. Over that time, I have run an independent ESD consulting practice, designed full-stack software architectures from the user interface down to containerisation, and built deep computational models for physical and environmental systems.',
-        'I enjoy solving complex problems end-to-end without middle-tier translators. My focus is firmly on applying this multidisciplinary background where it can make a tangible difference.',
-        'We are entering a pivotal period for our cities, infrastructure, and natural resources. I am deeply interested in working on practical adaptation and resilience planning—developing the physical-digital systems, analytical tooling, and robust frameworks needed to support our built and natural environments in the decades ahead.'
+        'Drawing on over 25 years of hands-on engineering experience, I combine technical expertise with strategic execution and leadership. Over that time, I have run an independent ESD consulting practice, designed full-stack software architectures from the user interface down to containerisation, and built deep computational models for physical and environmental systems.',
+        'I enjoy solving complex problems end-to-end, embracing an agile approach to adapt and deliver quickly. My focus is firmly on applying my multidisciplinary background and skill set where it can make a tangible difference, working with meaning and purpose.',
+        'We are entering a pivotal period for our cities, infrastructure, and natural resources. Navigating this successfully demands deep experience in resilience and adaptation planning—challenges that are never just technology problems. They are engineering, economic, human, and environmental problems all at once. Because they are fundamentally integrated, they require systems thinkers who can make sense of that complexity, render it understandable, build functional models, and turn insight into actionable, useful strategies.'
     ],
     background_pillars: [
         {
@@ -24,6 +24,32 @@ export const profile = {
         {
             title: 'Physical Systems Simulation & Analytics',
             description: 'Decades of deep engineering work modeling how the physical world behaves. Whether it\'s fluid dynamics, thermal physics, or complex environmental mechanics, my focus has always been ensuring that analytical tools accurately reflect physical reality.'
+        }
+    ],
+    domain_knowledge: [
+        {
+            title: 'Critical Infrastructure & Transport',
+            description: 'Applied systems work across road, rail, and major transport corridors, focusing on environmental integration, safety mechanics, and long-term asset resilience.'
+        },
+        {
+            title: 'Offshore & Marine Engineering',
+            description: 'Specialised environmental and hydrodynamic modelling for offshore installations and marine assets operating under extreme structural and weather loads.'
+        },
+        {
+            title: 'Thermal Dynamics & Building Physics',
+            description: 'Advanced thermal performance modelling, bioclimatic design, and environmental systems optimisation for complex built environments.'
+        },
+        {
+            title: 'Fluid Dynamics & Atmospheric Flow',
+            description: 'Numerical simulation of fluid mechanics, ventilation performance, dispersion modelling, and microclimate interactions across physical assets.'
+        },
+        {
+            title: 'Energy Systems & Infrastructure',
+            description: 'Modelling for renewable energy integration, storage systems, complex HVAC mechanics, and grid-interactive built environments.'
+        },
+        {
+            title: 'Climate Resilience & Adaptation',
+            description: 'Assessing long-term environmental stress, urban heat dynamics, and climate vulnerability frameworks for cities and regional assets.'
         }
     ],
     research_areas: [
