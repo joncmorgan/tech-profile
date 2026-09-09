@@ -1,22 +1,22 @@
-## Development
+# Repository Agent Instructions
 
-When starting the dev server, use background mode:
+This repository is a multi-purpose workspace combining a modern **Astro web project** (at the root) and a **Python-based resume and CV generation pipeline** (`cv/` directory using `uv` and Typst).
 
-```
-astro dev --background
-```
+---
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+## 1. Environment & Execution Rules
 
-## Documentation
+*   **Node/Astro:** Always execute Astro CLI commands using `npx` (or via `npm run`) to ensure local `node_modules` binaries are resolved correctly. Never run `astro` directly.
+*   **Python/Resume Pipeline:** Always execute Python scripts using `uv` with the project flag pointing to the repository root to ensure the correct virtual environment and dependencies (`typst`) are loaded:
+    ```bash
+    uv --project . python cv/scripts/<script_name>.py
+    ```
 
-Full documentation: https://docs.astro.build
+---
 
-Consult these guides before working on related tasks:
+## 2. Web Development (Astro)
 
-- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
-- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
-- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
-- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
-- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
-- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+When starting the development server, use background mode:
+
+```bash
+npx astro dev --background
