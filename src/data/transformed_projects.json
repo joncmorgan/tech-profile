@@ -140,7 +140,7 @@
             "Engineered data-sanitisation rules to eliminate double-counting, including separating structural rebar tonnage from reinforced concrete volume calculations.",
             "Linked cleaned material quantities to Environmental Product Declarations and carbon emission factors within SAS analysis platforms to produce the official Green Star accreditation submission."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "offshore-platform-blast-modelling",
@@ -300,7 +300,7 @@
             "Defined architectural, thermal, and HVAC criteria to convert selected municipal assets into public heatwave refuges, ensuring safe indoor air quality and power resilience for vulnerable populations.",
             "Recommended minimum sustainability performance targets aligned with Green Star and BESS frameworks, balancing climate resilience with carbon mitigation objectives."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "victorian-local-government-technical-capacity-building",
@@ -316,7 +316,7 @@
             "Trained planners to identify quality control red flags in engineering submissions prior to permit approval.",
             "Collaborated with CASBE under the MAV umbrella to refine the Built Environment Sustainability Scorecard (BESS) framework, standardising environmental assessment criteria across municipalities."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "automated-point-cloud-to-terrain",
@@ -348,7 +348,7 @@
             "Designed the pipeline to allow designers and modellers to define building elements in plan and generate simulation-ready 3D geometry near-instantaneously.",
             "Calibrated geometric complexity to balance rapid generation against analytical fidelity, avoiding the overhead of full 3D CAD modelling environments."
         ],
-        "featured": false
+        "featured": true
     },
     {
         "id": "wind-tunnel-cfd-facade-pressure-load",
@@ -396,6 +396,54 @@
             "Integrated qualitative tenant questionnaires alongside physical asset and utility billing data within a relational database schema, with automated PII scrubbing for regulatory compliance.",
             "Analysed combined asset, billing, and lived-experience data to recommend and prioritise thermal shell improvements, heat pump installations, and solar PV upgrades across residential units."
         ],
+        "featured": true
+    },
+    {
+        "id": "kilometre-high-solar-updraft-chimney",
+        "title": "Kilometre-High Solar Updraft Chimney",
+        "tag": "Solar Updraft Tower Simulation",
+        "impact": "Product R&D",
+        "domain": "Computational Mechanics",
+        "scale": "Asset / Building",
+        "image": "/images/projects/computational-mechanics.jpg",
+        "description": "Developed a custom fluid dynamics and thermal-updraft simulation pipeline for an extreme-scale solar power tower concept, comprising a 1 km chimney and 3 km glass collector skirt. The work involved synthesising governing physics from foundational literature into modular numerical routines covering ground heat storage, canopy solar transmission, aerodynamic losses, and atmospheric effects across the full height of the structure, supporting decarbonisation-focused renewable energy assessment.",
+        "highlights": [
+            "Modelled coupled ground heat transfer beneath the glass skirt, including 1D conduction to stable ground temperature to capture diurnal heat storage and nighttime release.",
+            "Calculated dynamic solar transmission through the glass canopy as a function of sun angle, alongside friction losses across the skirt and momentum removal at the turbines.",
+            "Factored in atmospheric lapse rates over the 1 km height and ambient wind effects at the summit, working alongside structural and facade engineers on constructability."
+        ],
         "featured": false
+    },
+    {
+        "id": "commercial-rebrand-operational-overhaul",
+        "title": "Commercial Rebrand & Operational Overhaul",
+        "tag": "Enterprise Systems & Practice Operations",
+        "impact": "Digital Transformation",
+        "domain": "Machine Learning",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/machine-learning.jpg",
+        "description": "Restructured professional services and client communications in response to macroeconomic market headwinds, realigning technical service offerings and messaging to support high-value advisory work across the practice.",
+        "highlights": [
+            "Engaged specialised branding and communications consultants to reposition market offerings toward high-value advisory services.",
+            "Standardised client-facing technical language across all service streams to improve clarity and engagement.",
+            "Optimised digital messaging, including LinkedIn and technical content strategy, to articulate practice capabilities and thought leadership."
+        ],
+        "featured": true
+    },
+    {
+        "id": "enterprise-infrastructure-risk-audit",
+        "title": "Enterprise Infrastructure Risk Audit, Systems Formalisation & Role Delegation",
+        "tag": "IT Infrastructure Audit",
+        "impact": "Systems Architecture",
+        "domain": "Machine Learning",
+        "scale": "Platform / Tooling",
+        "image": "/images/projects/machine-learning.jpg",
+        "description": "Engaged an external IT and systems auditing consultant to conduct a rigorous review of the practice's digital infrastructure, addressing operational risk and critical key-person dependency arising from a single individual contributor managing the full technology stack across sysadmin, DevOps, UI/UX, software architecture, and database operations. The engagement systematically deconstructed and formalised the digital ecosystem to identify functions suitable for delegation or offshoring, reducing overheads and protecting senior engineering capacity.",
+        "highlights": [
+            "Audited and mapped the end-to-end digital ecosystem, spanning bare-metal servers, cloud infrastructure, containerised workloads, databases, and automated reporting toolchains.",
+            "Documented all digital pipelines and system dependencies using standardised IT engineering notations to establish institutional transparency.",
+            "Uncoupled high-value strategic architecture from operational maintenance, producing a delegation matrix and authoring job descriptions and SOPs for new modular IT and DevOps roles."
+        ],
+        "featured": true
     }
 ]

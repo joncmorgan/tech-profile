@@ -21,8 +21,8 @@ class AstroProjectTransformer:
         self.src_root_dir = self.script_dir.parent
         self.repo_root_dir = self.src_root_dir.parent
         self.projects_json_path = self.repo_root_dir / "data" / "projects.json"
-        self.output_path = self.src_root_dir / "data" / "master_experience.json"
-        self.prompt_path = self.script_dir / "prompt_resume.txt"
+        self.output_path = self.src_root_dir / "data" / "transformed_projects.json"
+        self.prompt_path = self.script_dir / "prompt_astro.txt"
 
     def load_projects(self) -> dict:
         with open(self.projects_json_path, "r", encoding="utf-8") as f:
@@ -74,25 +74,39 @@ class AstroProjectTransformer:
 
         response = self.client.messages.create(
             model=self.model,
-            max_tokens=1024,
+            max_tokens=4096,  # Increased from 1024 to prevent truncation and JSON errors
             messages=[{"role": "user", "content": prompt}]
         )
 
         content_text = ""
         for block in response.content:
-            if hasattr(block, "text") and block.text:
-                content_text = block.text.strip()
-                break
+            # Safely check for text blocks (handles thinking blocks in newer models gracefully)
+            if getattr(block, "type", None) == "text" or hasattr(block, "text"):
+                text_val = getattr(block, "text", None)
+                if text_val:
+                    content_text = text_val.strip()
+                    break
 
         if not content_text:
             raise ValueError("No text content found in Claude's response.")
         
+        # Clean markdown code blocks safely
         if content_text.startswith("```json"):
             content_text = content_text[7:]
+        elif content_text.startswith("```"):
+            content_text = content_text[3:]
         if content_text.endswith("```"):
             content_text = content_text[:-3]
             
-        return json.loads(content_text.strip())
+        try:
+            parsed_data = json.loads(content_text.strip())
+        except json.JSONDecodeError as e:
+            print(f"Failed to parse JSON response. Raw text received:\n{content_text}")
+            raise e
+        
+        # Ensure the ID is explicitly preserved/enforced in Python
+        parsed_data["id"] = project_id
+        return parsed_data
 
     def run_single(self):
         """Default mode: processes just one unprocessed project and appends it."""
