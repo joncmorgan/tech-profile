@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# obsidian vault
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.jsonvault/.trash/
