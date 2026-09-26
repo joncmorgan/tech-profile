@@ -9,6 +9,9 @@ The active selection and display order for the CV is controlled by
 cv/config.json, not by this file — this file just holds the wording for any
 project that might be selected.
 
+## richmond-window-film-retrofit
+Richmond Window Film Retrofit — technical modelling demonstrated an external window film solution would resolve an overheating problem exposing the building owner to legal risk, securing planning approval and a multi-hundred-thousand-dollar retrofit contract.
+
 ## government-resilient-housing-prototype
 Resilient Housing Prototype (State Government) — built a digital twin using spliced BOM heatwave data to stress-test a building envelope ahead of construction, informing a completed climate-adaptive housing prototype.
 
