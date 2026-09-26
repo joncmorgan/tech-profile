@@ -1,0 +1,111 @@
+:root {
+  --accent: #b3261e;
+  --text: #1a1a1a;
+  --muted: #5a5a5a;
+  --border: #e4e0da;
+  --bg: #fdfcfa;
+  --max-width: 720px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.header .headline {
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.header .contact {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.summary {
+  margin: 2rem 0;
+  font-size: 1.02rem;
+}
+
+.summary p {
+  margin: 0 0 1rem;
+}
+
+.summary blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.section {
+  margin: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  padding-top: 1.75rem;
+}
+
+.section h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.section ul {
+  padding-left: 1.15rem;
+  margin: 0;
+}
+
+.section li {
+  margin-bottom: 0.6rem;
+}
+
+.section strong {
+  color: var(--text);
+}
+
+.section p {
+  margin: 0 0 0.75rem;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 2rem 1rem 3rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+  }
+}
