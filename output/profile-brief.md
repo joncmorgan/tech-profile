@@ -16,7 +16,7 @@ jonmorgan@fastmail.com | 0429 357 751 | linkedin.com/in/linkjonmorgan | Melbourn
 
 Building performance and sustainability engineer with close to 30 years' experience helping built-environment leaders navigate physical and climate risk — spanning applied building physics, environmental engineering, and full-stack software development. Co-directed an independent consulting practice while designing local-first computational tools that stress-test assets and decisions against a changing climate. Comfortable owning a problem end-to-end — from the physics, to the data pipeline, to the interface a client actually uses.
 
-"Climate change is outpacing the built environment's ability to adapt. Meeting that gap takes systems thinking and rigorous engineering — translating physical risk into decisions that protect the people and assets exposed to it."
+"Climate change is outpacing the built environment's ability to adapt. Meeting that gap takes systems thinking and rigorous engineering — translating physical risk into decisions that protect people and assets."
 
 Target roles: Technical Director / Associate Director — Building Performance & Sustainability · Climate Risk & Resilience · Systems Architecture & Digital Twin Advisory · Independent or Associate Consultant
 
