@@ -42,7 +42,24 @@ body {
 .header .contact {
   font-size: 0.9rem;
   color: var(--muted);
-  margin: 0;
+  margin: 0 0 1rem;
+}
+
+.cv-download {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.cv-download:hover {
+  background: var(--accent);
+  color: #fff;
 }
 
 .summary {
@@ -93,12 +110,37 @@ body {
   margin: 0 0 0.75rem;
 }
 
-.footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  font-size: 0.8rem;
-  color: var(--muted);
+/* Core Competencies — light boxed cards instead of a plain bullet list */
+.section--competencies ul {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.section--competencies li {
+  margin-bottom: 0;
+  background: #f6f3ee;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+/* Skills / Domain Expertise — pill tags instead of a "·"-joined line */
+.section--skills p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.section--skills .pill {
+  font-size: 0.85rem;
+  background: #f6f3ee;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  white-space: nowrap;
 }
 
 @media (max-width: 480px) {
