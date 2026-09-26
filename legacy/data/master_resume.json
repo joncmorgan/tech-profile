@@ -1,0 +1,63 @@
+{
+  "experience": [
+    {
+      "company": "Co-Perform Pty Ltd",
+      "role": "Co-Founder & Systems Architecture Director / Operational Lead",
+      "period": "2018 – Present",
+      "summary": "Co-founded and scaled this specialised technical consultancy, managing internal software infrastructure, process automation, financial data flows, relational databases, and cross-functional engineering delivery pipelines.",
+      "highlights": []
+    },
+    {
+      "company": "Moreland Energy Foundation Ltd & Visergy",
+      "role": "Senior Consultant (MEFL) / Principal & Sole Trader (Visergy)",
+      "period": "2014 – 2018",
+      "summary": "Delivered high-level engineering analytics, solar feasibility tooling, regional decarbonisation models, and database configurations for public sector frameworks and commercial real estate.",
+      "highlights": []
+    },
+    {
+      "company": "Arup (Melbourne)",
+      "role": "Leader of the Australasian Building Physics Team (2009 – 2014) & Senior Consulting Engineer (2005 – 2009)",
+      "period": "2005 – 2014",
+      "summary": "Progressed to lead the regional Building Physics team, managing direct reports, rotational graduate engineers, analytical capacity, Linux compute infrastructure, and computational simulation workflows.",
+      "highlights": []
+    },
+    {
+      "company": "Arup (UK) & BMT Fluid Mechanics",
+      "role": "Consulting Engineer / Analyst",
+      "period": "2002 – 2005",
+      "summary": "Executed computational fluid dynamics (CFD) simulations, physical wind tunnel testing, and spatial modelling automation across commercial real estate, sports stadia, and energy infrastructure.",
+      "highlights": []
+    },
+    {
+      "company": "Defence Science and Technology Organisation (DSTO)",
+      "role": "Research & Development Systems Engineer",
+      "period": "1996 – 2000",
+      "summary": "Executed advanced aerodynamic, hydrodynamic, and acoustic performance research for military aircraft and maritime assets using high-performance computational environments.",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "Professional Credentials & Industry Accreditations",
+      "role": "Accredited Credentials",
+      "period": "",
+      "highlights": [
+        "Member — Australian Institute of Refrigeration, Air Conditioning and Heating (M.AIRAH)",
+        "Accredited Assessor — NABERS Upfront Carbon (Embodied carbon assessment)",
+        "Energy & Sustainability Hub Advisory Board Member — Building Designers Association of Victoria (2015 – 2018)"
+      ]
+    },
+    {
+      "institution": "RMIT University",
+      "role": "Master of Urban Planning and Environment",
+      "period": "2009 – 2014",
+      "summary": "Advanced postgraduate studies focusing on policy, sustainable infrastructure, microclimate resilience, and quantitative resource modelling."
+    },
+    {
+      "institution": "RMIT University",
+      "role": "Bachelor of Engineering (B.Eng.), Aerospace",
+      "period": "1991 – 1995",
+      "summary": "Rigorous four-year engineering degree covering fluid dynamics, structural mechanics, control systems, and computational simulation."
+    }
+  ]
+}

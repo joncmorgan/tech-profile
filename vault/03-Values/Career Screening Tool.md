@@ -1,4 +1,4 @@
-Your original instincts are directionally strong, but a comprehensive screen needs to distinguish **the sector’s core social purpose**, **its expansion model**, and **the exact assignment you would perform**. The same engineering skill can either protect people from climate harm or make a high-impact industry cheaper, faster, more insurable, and therefore more durable.
+Your original instincts are directionally strong, but a comprehensive screen needs to distinguish **the sector’s core social purpose**, **its expansion model**, and **the exact assignment you would perform**. The same engineering skill can either protect people from climate harm or make a high-impact industry cheaper, faster, more insurable, and therefore more durable..
 
 For your values, I would use the following rule:
 
