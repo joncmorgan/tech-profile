@@ -27,3 +27,4 @@ pnpm-debug.log*
 vault/.obsidian/workspace.json
 vault/.obsidian/workspace-mobile.json
 vault/.trash/
+node_modules/
