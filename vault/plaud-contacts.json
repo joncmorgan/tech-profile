@@ -1,0 +1,174 @@
+{
+  "contacts": [
+    {
+      "name": "Pete Buffett",
+      "touchpoints": [
+        {
+          "action": "call to schedule a meeting",
+          "date": "2026-09-28",
+          "diary_entry_id": "9c82c764c7164f4295f118807c755a33",
+          "noted_at": "2026-09-27T04:57:14+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Ian Adams",
+      "touchpoints": [
+        {
+          "action": "contact about short-term work",
+          "date": "2026-09-29",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "contact about short-term work",
+          "date": "2026-09-29",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Steve Downing",
+      "touchpoints": [
+        {
+          "action": "contact upon return from Japan",
+          "date": "2026-10-11",
+          "diary_entry_id": "9c82c764c7164f4295f118807c755a33",
+          "noted_at": "2026-09-27T04:57:14+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Adam Leggett",
+      "touchpoints": [
+        {
+          "action": "follow up",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "follow-up",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Craig Harris",
+      "touchpoints": [
+        {
+          "action": "draft outreach message",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "outreach",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Jess Symes",
+      "touchpoints": [
+        {
+          "action": "reach out on LinkedIn",
+          "date": "TBD",
+          "diary_entry_id": "9c82c764c7164f4295f118807c755a33",
+          "noted_at": "2026-09-27T04:57:14+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Joan Coe",
+      "touchpoints": [
+        {
+          "action": "follow up",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "follow-up",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Nick Lander",
+      "touchpoints": [
+        {
+          "action": "follow up",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "follow-up",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Peter Steele",
+      "touchpoints": [
+        {
+          "action": "follow up",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "follow-up",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Sam Thompson",
+      "touchpoints": [
+        {
+          "action": "draft outreach message",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "outreach",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    },
+    {
+      "name": "Will Simons",
+      "touchpoints": [
+        {
+          "action": "follow up",
+          "date": "TBD",
+          "diary_entry_id": "2026-09-27T14:33:43.862310",
+          "noted_at": null
+        },
+        {
+          "action": "follow-up",
+          "date": "TBD",
+          "diary_entry_id": "d51163cd999d4233882627d1eda47cdf",
+          "noted_at": "2026-09-26T23:50:03+00:00"
+        }
+      ]
+    }
+  ],
+  "last_updated": "2026-09-27T19:06:46.368090"
+}

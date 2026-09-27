@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "id": "2026-09-27T09:00:00",
+      "timestamp": "2026-09-27T09:00:00",
+      "source": "manual",
+      "text": "Call Pete Buffett Monday to discuss director role"
+    },
+    {
+      "id": "2026-09-27T10:30:00",
+      "timestamp": "2026-09-27T10:30:00",
+      "source": "manual",
+      "text": "Follow up with Ian Adams next week about the project"
+    },
+    {
+      "id": "2026-09-27T15:45:00",
+      "timestamp": "2026-09-27T15:45:00",
+      "source": "email",
+      "text": "Reached out to Steve Downing re: Aurecon intro. Meeting Thursday 2pm"
+    }
+  ]
+}

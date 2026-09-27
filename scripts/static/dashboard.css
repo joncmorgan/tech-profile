@@ -1,0 +1,32 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; padding: 1.25rem; background: #fafafa; font-size: 0.9rem; }
+.container { max-width: 520px; margin: 0 auto; }
+h1 { margin-bottom: 0.75rem; font-size: 1.15rem; }
+.controls { margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+button { padding: 0.4rem 0.9rem; font-size: 0.85rem; background: #007AFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+button:hover { background: #0051D5; }
+button:disabled { background: #ccc; cursor: not-allowed; }
+.status { padding: 0.4rem 0.6rem; border-radius: 5px; font-size: 0.8rem; }
+.status.running { background: #fff3cd; color: #856404; }
+.status.success { background: #d4edda; color: #155724; }
+.status.error { background: #f8d7da; color: #721c24; }
+.tabs { display: flex; gap: 0.4rem; margin-bottom: 0.75rem; }
+.tab-btn { background: #eee; color: #333; padding: 0.35rem 0.8rem; font-size: 0.8rem; }
+.tab-btn:hover { background: #e2e2e2; }
+.tab-btn.active { background: #007AFF; color: white; }
+.section-title { font-size: 0.85rem; margin: 1rem 0 0.4rem; color: #555; }
+.section-title:first-of-type { margin-top: 0; }
+.contacts-list { list-style: none; background: white; border-radius: 6px; overflow: hidden; border: 1px solid #eee; margin-bottom: 0.75rem; }
+.section-header { padding: 0.3rem 0.75rem; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; color: #888; background: #f2f2f2; font-weight: 600; }
+.section-header.overdue { color: #c0392b; background: #fbeaea; }
+.contact-item { border-bottom: 1px solid #eee; }
+.contact-item:last-child { border-bottom: none; }
+.contact-item summary { list-style: none; cursor: pointer; padding: 0.5rem 0.75rem; display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+.contact-item summary::-webkit-details-marker { display: none; }
+.contact-name { font-weight: 600; }
+.contact-current { font-size: 0.8rem; color: #555; text-align: right; white-space: nowrap; }
+.history-count { font-size: 0.7rem; color: #999; margin-left: 0.4rem; }
+.history { padding: 0.4rem 0.75rem 0.6rem 0.75rem; background: #fbfbfb; border-top: 1px dashed #eee; }
+.history-item { font-size: 0.78rem; color: #555; padding: 0.15rem 0; }
+.history-item .from-note { color: #999; }
+.empty { text-align: center; color: #999; padding: 1.5rem; font-size: 0.85rem; }
