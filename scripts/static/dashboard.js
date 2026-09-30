@@ -10,6 +10,10 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+function escapeAttr(text) {
+    return String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 const BUCKET_LABELS = {
     overdue: 'Overdue',
     thisWeek: 'This Week',
@@ -46,37 +50,62 @@ function getDateBucket(dateStr) {
     return 'later';
 }
 
-function historyHtmlFor(priorHistory) {
-    if (priorHistory.length === 0) return '';
-    return `<div class="history">${priorHistory.slice().reverse().map(t => `
-        <div class="history-item">
-            ${escapeHtml(t.note !== undefined ? t.note : (t.action || 'follow up'))}${t.date ? ' &middot; ' + escapeHtml(t.date) : ''}
-            <span class="from-note">(from note on ${formatDate(t.noted_at)})</span>
-        </div>
-    `).join('')}</div>`;
+/** All touchpoints as a compact, always-visible timeline - oldest to newest, current one bolded. */
+function buildTimelineHtml(touchpoints) {
+    if (touchpoints.length === 0) return '';
+    return touchpoints.map((t, i) => {
+        const isLatest = i === touchpoints.length - 1;
+        const label = t.note !== undefined
+            ? (t.note || '(no note)')
+            : `${t.action || 'follow up'} · ${t.date || 'TBD'}`;
+        const title = `from note on ${formatDate(t.noted_at)}`;
+        const cls = isLatest ? 'tl-current' : 'tl-past';
+        return `<span class="${cls}" title="${escapeAttr(title)}">${escapeHtml(label)}</span>`;
+    }).join('<span class="tl-arrow">→</span>');
 }
 
-function renderItemLi(item, latest, priorHistory, currentLabel) {
-    const li = document.createElement('li');
-    li.className = 'contact-item';
-    li.innerHTML = `
-        <details>
-            <summary>
-                <span><span class="contact-name">${escapeHtml(item.name)}</span>${priorHistory.length ? `<span class="history-count">${priorHistory.length} earlier touchpoint(s)</span>` : ''}</span>
-                <span class="contact-current">${currentLabel}<br><span class="from-note">from note on ${formatDate(latest.noted_at)}</span></span>
-            </summary>
-            ${historyHtmlFor(priorHistory)}
-        </details>
+async function editName(type, currentName) {
+    const corrected = prompt('Fix this name:', currentName);
+    if (!corrected || corrected.trim() === '' || corrected.trim() === currentName) return;
+
+    try {
+        const res = await fetch('/api/corrections', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ type, wrong_name: currentName, correct_name: corrected.trim() }),
+        });
+        const data = await res.json();
+        if (data.error) {
+            alert('Error: ' + data.error);
+            return;
+        }
+        loadContacts();
+        loadInterests();
+    } catch (e) {
+        alert('Error: ' + e.message);
+    }
+}
+
+function renderItemRow(type, item) {
+    const touchpoints = item.touchpoints || [];
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td class="name-cell">
+            <span>${escapeHtml(item.name)}</span>
+            <button class="edit-btn" title="Fix this name">&#9998;</button>
+        </td>
+        <td class="timeline-cell">${buildTimelineHtml(touchpoints)}</td>
     `;
-    return li;
+    tr.querySelector('.edit-btn').addEventListener('click', () => editName(type, item.name));
+    return tr;
 }
 
 /** Render items grouped into This Week / Next Week / Later / No Date sections, based on each item's latest touchpoint date. */
-function renderGroupedByDate(listEl, items, emptyMessage) {
-    listEl.innerHTML = '';
+function renderGroupedByDate(tableEl, items, emptyMessage, type) {
+    tableEl.innerHTML = '';
 
     if (!items || items.length === 0) {
-        listEl.innerHTML = `<div class="empty">${emptyMessage}</div>`;
+        tableEl.innerHTML = `<tr><td class="empty" colspan="2">${emptyMessage}</td></tr>`;
         return;
     }
 
@@ -93,44 +122,32 @@ function renderGroupedByDate(listEl, items, emptyMessage) {
         const bucketItems = grouped[bucket];
         if (bucketItems.length === 0) return;
 
-        const header = document.createElement('li');
-        header.className = 'section-header' + (bucket === 'overdue' ? ' overdue' : '');
-        header.textContent = `${BUCKET_LABELS[bucket]} (${bucketItems.length})`;
-        listEl.appendChild(header);
+        const headerRow = document.createElement('tr');
+        headerRow.className = 'section-header-row' + (bucket === 'overdue' ? ' overdue' : '');
+        headerRow.innerHTML = `<td colspan="2">${BUCKET_LABELS[bucket]} (${bucketItems.length})</td>`;
+        tableEl.appendChild(headerRow);
 
-        bucketItems.forEach(item => {
-            const touchpoints = item.touchpoints || [];
-            const latest = touchpoints[touchpoints.length - 1] || {};
-            const priorHistory = touchpoints.slice(0, -1);
-            const currentLabel = `${escapeHtml(latest.action || 'follow up')} &middot; ${escapeHtml(latest.date || 'TBD')}`;
-            listEl.appendChild(renderItemLi(item, latest, priorHistory, currentLabel));
-        });
+        bucketItems.forEach(item => tableEl.appendChild(renderItemRow(type, item)));
     });
 }
 
 /** Render items as a plain alphabetical list with no date grouping (e.g. companies). */
-function renderFlatList(listEl, items, emptyMessage) {
-    listEl.innerHTML = '';
+function renderFlatList(tableEl, items, emptyMessage, type) {
+    tableEl.innerHTML = '';
 
     if (!items || items.length === 0) {
-        listEl.innerHTML = `<div class="empty">${emptyMessage}</div>`;
+        tableEl.innerHTML = `<tr><td class="empty" colspan="2">${emptyMessage}</td></tr>`;
         return;
     }
 
-    items.forEach(item => {
-        const touchpoints = item.touchpoints || [];
-        const latest = touchpoints[touchpoints.length - 1] || {};
-        const priorHistory = touchpoints.slice(0, -1);
-        const currentLabel = escapeHtml(latest.note || '');
-        listEl.appendChild(renderItemLi(item, latest, priorHistory, currentLabel));
-    });
+    items.forEach(item => tableEl.appendChild(renderItemRow(type, item)));
 }
 
 async function loadContacts() {
     try {
         const res = await fetch('/api/contacts');
         const data = await res.json();
-        renderGroupedByDate(document.getElementById('contacts'), data.contacts, 'No contacts yet. Run to fetch diary notes.');
+        renderGroupedByDate(document.getElementById('contacts'), data.contacts, 'No contacts yet. Run to fetch diary notes.', 'contacts');
     } catch (e) {
         console.error(e);
     }
@@ -140,8 +157,8 @@ async function loadInterests() {
     try {
         const res = await fetch('/api/interests');
         const data = await res.json();
-        renderFlatList(document.getElementById('companies'), data.companies, 'No companies of interest yet.');
-        renderGroupedByDate(document.getElementById('events'), data.events, 'No events of interest yet.');
+        renderFlatList(document.getElementById('companies'), data.companies, 'No companies of interest yet.', 'companies');
+        renderGroupedByDate(document.getElementById('events'), data.events, 'No events of interest yet.', 'events');
     } catch (e) {
         console.error(e);
     }
@@ -156,7 +173,6 @@ function showTab(tab) {
 async function runAction(url, btn, describeResult) {
     const status = document.getElementById('status');
     btn.disabled = true;
-    status.style.display = 'block';
     status.className = 'status running';
     status.textContent = 'Running...';
 
@@ -179,17 +195,22 @@ async function runAction(url, btn, describeResult) {
     }
 
     btn.disabled = false;
-    setTimeout(() => { status.style.display = 'none'; }, 5000);
+    setTimeout(() => { status.className = 'status'; }, 5000);
 }
 
 function fetchMail() {
     runAction('/api/fetch-mail', document.getElementById('fetchBtn'),
-        data => `Fetched ${data.emails_fetched || 0} new email(s) - ${data.total_contacts || 0} contact(s), ${data.total_companies || 0} companie(s), ${data.total_events || 0} event(s)`);
+        data => `Fetched ${data.emails_fetched || 0} new email(s), extracted ${data.new_extractions || 0} via Claude - ${data.total_contacts || 0} contact(s), ${data.total_companies || 0} companie(s), ${data.total_events || 0} event(s)`);
 }
 
 function processLocal() {
     runAction('/api/process', document.getElementById('processBtn'),
-        data => `Processed diary notes - ${data.total_contacts || 0} contact(s), ${data.total_companies || 0} companie(s), ${data.total_events || 0} event(s)`);
+        data => `Extracted ${data.new_extractions || 0} new note(s) via Claude - ${data.total_contacts || 0} contact(s), ${data.total_companies || 0} companie(s), ${data.total_events || 0} event(s)`);
+}
+
+function syncObsidian() {
+    runAction('/api/sync-obsidian', document.getElementById('syncBtn'),
+        data => `Created ${(data.contacts_created || []).length} contact note(s), ${(data.companies_created || []).length} company note(s) in Obsidian`);
 }
 
 loadContacts();

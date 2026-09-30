@@ -1,0 +1,33 @@
+{
+  "contacts": {
+    "Gary Windiate": [
+      "gary windiet"
+    ],
+    "Joan Ko": [
+      "joan coe"
+    ],
+    "Al Reid": [
+      "Al Read",
+      "Al Reed",
+      "Reed"
+    ],
+    "David Smith": [
+      "Dave Smith"
+    ],
+    "Abbie Freestone": [
+      "Abby Freestone"
+    ]
+  },
+  "companies": {
+    "Arup": [
+      "Arab"
+    ],
+    "EcoResults": [
+      "Heco Results"
+    ],
+    "Pangolin": [
+      "Pan Golan"
+    ]
+  },
+  "events": {}
+}

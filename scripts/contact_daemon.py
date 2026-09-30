@@ -7,6 +7,7 @@ Fetches diary transcripts from email, parses with Claude, updates contact list
 import json
 import logging
 import os
+import re
 import uuid
 from datetime import datetime
 from email import message_from_bytes, policy
@@ -29,6 +30,10 @@ VAULT_PATH = Path("/data/src/sites/tech-profile/vault")
 CONTACTS_FILE = VAULT_PATH / "plaud-contacts.json"
 INTERESTS_FILE = VAULT_PATH / "plaud-interests.json"
 DIARY_ENTRIES_FILE = VAULT_PATH / "plaud-diary-entries.json"
+CORRECTIONS_FILE = VAULT_PATH / "plaud-corrections.json"
+EXTRACTIONS_FILE = VAULT_PATH / "plaud-extractions.json"
+OBSIDIAN_CONTACTS_DIR = VAULT_PATH / "Channels" / "Contacts"
+OBSIDIAN_COMPANIES_DIR = VAULT_PATH / "Channels" / "Companies"
 SMTP_EMAIL = os.getenv("FASTMAIL_EMAIL")
 SMTP_PASSWORD = os.getenv("FASTMAIL_PASSWORD")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
@@ -88,6 +93,67 @@ def save_interests(data):
         json.dump(data, f, indent=2)
 
 
+def load_corrections():
+    """Load manual name corrections: correct name -> list of wrong variants seen for it, per item type.
+
+    Auto-migrates the old flat "wrong -> correct" format in place if found, so
+    corrections made before this format change aren't lost.
+    """
+    if not CORRECTIONS_FILE.exists():
+        return {"contacts": {}, "companies": {}, "events": {}}
+
+    with open(CORRECTIONS_FILE) as f:
+        data = json.load(f)
+
+    migrated = {}
+    for item_type in ("contacts", "companies", "events"):
+        table = data.get(item_type, {})
+        if table and isinstance(next(iter(table.values())), str):
+            # Old format: wrong_name -> correct_name. Invert to correct_name -> [wrong_name, ...]
+            inverted = {}
+            for wrong_name, correct_name in table.items():
+                inverted.setdefault(correct_name, []).append(wrong_name)
+            migrated[item_type] = inverted
+        else:
+            migrated[item_type] = table
+    return migrated
+
+
+def save_corrections(data):
+    """Save manual name corrections"""
+    VAULT_PATH.mkdir(parents=True, exist_ok=True)
+    with open(CORRECTIONS_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+
+def load_extractions():
+    """Load cached per-diary-entry Claude extractions, keyed by diary entry id"""
+    if EXTRACTIONS_FILE.exists():
+        with open(EXTRACTIONS_FILE) as f:
+            return json.load(f)
+    return {}
+
+
+def save_extractions(data):
+    """Save cached per-diary-entry Claude extractions"""
+    VAULT_PATH.mkdir(parents=True, exist_ok=True)
+    with open(EXTRACTIONS_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+
+def apply_corrections(items, corrections_for_type):
+    """Rename any item whose name matches a known wrong variant (case-insensitive)"""
+    alias_lookup = {
+        wrong_name.lower(): correct_name
+        for correct_name, wrong_names in corrections_for_type.items()
+        for wrong_name in wrong_names
+    }
+    for item in items:
+        corrected = alias_lookup.get(item["name"].lower())
+        if corrected:
+            item["name"] = corrected
+
+
 def load_diary_entries():
     """Load diary entries from intermediate store"""
     if DIARY_ENTRIES_FILE.exists():
@@ -138,15 +204,13 @@ def fetch_diary_emails():
 
         # Search for emails with "[Plaud-AutoFlow]" in subject
         messages = server.search(["SUBJECT", "[Plaud-AutoFlow]"])
-        logger.info("IMAP search found %d matching email(s)", len(messages))
+        new_uids = [uid for uid in messages if uid not in processed]
+        logger.info("IMAP search found %d matching email(s), %d new", len(messages), len(new_uids))
 
         new_messages = []
-        for uid in messages:
-            if uid not in processed:
-                data = server.fetch([uid], ["RFC822"])
-                if uid in data:
-                    email_data = data[uid][b"RFC822"]
-                    new_messages.append((uid, email_data))
+        if new_uids:
+            data = server.fetch(new_uids, ["RFC822"])
+            new_messages = [(uid, data[uid][b"RFC822"]) for uid in new_uids if uid in data]
 
         return new_messages, processed
     finally:
@@ -176,7 +240,12 @@ def extract_email_body(raw_email_bytes):
 
 
 def parse_transcript_with_claude(transcript_text, reference_date=None):
-    """Send transcript to Claude, extract contacts, companies, and events of interest"""
+    """Send transcript to Claude, extract contacts, companies, and events of interest.
+
+    Name correctness (mis-transcribed names) is handled downstream by the
+    deterministic alias table in apply_corrections(), not here - this keeps
+    the prompt simple and this call cheap and cacheable per diary entry.
+    """
     reference_date = reference_date or datetime.now()
     reference_str = reference_date.strftime("%A, %Y-%m-%d")
     empty_result = {"contacts": [], "companies": [], "events": []}
@@ -278,30 +347,70 @@ def merge_interests(existing_data, new_companies, new_events):
     return {"companies": companies, "events": events, "last_updated": datetime.now().isoformat()}
 
 
-def rebuild_from_diary_entries():
-    """Re-parse every stored diary entry with Claude and rebuild contacts.json and
-    plaud-interests.json from scratch.
+def extract_new_diary_entries():
+    """Run Claude extraction only on diary entries not already in the extraction cache.
 
-    Always starts from empty lists (rather than the existing files) so this
-    can be re-run any time - e.g. after a prompt/parsing fix - without needing
-    new mail, and without piling up duplicate touchpoints.
+    This is the only function that calls Claude. Results are cached forever per
+    diary entry id, so re-running this later costs nothing for entries already
+    extracted - only genuinely new diary notes get sent to the model.
     """
     diary = load_diary_entries()
-    all_contacts, all_companies, all_events = [], [], []
+    extractions = load_extractions()
 
-    for entry in diary["entries"]:
+    new_entries = [e for e in diary["entries"] if e["id"] not in extractions]
+    logger.info("Extraction cache: %d entrie(s) cached, %d new", len(extractions), len(new_entries))
+
+    for entry in new_entries:
         noted_at = entry.get("noted_at")
         reference_date = datetime.fromisoformat(noted_at) if noted_at else None
+        logger.info("Extracting diary entry %s with Claude", entry["id"])
         extracted = parse_transcript_with_claude(entry["text"], reference_date=reference_date)
+        extractions[entry["id"]] = {**extracted, "noted_at": noted_at, "extracted_at": datetime.now().isoformat()}
 
-        for bucket in (extracted["contacts"], extracted["companies"], extracted["events"]):
-            for item in bucket:
-                item["diary_entry_id"] = entry["id"]
+    if new_entries:
+        save_extractions(extractions)
+
+    return len(new_entries)
+
+
+def apply_substitutions_and_merge():
+    """Deterministic pass: read cached extractions, apply name corrections, and
+    rebuild contacts.json / plaud-interests.json from scratch.
+
+    No LLM calls happen here - cheap enough to re-run any time (e.g. right
+    after adding a new correction) so a fix reflects across all history
+    instantly, and always starts from empty lists so touchpoints never pile up.
+    """
+    extractions = load_extractions()
+    corrections = load_corrections()
+    all_contacts, all_companies, all_events = [], [], []
+
+    diary_entry_count = len(load_diary_entries()["entries"])
+    if not extractions and diary_entry_count > 0:
+        logger.warning(
+            "Extraction cache is empty but %d diary entrie(s) exist - merging now would wipe "
+            "contacts.json/plaud-interests.json. Call extract_new_diary_entries() first.",
+            diary_entry_count,
+        )
+
+    for entry_id, extracted in extractions.items():
+        noted_at = extracted.get("noted_at")
+        for item_type, target in (
+            ("contacts", all_contacts),
+            ("companies", all_companies),
+            ("events", all_events),
+        ):
+            items = [dict(item) for item in extracted.get(item_type, [])]
+            apply_corrections(items, corrections.get(item_type, {}))
+            for item in items:
+                item["diary_entry_id"] = entry_id
                 item["noted_at"] = noted_at
+            target.extend(items)
 
-        all_contacts.extend(extracted["contacts"])
-        all_companies.extend(extracted["companies"])
-        all_events.extend(extracted["events"])
+    logger.info(
+        "Substitution/merge: %d cached extraction(s) -> %d contacts, %d companies, %d events",
+        len(extractions), len(all_contacts), len(all_companies), len(all_events),
+    )
 
     merged_contacts = merge_contacts({"contacts": []}, all_contacts)
     save_contacts(merged_contacts)
@@ -310,6 +419,74 @@ def rebuild_from_diary_entries():
     save_interests(merged_interests)
 
     return merged_contacts, merged_interests
+
+
+def process_diary_store():
+    """Extract anything new (the only step that can call Claude), then
+    deterministically substitute known aliases and merge.
+    """
+    newly_extracted = extract_new_diary_entries()
+    merged_contacts, merged_interests = apply_substitutions_and_merge()
+    return newly_extracted, merged_contacts, merged_interests
+
+
+_INVALID_FILENAME_CHARS = re.compile(r'[/\\:*?"<>|\x00-\x1f]')
+
+
+def _sanitize_filename(name):
+    """Strip characters that aren't safe in a filename"""
+    return _INVALID_FILENAME_CHARS.sub("", name).strip()
+
+
+def _existing_note_stems(directory):
+    """Lowercased filename stems (without extension) already present in `directory`"""
+    if not directory.exists():
+        return set()
+    return {p.stem.lower() for p in directory.iterdir() if p.is_file()}
+
+
+def _create_missing_notes(names, directory):
+    """Create a `# Name` placeholder note for any name not already present
+    (case-insensitively) in `directory`. Never touches an existing file,
+    regardless of its content or size.
+    """
+    directory.mkdir(parents=True, exist_ok=True)
+    existing = _existing_note_stems(directory)
+    created = []
+
+    for name in names:
+        filename = _sanitize_filename(name)
+        if not filename or filename.lower() in existing:
+            continue
+        path = directory / f"{filename}.md"
+        path.write_text(f"# {name}\n")
+        existing.add(filename.lower())
+        created.append(name)
+        logger.info("Created Obsidian placeholder note: %s", path)
+
+    return created
+
+
+def sync_obsidian_placeholders():
+    """Ensure every contact/company currently on the tracker has a note file in
+    the Obsidian vault, creating a minimal `# Name` placeholder for any that
+    don't. Reads only from load_contacts()/load_interests() - the same
+    post-correction, merged data the dashboard itself displays - never from
+    the raw pre-correction extraction cache. Never modifies or removes an
+    existing note.
+    """
+    contact_names = [c["name"] for c in load_contacts().get("contacts", [])]
+    company_names = [c["name"] for c in load_interests().get("companies", [])]
+
+    contacts_created = _create_missing_notes(contact_names, OBSIDIAN_CONTACTS_DIR)
+    companies_created = _create_missing_notes(company_names, OBSIDIAN_COMPANIES_DIR)
+
+    logger.info(
+        "Obsidian sync: %d contact note(s) created, %d company note(s) created",
+        len(contacts_created), len(companies_created),
+    )
+
+    return contacts_created, companies_created
 
 
 @app.route("/")
@@ -332,10 +509,71 @@ def get_interests():
     return jsonify(data)
 
 
+@app.route("/api/sync-obsidian", methods=["POST"])
+def sync_obsidian():
+    """Create placeholder notes in the Obsidian vault for any tracked contact/company
+    that doesn't have one yet. Never touches an existing note.
+    """
+    try:
+        contacts_created, companies_created = sync_obsidian_placeholders()
+        return jsonify({
+            "message": f"Created {len(contacts_created)} contact note(s), {len(companies_created)} company note(s)",
+            "contacts_created": contacts_created,
+            "companies_created": companies_created,
+        })
+
+    except Exception as e:
+        logger.exception("sync_obsidian failed")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/corrections", methods=["POST"])
+def add_correction():
+    """Record a manual name correction and immediately re-apply it.
+
+    Corrections are stored separately from contacts.json/plaud-interests.json
+    (which are fully regenerated by apply_substitutions_and_merge) and
+    re-applied every time, so a fix survives future runs. Goes through
+    process_diary_store() (not apply_substitutions_and_merge() directly) so
+    that if the extraction cache is empty or stale for any reason, it gets
+    (re)populated first instead of merging against nothing and wiping
+    contacts.json/plaud-interests.json - in the normal case, where the cache
+    is already warm, this still costs zero Claude calls.
+    """
+    try:
+        body = request.get_json(force=True)
+        item_type = body.get("type")
+        wrong_name = (body.get("wrong_name") or "").strip()
+        correct_name = (body.get("correct_name") or "").strip()
+
+        if item_type not in ("contacts", "companies", "events") or not wrong_name or not correct_name:
+            return jsonify({"error": "type, wrong_name, and correct_name are all required"}), 400
+
+        corrections = load_corrections()
+        aliases = corrections.setdefault(item_type, {}).setdefault(correct_name, [])
+        if wrong_name.lower() not in (a.lower() for a in aliases):
+            aliases.append(wrong_name)
+        save_corrections(corrections)
+        logger.info('Correction added: "%s" -> "%s" (%s)', wrong_name, correct_name, item_type)
+
+        newly_extracted, merged_contacts, merged_interests = process_diary_store()
+        return jsonify({
+            "message": f'Renamed "{wrong_name}" to "{correct_name}"',
+            "new_extractions": newly_extracted,
+            "total_contacts": len(merged_contacts["contacts"]),
+            "total_companies": len(merged_interests["companies"]),
+            "total_events": len(merged_interests["events"]),
+        })
+
+    except Exception as e:
+        logger.exception("add_correction failed")
+        return jsonify({"error": str(e)}), 500
+
+
 @app.route("/api/fetch-mail", methods=["POST"])
 def fetch_mail():
     """Fetch new diary emails from the mail server, store their raw text, then
-    process the local diary store so contacts stay in sync with what's fetched.
+    process the local diary store (extract anything new, then merge).
     """
     try:
         new_messages, processed_uids = fetch_diary_emails()
@@ -352,12 +590,13 @@ def fetch_mail():
                 continue
 
         save_processed_uids(processed_uids)
-        merged_contacts, merged_interests = rebuild_from_diary_entries()
+        newly_extracted, merged_contacts, merged_interests = process_diary_store()
 
         message = f"Fetched {emails_saved} new email(s)" if emails_saved else "No new emails"
         return jsonify({
             "message": message,
             "emails_fetched": emails_saved,
+            "new_extractions": newly_extracted,
             "diary_entries": len(load_diary_entries()["entries"]),
             "total_contacts": len(merged_contacts["contacts"]),
             "total_companies": len(merged_interests["companies"]),
@@ -371,11 +610,14 @@ def fetch_mail():
 
 @app.route("/api/process", methods=["POST"])
 def process_local_data():
-    """Re-parse all stored diary entries with Claude and rebuild contacts.json and plaud-interests.json"""
+    """Extract any diary entries not yet extracted, then re-apply corrections and
+    merge. Cheap in the common case - only new entries ever reach Claude.
+    """
     try:
-        merged_contacts, merged_interests = rebuild_from_diary_entries()
+        newly_extracted, merged_contacts, merged_interests = process_diary_store()
         return jsonify({
-            "message": f"Processed {len(load_diary_entries()['entries'])} diary entrie(s)",
+            "message": f"Extracted {newly_extracted} new diary entrie(s), merged {len(load_diary_entries()['entries'])} total",
+            "new_extractions": newly_extracted,
             "total_contacts": len(merged_contacts["contacts"]),
             "total_companies": len(merged_interests["companies"]),
             "total_events": len(merged_interests["events"]),

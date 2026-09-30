@@ -1,9 +1,8 @@
 # David Martenson
 
 ## Who they are
-Dlivery lead for Silverfern IT
-Made contact though Jack Manning
-
+Dlivery lead for [[Silverfern IT]]
+Made contact though [[Jack Manning]]
 
 ## Meeting log
 ### 2026-08

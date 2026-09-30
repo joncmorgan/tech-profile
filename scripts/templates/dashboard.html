@@ -3,29 +3,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Plaud Diary Contacts</title>
+    <title>Plaud Network Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>📞 Plaud Diary Contacts</h1>
+        <h1>📞 Plaud Network Tracker</h1>
         <div class="controls">
             <button id="fetchBtn" onclick="fetchMail()">Fetch New Mail</button>
             <button id="processBtn" onclick="processLocal()">Process Local Data</button>
-            <div id="status" class="status" style="display:none;"></div>
+            <button id="syncBtn" onclick="syncObsidian()">Sync to Obsidian</button>
         </div>
+        <div id="status" class="status"></div>
 
         <div class="tabs">
             <button class="tab-btn active" data-tab="contacts" onclick="showTab('contacts')">Contacts</button>
             <button class="tab-btn" data-tab="interests" onclick="showTab('interests')">Companies &amp; Events</button>
         </div>
 
-        <ul id="contacts" class="contacts-list tab-panel"></ul>
+        <table id="contacts" class="data-table tab-panel"></table>
         <div id="interests" class="tab-panel" style="display:none;">
             <h2 class="section-title">Companies</h2>
-            <ul id="companies" class="contacts-list"></ul>
+            <table id="companies" class="data-table"></table>
             <h2 class="section-title">Events</h2>
-            <ul id="events" class="contacts-list"></ul>
+            <table id="events" class="data-table"></table>
         </div>
     </div>
 
